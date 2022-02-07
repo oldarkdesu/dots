@@ -1,0 +1,45 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+alias pac='doas pacman --needed --color=auto -S'
+alias pacu='doas pacman --color=auto -Syu'
+alias pacr='doas pacman --color=auto -Rns'
+alias la='ls --color=auto -A --group-directories-first'
+alias ll='ls --color=auto -govAh --group-directories-first'
+alias mkdir='mkdir -pv'
+alias paru='paru --sudo /usr/bin/doas'
+alias x='startx'
+export QT_QPA_PLATFORMTHEME=qt6ct
+HISTSIZE=100000
+HISTFILESIZE=100000
+
+# Bash Function To Extract File Archives Of Various Types
+extract () {
+     if [ -f $1 ] ; then
+         case $1 in
+             *.tar.bz2)   tar xjf $1     ;;
+             *.tar.gz)    tar xzf $1     ;;
+             *.bz2)       bunzip2 $1     ;;
+             *.rar)       rar x $1       ;;
+             *.gz)        gunzip $1      ;;
+             *.tar)       tar xf $1      ;;
+             *.tbz2)      tar xjf $1     ;;
+             *.tgz)       tar xzf $1     ;;
+             *.zip)       unzip $1       ;;
+             *.Z)         uncompress $1  ;;
+             *.7z)        7z x $1    ;;
+             *)           echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+# neofetch
+colorscript random

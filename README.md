@@ -6,4 +6,4 @@ For a more in-depth explanation read the GNU Stow [manual](https://www.gnu.org/s
 
 ## Notes:
 
-- The first thing that zsh does is look at the contents of `/etc/zsh/zshenv`. It is supposed to contain environment variables that are set for all users. In this config, it only sets the `ZDOTDIR` environment variable to be `$HOME/.config/zsh`.
+- The first thing that zsh does is look at the contents of `/etc/zsh/zshenv`. It is supposed to contain environment variables that are set for all users. This config assumes that you have set the ZDOTDIR environment variable to `$HOME/.config/zsh`.

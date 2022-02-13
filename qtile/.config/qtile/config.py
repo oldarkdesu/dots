@@ -147,7 +147,7 @@ groups = [
         ]
     ),
     Group("1", layout='columns'),
-    Group("2", layout='verticaltile'),
+    Group("2", layout='customvertical'),
     Group("3", layout='columns'),
     Group("4", layout='columns'),
     Group("5", layout='columns'),
@@ -202,6 +202,18 @@ layouts = [
         border_on_single=True,
         margin=layout_margin
     ),
+    layout.Columns(
+        name = 'customvertical',
+        num_columns = 1,
+        border_normal=theme_bg,
+        border_focus=theme_accent,
+        border_focus_stack=theme_accent3,
+        border_normal_stack=theme_bg,
+        border_width=2,
+        border_on_single=True,
+        margin=0,
+
+        ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -293,10 +305,10 @@ screens = [
         wallpaper_mode=my_wallpaper_mode
     ),
     Screen(
-        top=bar.Gap(layout_margin),
-        right=bar.Gap(layout_margin),
-        bottom=bar.Gap(layout_margin),
-        left=bar.Gap(layout_margin),
+        # top=bar.Gap(layout_margin),
+        # right=bar.Gap(layout_margin),
+        # bottom=bar.Gap(layout_margin),
+        # left=bar.Gap(layout_margin),
         wallpaper=my_wallpaper,
         wallpaper_mode=my_wallpaper_mode
     )

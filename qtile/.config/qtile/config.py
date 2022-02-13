@@ -40,7 +40,7 @@ theme_accent = my_colors['cyan']
 theme_accent2 = my_colors['blue']
 theme_accent3 = my_colors['magenta']
 
-my_wallpaper = '~/.config/qtile/wallpapers/forest.jpg'
+my_wallpaper = '~/.config/qtile/wallpapers/1574318562640.jpg'
 my_wallpaper_mode= 'fill'
 
 keys = [
@@ -146,12 +146,16 @@ groups = [
             )
         ]
     ),
-    Group("1", layout='columns'),
-    Group("2", layout='customvertical'),
-    Group("3", layout='columns'),
-    Group("4", layout='columns'),
-    Group("5", layout='columns'),
-    Group("6", layout='columns'),
+    Group("1", label = '一', layout='columns'),
+    Group("2", label = '二', layout='customvertical'),
+    Group("3", label = '三', layout='columns'),
+    Group("4", label = '四', layout='columns'),
+    Group("5", label = '五', layout='columns'),
+    Group("6", label = '六', layout='columns'),
+    Group("7", label = '七', layout='columns'),
+    Group("8", label = '八', layout='columns'),
+    Group("9", label = '九', layout='columns'),
+    Group("0", label = '十', layout='columns'),
 
 
 ]
@@ -172,6 +176,7 @@ for i in groups:
         ])
 
 layouts = [
+        # DT's treetab:
     # layout.TreeTab(
     #      font = "JetBrains Mono",
     #      fontsize = 14,
@@ -212,8 +217,7 @@ layouts = [
         border_width=2,
         border_on_single=True,
         margin=0,
-
-        ),
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -225,24 +229,25 @@ layouts = [
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(
-    #     active_bg=accent_1,
-    #     inactive_bg=accent_1d,
-    #     place_right=True,
-    # ),
-    layout.VerticalTile(
-        border_normal=theme_bg,
-        border_focus=theme_accent,
-        border_width=2,
-        margin=layout_margin
-    ),
+    #layout.TreeTab(
+    #    active_bg=accent_1,
+    #    inactive_bg=accent_1d,
+    #    place_right=True,
+    #),
+    #layout.VerticalTile(
+    #    border_normal=theme_bg,
+    #    border_focus=theme_accent,
+    #    border_width=2,
+    #    margin=layout_margin
+    #),
     # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font='JetBrains Mono',
     fontsize=16,
-    background=theme_bg,
+    #background=theme_bg,
+    background=my_colors['dd_black'],
     foreground=theme_fg
 )
 extension_defaults = widget_defaults.copy()
@@ -253,23 +258,28 @@ screens = [
             [
                 # widget.CurrentLayoutIcon(),
                 widget.GroupBox(
-                    highlight_method='block',
+                    fontsize = 20,
+                    highlight_method='line',
                     rounded=False,
                     disable_drag=True,
-                    block_highlight_text_color=theme_accent2,
+
+                    block_highlight_text_color=theme_accent,
+                    active=theme_fg,
+                    #inactive = my_colors['d_white'],
+                    highlight_color = [theme_bg, theme_bg],
+
                     this_current_screen_border=theme_accent,
-                    other_current_screen_border=my_colors['d_green'],
-                    this_screen_border=my_colors['yellow'],
-                    active=theme_accent,
+                    other_screen_border=my_colors['d_white'],
+
+                    this_screen_border=my_colors['d_cyan'],
+                    other_current_screen_border=my_colors['d_white'],
+
                     margin_x=0,
                     padding_x=4
                 ),
                 widget.Prompt(),
                 widget.Chord(),
-                #widget.Sep(),
-                #widget.WindowName(),
                 # Shows windows in current group:
-                # widget.Spacer(69),
                 widget.TaskList(
                     border=theme_accent,
                     highlight_method='block',
@@ -281,10 +291,7 @@ screens = [
                     txt_floating='🗗 ',
                     txt_maximized='🗖 ',
                     txt_minimized='🗕 ',
-                ),
-                # widget.Spacer(69),
-                # widget.WindowTabs(),
-                #widget.WindowName(),
+                    ),
                 widget.Chord(
                    chords_colors={
                        'launch': (theme_accent2, theme_accent3),
@@ -292,7 +299,9 @@ screens = [
                    name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(icon_size= 24),
-                widget.Clock(format='%Y/%m/%d %a %H:%M'),
+                widget.Clock(format='%Y/%m/%d', foreground=theme_accent),
+                widget.Clock(format='%a'),
+                widget.Clock(format='%H:%M', foreground=theme_accent),
             ],
             28,
             margin=[0,0,layout_margin,0],

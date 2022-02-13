@@ -858,7 +858,7 @@ window:
   padding:
     x: 3
     y: 3
-  opacity: 0.7
+  opacity: 0.85
 font:
   normal:
     # family: 'firacode nerd font'

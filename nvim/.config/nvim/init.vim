@@ -90,6 +90,7 @@ nnoremap <leader>e :Lexplore 15<cr>
 
 " Commands 
 """""""""""""
+command -nargs=1 SetTabWidth set shiftwidth=<args> tabstop=<args> softtabstop=<args>
 command Wso w | so %
 
 " Visual customization "

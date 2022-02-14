@@ -33,6 +33,8 @@ my_colors = {
 }
 
 my_terminal = "alacritty"
+my_browser = "firefox"
+my_filemanager = "thunar" 
 layout_margin=5 # half of the width of the gaps between windows
 theme_bg = my_colors['dd_black']
 theme_fg = my_colors['white']
@@ -93,6 +95,9 @@ keys = [
     # Application shortcuts
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Spawn a command using Rofi"),
     Key([mod], "t", lazy.spawn(my_terminal), desc="Launch terminal"),
+    Key([mod], "b", lazy.spawn(my_browser), desc="Launch browser"),
+    Key([mod], "f", lazy.spawn(my_filemanager), desc="Launch filemanager"),
+
 
 
     # KeyChord([mod], "z", [

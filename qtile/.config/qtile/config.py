@@ -42,7 +42,8 @@ theme_accent = my_colors['cyan']
 theme_accent2 = my_colors['blue']
 theme_accent3 = my_colors['magenta']
 
-my_wallpaper = '~/.config/qtile/wallpapers/1574318562640.jpg'
+#my_wallpaper = '~/.config/qtile/wallpapers/1574318562640.jpg'
+my_wallpaper = '.local/share/wallpapers/gruvbox/forest-2.jpg'
 my_wallpaper_mode= 'fill'
 
 keys = [
@@ -310,7 +311,7 @@ screens = [
             ],
             28,
             margin=[0,0,layout_margin,0],
-            opacity=0.7
+            opacity=0.85
         ),
         right=bar.Gap(layout_margin),
         bottom=bar.Gap(layout_margin),

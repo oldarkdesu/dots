@@ -35,7 +35,7 @@ export SSH_AUTH_SOCK
 xinput set-button-map "Kensington Expert Mouse" 2 3 1 4 5 6 7 8 9
 
 # increase trackball speed (not acceleration!)
-xinput set-prop "Kensington Expert Mouse" "Coordinate Transformation Matrix" 1, 0, 0, 0, 1, 0, 0, 0, 0.5
+xinput set-prop "Kensington Expert Mouse" "Coordinate Transformation Matrix" 1, 0, 0, 0, 1, 0, 0, 0, 0.6
 
 
 volumeicon &

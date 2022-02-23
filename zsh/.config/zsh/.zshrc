@@ -42,7 +42,12 @@ extract () {
      fi
 }
 
-PATH="$PATH:$HOME/.local/bin"
+# open a markdown file in zathura
+mdzath() {
+	cat $1 | pandoc -f markdown -t pdf | zathura -
+}
+
+PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.local/bin/scripts"
 
 # set bat as the manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

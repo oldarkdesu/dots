@@ -11,36 +11,54 @@ from libqtile.config import ScratchPad, DropDown
 mod = "mod4" # super/meta/windows/cmd key
 
 my_colors = {
-        'd_black':   '#282828',
+        'bg':        '#282828',
         'd_red':     '#cc241d',
         'd_green':   '#98971a',
         'd_yellow':  '#d79921',
         'd_blue':    '#458588',
-        'd_magenta': '#b16286',
-        'd_cyan':    '#689d6a',
-        'd_white':   '#a89984',
-        'dd_black':  '#1d2021',
-    
+        'd_purple':  '#b16286',
+        'd_aqua':    '#689d6a',
+        'd_orange':  '#d65d0e',
+
         # Bright colors
-        'black':   '#928374',
+        'fg':      '#ebdbb2',
         'red':     '#fb4934',
         'green':   '#b8bb26',
         'yellow':  '#fabd2f',
         'blue':    '#83a598',
-        'magenta': '#d3869b',
-        'cyan':    '#8ec07c',
-        'white':   '#ebdbb2',
+        'purple':  '#d3869b',
+        'aqua':    '#8ec07c',
+        'orange':  '#fe8019',
+
+        'bg0_h':'#1d2021',
+
+        'bg0':  '#282828',
+        'bg1':  '#3c2826',
+        'bg2':  '#504945',
+        'bg3':  '#665c54',
+        'bg4':  '#7c6f64',
+        'gray': '#928374',
+
+        'bg0_s':'#32302f',
+        'fg4':  '#a89984',
+        'fg3':  '#bdae93',
+        'fg2':  '#d5c4a1',
+        'fg1':  '#ebdbb2',
+        'fg0':  '#fbf1c7',
 }
 
 my_terminal = "alacritty"
 my_browser = "firefox"
 my_filemanager = "thunar" 
 layout_margin=5 # half of the width of the gaps between windows
-theme_bg = my_colors['dd_black']
-theme_fg = my_colors['white']
-theme_accent = my_colors['cyan']
-theme_accent2 = my_colors['blue']
-theme_accent3 = my_colors['magenta']
+
+theme_bg        = my_colors['bg0_h']
+theme_fg        = my_colors['fg']
+theme_accent    = my_colors['d_yellow']
+theme_accent_d  = my_colors['d_yellow']
+theme_accent2   = my_colors['blue']
+theme_accent3   = my_colors['purple']
+theme_disabled  = my_colors['bg3']
 
 #my_wallpaper = '~/.config/qtile/wallpapers/1574318562640.jpg'
 my_wallpaper = '.local/share/wallpapers/gruvbox/forest-2.jpg'
@@ -142,10 +160,10 @@ groups = [
             DropDown(
                 "term",
                 my_terminal,
-                x=0.25,
-                y=0.05,
+                x=0.2,
+                y=0.04,
                 # y = 0, x = 0.5,
-                width=0.5,
+                width=0.6,
                 height=0.9,
                 opacity=0.9,
                 # on_focus_lost_hide=True
@@ -225,35 +243,13 @@ layouts = [
         margin=0,
     ),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(
-    #     margin=14
-    # ),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    #layout.TreeTab(
-    #    active_bg=accent_1,
-    #    inactive_bg=accent_1d,
-    #    place_right=True,
-    #),
-    #layout.VerticalTile(
-    #    border_normal=theme_bg,
-    #    border_focus=theme_accent,
-    #    border_width=2,
-    #    margin=layout_margin
-    #),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font='JetBrains Mono',
     fontsize=16,
     #background=theme_bg,
-    background=my_colors['dd_black'],
+    background=theme_bg,
     foreground=theme_fg
 )
 extension_defaults = widget_defaults.copy()
@@ -268,17 +264,18 @@ screens = [
                     highlight_method='line',
                     rounded=False,
                     disable_drag=True,
+                    hide_unused = True,
 
                     block_highlight_text_color=theme_accent,
                     active=theme_fg,
-                    #inactive = my_colors['d_white'],
+                    inactive = theme_disabled,
                     highlight_color = [theme_bg, theme_bg],
 
                     this_current_screen_border=theme_accent,
-                    other_screen_border=my_colors['d_white'],
+                    other_screen_border=theme_disabled,
 
-                    this_screen_border=my_colors['d_cyan'],
-                    other_current_screen_border=my_colors['d_white'],
+                    this_screen_border=theme_accent,
+                    other_current_screen_border=theme_disabled,
 
                     margin_x=0,
                     padding_x=4
@@ -287,7 +284,7 @@ screens = [
                 widget.Chord(),
                 # Shows windows in current group:
                 widget.TaskList(
-                    border=theme_accent,
+                    border=theme_accent_d,
                     highlight_method='block',
                     rounded=False,
                     icon_size=20,
@@ -355,7 +352,7 @@ floating_layout = layout.Floating(
         Match(title='pinentry'),  # GPG key password entry
     ],
     #border_focus=theme_accent,
-    border_focus=my_colors['yellow'],
+    border_focus=theme_accent,
     border_normal=theme_bg,
     border_width=2,
 )

@@ -7,10 +7,20 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-markdown'
 Plug 'easymotion/vim-easymotion'
 Plug 'ap/vim-css-color'
 Plug 'preservim/nerdtree'
 Plug 'sirver/ultisnips'
+
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
+" Plug 'preservim/vim-markdown'
+
+" pandoc
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
 
@@ -87,6 +97,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " split line into 2 lines 
 nnoremap <A-J> 079lebi<CR><ESC>
 nnoremap <leader>e :Lexplore 15<cr>
+nnoremap <leader>w :w<cr>
 
 " Commands 
 """""""""""""
@@ -127,6 +138,35 @@ set softtabstop=3
 
 set noexpandtab
 set autoindent
+
+
+" This gets rid of the nasty _ italic bug in tpope's vim-markdown
+" block $$...$$
+syn region math start=/\$\$/ end=/\$\$/
+" inline math
+syn match math '\$[^$].\{-}\$'
+
+" actually highlight the region we defined as "math"
+hi link math Statement
+
+
+
+" Stuff for pluggins
+"""""""""""""""""""""
+" preservim/vim-markdown
+set conceallevel=2
+let g:vim_markdown_folding_disabled = 1	
+let g:tex_conceal = ""
+let g:vim_markdown_folding_disabled = 1 " disable folds by default
+let g:vim_markdown_math = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 2
+
+
+" " pandoc-syntax
+" augroup pandoc_syntax
+"     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+" augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

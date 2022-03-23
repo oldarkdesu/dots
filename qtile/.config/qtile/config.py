@@ -33,7 +33,7 @@ my_colors = {
         'bg0_h':'#1d2021',
 
         'bg0':  '#282828',
-        'bg1':  '#3c2826',
+        'bg1':  '#3c3836',
         'bg2':  '#504945',
         'bg3':  '#665c54',
         'bg4':  '#7c6f64',
@@ -260,11 +260,11 @@ screens = [
             [
                 # widget.CurrentLayoutIcon(),
                 widget.GroupBox(
-                    fontsize = 20,
-                    highlight_method='line',
-                    rounded=False,
-                    disable_drag=True,
-                    hide_unused = True,
+                    fontsize         = 20,
+                    highlight_method = 'line',
+                    rounded          = False,
+                    disable_drag     = True,
+                    hide_unused      = False,
 
                     block_highlight_text_color=theme_accent,
                     active=theme_fg,

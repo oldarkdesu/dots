@@ -37,11 +37,12 @@ xinput set-button-map "Kensington Expert Mouse" 2 3 1 4 5 6 7 8 9
 # increase trackball speed (not acceleration!)
 xinput set-prop "Kensington Expert Mouse" "Coordinate Transformation Matrix" 1, 0, 0, 0, 1, 0, 0, 0, 0.6
 
+# Configure screens
+exec /home/haxor/.local/bin/scripts/vertical-left-middle.sh &
 
 volumeicon &
 lxsession &
 dunst &
 picom --experimental-backends &
 flameshot &
-exec /home/haxor/.local/bin/scripts/vertical-left-middle.sh &
 qtile start

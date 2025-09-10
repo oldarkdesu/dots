@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# check if doas/sudo
+if command -v doas >/dev/null && [ -f /etc/doas.conf ] 2>&1 ; then
+	SUCMD=doas
+elif command -v sudo >/dev/null ; then
+	SUCMD=sudo
+else
+	echo "[pman] Warning! Neither 'sudo' nor 'doas' is available." >&2
+fi
+
+pman_help="Usage: pman SUBCOMMAND [PACMAN-OPTIONS] [ARGUMENTS]
+    Subcommands:
+    
+        install PACKAGE(S) 
+            Alases: i, in
+                            install packages
+        remove PACKAGE(S)
+            Aliases: r, re
+                            remove packages
+        find PATTERN
+            Aliases: f, fi
+                            find PATTERN in local database
+        search PATTERN
+            Aliases: s, se
+                            search PATTERN in remote repos
+        find-exact PACKAGE(s)
+            Aliases: fx
+                            find PACKAGE(S) in local database
+        search-exact PACKAGE(S) 
+            Aliases: sx
+                            search PACKAGE(S) in package repos
+        info PACKAGE        get information about PACKAGE in local the database
+        info-remote PACKAGE
+            Aliases: ir, infore
+                            get information about PACKAGE in remote repositories
+        autoremove          automatically remove orphaned packages
+        refresh             sync the package databases
+        update-mirrors      update mirrorlist using reflector"
+if test $1 ; then
+	case $1 in 
+		i | in | install ) $SUCMD pacman -S --needed    ${@:2}  ;;
+		u | up | update )  $SUCMD pacman -Syu           ${@:2}  ;;
+		r | re | remove )  $SUCMD pacman -Rns --confirm ${@:2}  ;;
+		f | fi | find ) 
+			echo "Finding in remote repos..."
+			pacman -Ss            ${@:2}  
+			;;
+		fx | fix | fex | find-exact ) 
+			IFS='|'
+			echo "Finding ${@} in remote repos..."
+			pacman -Ss "^(${*:2})$"
+			;;
+		s | se | search ) 
+			echo "Searching in local database..."
+			pacman -Qs $2
+			;;
+		sx | sex | search-exact )
+			echo "Searching for ${@:2} in local database..."
+			pacman -Q ${@:2}
+			;;
+		info ) 
+			if [ -n "$3" ]; then 
+				echo "[pman] Only one package name supported by \`pman info\`, ignoring the rest..."
+			fi
+			pacman -Qii $2 
+			if [ $? -ne 0 ]; then
+				echo "[pman] \`$2\` not found in local database. Trying again with command \`$(basename $0) info-remote\`"
+				pman info-remote $2
+			fi
+			;;
+		ir | infore | info-remote ) 
+			pacman -Sii $2
+			if [ $? -ne 0 ]; then
+				echo "[pman] Could not find $2, try \`$(basename $0) refresh && $(basename $0) info $2\`" >&2
+				exit 1
+			fi
+			;;
+		autoremove ) 
+			TARGETS="$(pacman -Qdttnq)"
+			if [ -z "$TARGETS" ] ; then
+				echo "[pman] Nothing to remove";
+			else
+				echo "$TARGETS" | $SUCMD pacman -Rns --confirm
+			fi
+			;; 
+		refresh) $SUCMD pacman -Sy ;;
+		update-mirrors)
+			$SUCMD reflector --latest 20 \
+			                 --country US,CO, \
+			                 --sort rate \
+			                 --save /etc/pacman.d/mirrorlist
+			;;
+		clean )
+			$SUCMD pacman -Sc
+			;;
+		h | he | hel | help )
+			echo "$pman_help"
+			;;
+		* )
+			echo "$pman_help"
+			exit 1
+			;;
+	esac
+	exit 0
+else 
+	 echo "$pman_help"
+	 exit 1
+fi
+

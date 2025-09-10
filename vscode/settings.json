@@ -1,0 +1,71 @@
+{
+	/* FLATPAK: REGULAR USER SHELL - Comment the following if you're not using the flatpak version of vscode */
+	// "terminal.integrated.defaultProfile.linux": "bash",
+	// "terminal.integrated.profiles.linux": {
+	// 	"bash": {
+	// 		"path": "host-spawn",
+	// 		"args": [
+	// 			"bash"
+	// 		]
+	// 	}
+	// },
+	/* VISUALS */
+	"workbench.colorTheme": "Tokyo Night",
+	"workbench.iconTheme": "symbols",
+	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
+	"editor.fontSize": 16,
+	"window.zoomPerWindow": true,
+	"window.zoomLevel": 0.5,
+	"editor.minimap.autohide": "mouseover",
+	"editor.stickyScroll.enabled": false,
+	"editor.folding": false,
+	"editor.renderWhitespace": "selection",
+	"window.menuBarVisibility": "toggle",
+	"window.density.editorTabHeight": "compact",
+	"workbench.activityBar.location": "hidden",
+	"workbench.layoutControl.type": "menu",
+	"workbench.tree.indent": 15,
+	"editor.minimap.renderCharacters": false,
+	"editor.glyphMargin": false,
+	"window.titleBarStyle": "native",
+	"window.customTitleBarVisibility": "never",
+	"workbench.secondarySideBar.defaultVisibility": "hidden",
+	"terminal.integrated.fontSize": 16,
+	"terminal.integrated.fontWeightBold": "normal",
+	"workbench.editor.enablePreview": true,
+	"workbench.editor.enablePreviewFromCodeNavigation": true,
+	"workbench.editor.enablePreviewFromQuickOpen": true,
+
+	/* BEHAVIOR */
+	"update.mode": "manual",
+	"update.showReleaseNotes": false,
+	"security.workspace.trust.enabled": false,
+	"editor.linkedEditing": true,
+	"editor.snippetSuggestions": "top",
+	/*Tabs*/
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.indentSize": "tabSize",
+	/* AI SHIT - to hide more stuff click the copilot button on the menubar and select "hide ai features" */
+	"telemetry.feedback.enabled": false,
+	"chat.agent.enabled": false,
+	"chat.sendElementsToChat.enabled": false,
+	"inlineChat.lineNaturalLanguageHint": false,
+	/* EXTENSIONS */
+	"liveServer.settings.donotShowInfoMsg": true,
+	"liveServer.settings.port": 6969,
+	"liveServer.settings.host": "0.0.0.0",
+	"notebook.markup.fontFamily": "'Roboto Serif', 'Noto Serif', 'Liberation Serif'",
+	"notebook.markup.fontSize": 20,
+	"notebook.compactView": false,
+	/* misc */
+	"extensions.ignoreRecommendations": true,
+	"python.analysis.typeCheckingMode": "off",
+	"python.terminal.activateEnvironment": true,
+	"python.analysis.autoFormatStrings": true,
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",
+	},
+}

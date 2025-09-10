@@ -1,0 +1,27 @@
+[general]
+import = [
+	"./themes/blood_moon.toml",
+	# "./themes/iris.toml",
+]
+
+[font]
+normal = {family = 'Iosevka Curly'}
+size = 13
+
+[window]
+opacity = 0.90
+# blur = true
+dimensions = {columns = 100, lines = 25}
+# padding = {x = 4, y = 4}
+dynamic_padding = true
+
+[cursor]
+style = { shape="block", blinking="On" }
+blink_interval = 700
+
+[selection]
+save_to_clipboard = true
+
+[terminal]
+osc52 = "CopyPaste"
+

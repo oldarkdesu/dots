@@ -35,7 +35,7 @@ export MANPAGER="less -R --use-color"
 export MICRO_TRUECOLOR=1
 export BAT_THEME='ansi'
 if [ -z "$LS_COLORS" ] ; then
-	eval "$(dircolors)"
+	eval "$(TERM=color dircolors --sh)"
 fi
 
 # Pixel perfect scrolling ffx

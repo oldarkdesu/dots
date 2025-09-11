@@ -1,0 +1,12 @@
+Host fed
+  User abi
+  HostName 192.168.0.71
+  IdentityFile ~/.ssh/id_ed25519
+Host rpi
+  User abi
+  HostName rpi.local
+  IdentityFile ~/.ssh/id_ed25519
+Host gh-oldarkdesu
+  User git
+  HostName github.com
+  IdentityFile ~/.ssh/github_oldarkdesu

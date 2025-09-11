@@ -9,3 +9,10 @@ This is my repository for my personal config files.
   - `~/.bash_profile` should be symlinked to `~/.config/bash/bash_profile`
 - The contents of `vscode/` should be copied to `~/.config/Code/User/`
 - `alacritty` should be copied to `~/.config/alacritty`
+
+## Commands
+
+```sh
+mv ~/.config/bash ~/.config/bash.old
+cp -r ./bash ~/.config/bash
+```

@@ -30,11 +30,13 @@ export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
 # I love colors
-export LESS='-SRi --use-color -Dd+r$Du+b$'
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
-export MANROFFOPT="-P -c"
+export LESS='-SRi --use-color -Dd+M$Du+C$DS+Y'
+export MANPAGER="less -R --use-color"
 export MICRO_TRUECOLOR=1
 export BAT_THEME='ansi'
+if [ -z "$LS_COLORS" ] ; then
+	eval "$(dircolors)"
+fi
 
 # Pixel perfect scrolling ffx
 export MOZ_USE_XINPUT2=1

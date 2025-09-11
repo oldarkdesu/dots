@@ -13,6 +13,7 @@ This is my repository for my personal config files.
 ## Commands
 
 ```sh
-mv ~/.config/bash ~/.config/bash.old
-cp -r ./bash ~/.config/bash
+\rm -r ~/.config/bash.old && \
+mv ~/.config/bash ~/.config/bash.old && \
+cp -r bash ~/.config/bash
 ```

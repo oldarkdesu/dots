@@ -1,14 +1,4 @@
 {
-	/* FLATPAK: REGULAR USER SHELL - Comment the following if you're not using the flatpak version of vscode */
-	// "terminal.integrated.defaultProfile.linux": "bash",
-	// "terminal.integrated.profiles.linux": {
-	// 	"bash": {
-	// 		"path": "host-spawn",
-	// 		"args": [
-	// 			"bash"
-	// 		]
-	// 	}
-	// },
 	/* VISUALS */
 	"workbench.colorTheme": "Bearded Theme Vivid Black",
 	"workbench.iconTheme": "bearded-icons",
@@ -17,6 +7,7 @@
 	"window.zoomPerWindow": true,
 	"window.zoomLevel": 0.5,
 	"editor.minimap.autohide": "mouseover",
+	"editor.minimap.enabled": false,
 	"editor.stickyScroll.enabled": false,
 	"editor.folding": false,
 	"editor.renderWhitespace": "selection",
@@ -35,7 +26,7 @@
 	"workbench.editor.enablePreview": true,
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
-
+	"files.simpleDialog.enable": true,
 	/* BEHAVIOR */
 	"update.mode": "manual",
 	"update.showReleaseNotes": false,
@@ -65,7 +56,7 @@
 	"python.terminal.activateEnvironment": true,
 	"python.analysis.autoFormatStrings": true,
 	"explorer.fileNesting.enabled": true,
-	"explorer.fileNesting.patterns": {
-		"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",
-	},
+	// "explorer.fileNesting.patterns": {
+	// 	"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",
+	// },
 }

@@ -14,6 +14,6 @@ This is my repository for my personal config files.
 
 ```sh
 \rm -r ~/.config/bash.old && \
-mv ~/.config/bash ~/.config/bash.old && \
-cp -r bash ~/.config/bash
+ mv ~/.config/bash ~/.config/bash.old && \
+ cp -r bash ~/.config/bash
 ```

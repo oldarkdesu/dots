@@ -108,7 +108,7 @@ function set_prompt {
 	# Show python virtual environment
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"
-		venv_root="$(basename "$(realpath $VIRTUAL_ENV/..)")/$VIRTUAL_ENV_PROMPT"
+		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$VIRTUAL_ENV_PROMPT"
 		PS1="$PS1\[\e[1;92m\][\[\e[0;92m\]${python_glyph}\[\e[1;92m\]${venv_root} ($python_version)]"
 	fi
 

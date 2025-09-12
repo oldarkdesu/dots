@@ -1,0 +1,15 @@
+{/* FLATPAK: REGULAR USER SHELL - Comment the following if you're not using the flatpak version of vscode */
+	"terminal.integrated.defaultProfile.linux": "bash",
+	"terminal.integrated.profiles.linux": {
+		"bash": {
+			"path": "host-spawn",
+			"args": [
+				"bash"
+			]
+		},
+		"default": {
+			"path": "sh",
+			"args": []
+		}
+	},
+}

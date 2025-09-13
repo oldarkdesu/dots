@@ -3,5 +3,6 @@
     "colorcolumn": 100,
     "indentchar": "⇥ ",
     "mkparents": true,
+    "softwrap": true,
     "wordwrap": true
 }

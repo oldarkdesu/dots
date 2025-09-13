@@ -1,3 +1,2 @@
---dir=~/repos/dots/packages 
---target=~
 --verbose=1
+--dir ~/repos/dots --target ~

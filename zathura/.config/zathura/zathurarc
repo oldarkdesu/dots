@@ -1,0 +1,5 @@
+set recolor true
+set recolor-lightcolor "#101010"
+set recolor-darkcolor "#a0a0a0"
+set font "iosevka 12"
+set adjust-open "width"

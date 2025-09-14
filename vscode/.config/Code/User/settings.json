@@ -4,6 +4,7 @@
 	"workbench.iconTheme": "bearded-icons",
 	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
 	"editor.fontSize": 16,
+	"editor.rulers": [80, 100],
 	"window.zoomPerWindow": true,
 	"window.zoomLevel": 0.5,
 	"editor.minimap.autohide": "mouseover",
@@ -13,9 +14,9 @@
 	"editor.renderWhitespace": "selection",
 	"window.menuBarVisibility": "toggle",
 	"window.density.editorTabHeight": "compact",
+	"workbench.tree.indent": 15,
 	"workbench.activityBar.location": "hidden",
 	"workbench.layoutControl.type": "menu",
-	"workbench.tree.indent": 15,
 	"editor.minimap.renderCharacters": false,
 	"editor.glyphMargin": false,
 	"window.titleBarStyle": "native",
@@ -36,7 +37,7 @@
 	/*Tabs*/
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
-	"editor.tabSize": 4,
+	"editor.tabSize": 3,
 	"editor.indentSize": "tabSize",
 	/* AI SHIT - to hide more stuff click the copilot button on the menubar and select "hide ai features" */
 	"telemetry.feedback.enabled": false,

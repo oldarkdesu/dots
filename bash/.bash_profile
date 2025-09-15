@@ -50,7 +50,7 @@ export VISUAL='micro'
 
 # Start the ssh-agent
 if [ -z "$SSH_AUTH_SOCK" ]; then
-	eval "$(ssh-agent -s)"
+	eval "$(ssh-agent -s)" > /dev/null
 fi
 
 # If on tty1, run hyprland

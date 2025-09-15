@@ -4,7 +4,10 @@
 	"workbench.iconTheme": "bearded-icons",
 	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
 	"editor.fontSize": 16,
-	"editor.rulers": [80, 100],
+	"editor.rulers": [
+		80,
+		100
+	],
 	"window.zoomPerWindow": true,
 	"window.zoomLevel": 0.5,
 	"editor.minimap.autohide": "mouseover",
@@ -22,12 +25,14 @@
 	"window.titleBarStyle": "native",
 	"window.customTitleBarVisibility": "never",
 	"workbench.secondarySideBar.defaultVisibility": "hidden",
-	"terminal.integrated.fontSize": 16,
-	"terminal.integrated.fontWeightBold": "normal",
 	"workbench.editor.enablePreview": true,
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"files.simpleDialog.enable": true,
+	"terminal.integrated.fontSize": 16,
+	// "terminal.integrated.fontWeightBold": "normal",
+	"terminal.integrated.stickyScroll.maxLineCount": 2,
+	"terminal.integrated.stickyScroll.enabled": false,
 	/* BEHAVIOR */
 	"update.mode": "manual",
 	"update.showReleaseNotes": false,

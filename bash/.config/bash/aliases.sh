@@ -22,8 +22,8 @@ alias fetch=fastfetch
 # alias sudo='doas --' # probably a bad idea too
 alias grep='grep --ignore-case --line-number --color=auto'
 alias diff='diff --color=auto'
-alias ls='ls --color=auto -AF --group-directories-first'
-alias ll='ls -govhkN'
+alias ls='ls --color=auto -AF -w 80 --group-directories-first --sort=extension'
+alias ll="ls -ovhkN --time-style=+%Y-%m-%d$'\n'%T"
 alias ip='ip -color=auto'
 alias nnn='nnn -H'
 alias n3=nnn

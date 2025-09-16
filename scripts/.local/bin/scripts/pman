@@ -6,7 +6,7 @@ if command -v doas >/dev/null && [ -f /etc/doas.conf ] 2>&1 ; then
 elif command -v sudo >/dev/null ; then
 	SUCMD=sudo
 else
-	echo "[pman] Warning! Neither 'sudo' nor 'doas' is available." >&2
+	echo -e "\e[1;93m[pman]\e[0m Warning! Neither 'sudo' nor 'doas' is available." >&2
 fi
 
 pman_help="Usage: pman SUBCOMMAND [PACMAN-OPTIONS] [ARGUMENTS]
@@ -61,25 +61,25 @@ if test $1 ; then
 			;;
 		info ) 
 			if [ -n "$3" ]; then 
-				echo "[pman] Only one package name supported by \`pman info\`, ignoring the rest..."
+				echo -e "\e[1;93m[pman]\e[0m Only one package name supported by \`pman info\`, ignoring the rest..." >&2
 			fi
 			pacman -Qii $2 
 			if [ $? -ne 0 ]; then
-				echo "[pman] \`$2\` not found in local database. Trying again with command \`$(basename $0) info-remote\`"
+				echo -e "\e[1;93m[pman]\e[0m \`$2\` not found in local database. Trying again with command \`$(basename $0) info-remote\`" >&2
 				pman info-remote $2
 			fi
 			;;
 		ir | infore | info-remote ) 
 			pacman -Sii $2
 			if [ $? -ne 0 ]; then
-				echo "[pman] Could not find $2, try \`$(basename $0) refresh && $(basename $0) info $2\`" >&2
+				echo -e "\e[1;91m[pman]\e[0m Could not find $2, try \`$(basename $0) refresh && $(basename $0) info $2\`" >&2
 				exit 1
 			fi
 			;;
 		autoremove ) 
 			TARGETS="$(pacman -Qdttnq)"
 			if [ -z "$TARGETS" ] ; then
-				echo "[pman] Nothing to remove";
+				echo -e "\e[1;92m[pman]\e[0m Nothing to remove";
 			else
 				echo "$TARGETS" | $SUCMD pacman -Rns --confirm
 			fi

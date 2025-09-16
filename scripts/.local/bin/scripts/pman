@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# Pman - small `pacman` wrapper for everyday operations
+# Copyright (C) 2025  OldarkDesu
+
+# This program is free software; you can redistribute it and/or
+# meodify it under the terms of the GNU General Public License, version 2
+# as published by the Free Software Foundation.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, see
+# <https://www.gnu.org/licenses/>.
+
+
 # check if doas/sudo
 if command -v doas >/dev/null && [ -f /etc/doas.conf ] 2>&1 ; then
 	SUCMD=doas
@@ -9,34 +26,35 @@ else
 	echo -e "\e[1;93m[pman]\e[0m Warning! Neither 'sudo' nor 'doas' is available." >&2
 fi
 
-pman_help="Usage: pman SUBCOMMAND [PACMAN-OPTIONS] [ARGUMENTS]
-    Subcommands:
-    
-        install PACKAGE(S) 
-            Alases: i, in
-                            install packages
-        remove PACKAGE(S)
-            Aliases: r, re
-                            remove packages
-        find PATTERN
-            Aliases: f, fi
-                            find PATTERN in local database
-        search PATTERN
-            Aliases: s, se
-                            search PATTERN in remote repos
-        find-exact PACKAGE(s)
-            Aliases: fx
-                            find PACKAGE(S) in local database
-        search-exact PACKAGE(S) 
-            Aliases: sx
-                            search PACKAGE(S) in package repos
-        info PACKAGE        get information about PACKAGE in local the database
-        info-remote PACKAGE
-            Aliases: ir, infore
-                            get information about PACKAGE in remote repositories
-        autoremove          automatically remove orphaned packages
-        refresh             sync the package databases
-        update-mirrors      update mirrorlist using reflector"
+pman_help="Usage: pman SUBCOMMAND [ARGUMENTS] [PACMAN-OPTIONS]
+Subcommands:
+    install PACKAGE(S) 
+        Alases: i, in
+                                install packages
+    remove PACKAGE(S)
+        Aliases: r, re
+                                remove packages
+    find PATTERN
+        Aliases: f, fi
+                                find PATTERN in local database
+    search PATTERN
+        Aliases: s, se
+                                search PATTERN in remote repos
+    find-exact PACKAGE(s)
+        Aliases: fx
+                                find PACKAGE(S) in local database
+    search-exact PACKAGE(S) 
+        Aliases: sx
+                                search PACKAGE(S) in package repos
+    info PACKAGE        get information about PACKAGE in local the database
+    info-remote PACKAGE
+        Aliases: ir, infore
+                                get information about PACKAGE in remote 
+                                repositories
+    autoremove                  automatically remove orphaned packages
+    refresh                     sync the package databases
+    update-mirrors [MIRRORS]    update mirrorlist using reflector"
+
 if test $1 ; then
 	case $1 in 
 		i | in | install ) $SUCMD pacman -S --needed    ${@:2}  ;;
@@ -69,7 +87,10 @@ if test $1 ; then
 				pman info-remote $2
 			fi
 			;;
-		ir | infore | info-remote ) 
+		ir | infore | info-remote )
+			if [ -n "$3" ]; then 
+				echo -e "\e[1;93m[pman]\e[0m Only one package name supported by \`pman info-remote\`, ignoring the rest..." >&2
+			fi
 			pacman -Sii $2
 			if [ $? -ne 0 ]; then
 				echo -e "\e[1;91m[pman]\e[0m Could not find $2, try \`$(basename $0) refresh && $(basename $0) info $2\`" >&2
@@ -87,9 +108,9 @@ if test $1 ; then
 		refresh) $SUCMD pacman -Sy ;;
 		update-mirrors)
 			$SUCMD reflector --latest 20 \
-			                 --country US,CO, \
-			                 --sort rate \
-			                 --save /etc/pacman.d/mirrorlist
+								  --country ${2:-'US,CO,'} \
+								  --sort rate \
+								  --save /etc/pacman.d/mirrorlist
 			;;
 		clean )
 			$SUCMD pacman -Sc
@@ -107,4 +128,3 @@ else
 	 echo "$pman_help"
 	 exit 1
 fi
-

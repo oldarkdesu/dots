@@ -4,7 +4,7 @@
 : << END
 TODO: 
 - set up variables for ansi color sequences, so that this shit is 
-  somewhat readable :\
+  somewhat readable :P
 - programatically set colors with a set of options
 - programatically set the regular font style for icons
 - programatically select the information I want to show e.g. by having 
@@ -93,8 +93,8 @@ function set_prompt {
 	LAST_COMMAND_EXIT=$?
 	
 	# Show OS, User & Machine
-	# PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" # uncomment this line to show the os icon (currently just arch/raspberrypi)
-	PS1="\[\e[1;95m\][\u@\h]" 
+	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" # uncomment this line to show the os icon (currently just arch/raspberrypi)
+	# PS1="\[\e[1;95m\][\u@\h]" 
 	
 	
 	# Shell name and level

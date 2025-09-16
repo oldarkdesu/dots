@@ -61,8 +61,8 @@
 	"python.analysis.typeCheckingMode": "off",
 	"python.terminal.activateEnvironment": true,
 	"python.analysis.autoFormatStrings": true,
-	"explorer.fileNesting.enabled": true,
 	"git.openRepositoryInParentFolders": "never",
+	// "explorer.fileNesting.enabled": true,
 	// "explorer.fileNesting.patterns": {
 	// 	"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",
 	// },

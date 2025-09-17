@@ -29,9 +29,15 @@ if [ -f $gitprompt ]; then
 	source $gitprompt	
 fi
 
+if fc-list | grep -q 'Nerd' ; then
+	NERD_FONT_AVAILABLE=yes
+else
+	NERD_FONT_AVAILABLE=no
+fi
 # ----- Functions -----
+
 function print_if_nerd {
-	if [ -z "$IGNORE_NERD_FONT" ] && fc-list | grep -q 'Nerd' ; then
+	if [ -z "$IGNORE_NERD_FONT" -a "$NERD_FONT_AVAILABLE" != 'no' ] ; then
 		echo -n "$1"
 	elif [ -z "${@:2}" ]; then
 		return 0
@@ -47,27 +53,6 @@ function get_nerd_icon {
 		*) echo -n "󱩛" ;;
 	esac
 }
-# TODO: need to move this thing somewhere else...
-function find_python_venv {
-	_debug=yes
-	dir="$PWD"
-	project_pyvenv=''
-	while [ "$dir" != "/" ]; do
-		[ -n "$_debug" ] && echo "looking inside DIRECTORY $dir ..."
-		for child in $(ls -a) ; do
-			# echo -n "testing FILE $child/pyenv.cfg ..."
-			if [ -d "$child" -a -f "$child/pyvenv.cfg" ] ; then
-				[ -n "$_debug" ] && echo -e "\nProject root: $dir"
-				[ -n "$_debug" ] && echo "venv root: $(basename $dir)/$child"
-				echo "$(basename $dir)/$child"
-				return 0
-			fi
-		done
-		dir="$(dirname "$dir")"
-	done
-	# echo "No project root with venv found"
-	return 1
-}
 
 # ----- Variables -----
 os_name=$(
@@ -81,29 +66,31 @@ os_name=$(
 		echo "unknown" >&2
 	fi
 )
-dir_glyph=$(print_if_nerd ' ')
-git_glyph=$(print_if_nerd ' ')
-os_glyph=$(print_if_nerd "$(get_nerd_icon $os_ name) " "($os_name) ")
-nix_glyph=$(print_if_nerd ' ' 'Nix')
-python_glyph=$(print_if_nerd ' ') # 󱔎 <-- cute!
 
 # Prompt command:
 function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
-	
-	# Show OS, User & Machine
+
+	# ------------------------ Set glyphs if nerdfont ------------------------ #
+	dir_glyph=$(print_if_nerd ' ')
+	git_glyph=$(print_if_nerd ' ')
+	os_glyph=$(print_if_nerd "$(get_nerd_icon $os_name) " "($os_name) ")
+	nix_glyph=$(print_if_nerd ' ' 'Nix')
+	python_glyph=$(print_if_nerd ' ') # 󱔎 <-- cute!
+
+	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)
 	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" 
 	# PS1="\[\e[1;95m\][\u@\h]" 
 	
-	
+	# ------------------------- Shell name and level ------------------------- #
 	# Shell name and level
 	if [ $SHLVL -gt 1 ] || [ -z "$(expr "$SHELL" : '.*\(bash\)')" ] ; then
 		PS1="$PS1\[\e[1;37m\][$(echo "$(basename $SHELL)" | tr a-z A-Z) lvl $SHLVL]"
 	fi
 	
-	# Show Working dir
+	# --------------------------- Show working dir --------------------------- #
 	PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
 	
 	# Show python virtual environment
@@ -113,16 +100,17 @@ function set_prompt {
 		PS1="$PS1\[\e[1;92m\][\[\e[0;92m\]${python_glyph}\[\e[1;92m\]${venv_root} ($python_version)]"
 	fi
 
-	# Nix shell
+	# ------------------------ Show if inside Nixenv ------------------------- #
 	# TODO: Need to improve this. 
 	#   - https://github.com/NixOS/nix/issues/6677
 	#   - https://nix.dev/manual/nix/2.18/command-ref/nix-shell#env-IN_NIX_SHELL
-	# if expr "$(env)" : ".*\/nix\/store" > /dev/null ; then
+	# if expr "$(env)" : ".*\/nix\/store" > /dev/null ; then 
 	# if echo "$(env)" | grep -q '/nix/store' ; then
 	if [ -n "$IN_NIX_SHELL" ] ; then 
 		PS1="$PS1\[\e[1;96m\][$nix_glyph]"
 	fi
-	# Git repo status
+
+	# --------------------------- Git repo status ---------------------------- #
 	# `__git_ps1` opts:
 	GIT_PS1_SHOWDIRTYSTATE=1
 	GIT_PS1_SHOWSTASHSTATE=1
@@ -130,11 +118,11 @@ function set_prompt {
 	GIT_PS1_SHOWCONFLICTSTATE=1
 	GIT_PS1_SHOWUPSTREAM="auto" # can also be verbose,name,legacy,git,svn
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
-	
 	if [ -f "$gitprompt" ]; then
 		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s]")"
 	fi
-	# was last command successful?
+
+	# ------------------------- Last command status -------------------------- #
 	if [ $LAST_COMMAND_EXIT -eq 0 ]; then
 		PS1="${PS1}\n\[\e[1;92m\]$promptchar"
 	else

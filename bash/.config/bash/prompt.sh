@@ -93,7 +93,8 @@ function set_prompt {
 	LAST_COMMAND_EXIT=$?
 	
 	# Show OS, User & Machine
-	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" # uncomment this line to show the os icon (currently just arch/raspberrypi)
+	# uncomment this line to show the os icon (currently just arch/raspberrypi)
+	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" 
 	# PS1="\[\e[1;95m\][\u@\h]" 
 	
 	
@@ -108,7 +109,7 @@ function set_prompt {
 	# Show python virtual environment
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"
-		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$VIRTUAL_ENV_PROMPT"
+		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$(basename $VIRTUAL_ENV)"
 		PS1="$PS1\[\e[1;92m\][\[\e[0;92m\]${python_glyph}\[\e[1;92m\]${venv_root} ($python_version)]"
 	fi
 

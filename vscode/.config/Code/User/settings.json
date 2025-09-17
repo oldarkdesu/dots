@@ -1,6 +1,6 @@
 {
 	/* VISUALS */
-	"workbench.colorTheme": "Tokyo Night",
+	"workbench.colorTheme": "Bearded Theme Vivid Black",
 	"workbench.iconTheme": "bearded-icons",
 	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
 	"editor.fontSize": 16,
@@ -62,6 +62,7 @@
 	"python.analysis.typeCheckingMode": "off",
 	"python.terminal.activateEnvironment": true,
 	"python.analysis.autoFormatStrings": true,
+	"git.openRepositoryInParentFolders": "never",
 	// "explorer.fileNesting.enabled": true,
 	// "explorer.fileNesting.patterns": {
 	// 	"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",

@@ -132,7 +132,7 @@ function set_prompt {
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
 	
 	if [ -f "$gitprompt" ]; then
-		PS1="$PS1$(__git_ps1 "\[\e[1;35m\][\[\e[0;35m\]${git_glyph}\[\e[1;35m\]%s]")"
+		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s]")"
 	fi
 	# was last command successful?
 	if [ $LAST_COMMAND_EXIT -eq 0 ]; then

@@ -1,7 +1,7 @@
 [general]
 import = [
-	"./themes/blood_moon.toml",
-	# "./themes/iris.toml",
+	# "./themes/blood_moon.toml",
+	"./themes/lazy.toml",
 ]
 
 [font]

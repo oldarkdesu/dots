@@ -1,6 +1,6 @@
 {
 	/* VISUALS */
-	"workbench.colorTheme": "Bearded Theme Vivid Black",
+	"workbench.colorTheme": "Tokyo Night",
 	"workbench.iconTheme": "bearded-icons",
 	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
 	"editor.fontSize": 16,
@@ -42,7 +42,7 @@
 	/*Tabs*/
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
-	"editor.tabSize": 3,
+	"editor.tabSize": 4,
 	"editor.indentSize": "tabSize",
 	/* AI SHIT - to hide more stuff click the copilot button on the menubar and select "hide ai features" */
 	"telemetry.feedback.enabled": false,

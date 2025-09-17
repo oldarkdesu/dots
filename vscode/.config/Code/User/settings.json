@@ -33,6 +33,7 @@
 	// "terminal.integrated.fontWeightBold": "normal",
 	"terminal.integrated.stickyScroll.maxLineCount": 2,
 	"terminal.integrated.stickyScroll.enabled": false,
+	"terminal.integrated.shellIntegration.enabled": true,
 	/* BEHAVIOR */
 	"update.mode": "manual",
 	"update.showReleaseNotes": false,
@@ -61,7 +62,6 @@
 	"python.analysis.typeCheckingMode": "off",
 	"python.terminal.activateEnvironment": true,
 	"python.analysis.autoFormatStrings": true,
-	"git.openRepositoryInParentFolders": "never",
 	// "explorer.fileNesting.enabled": true,
 	// "explorer.fileNesting.patterns": {
 	// 	"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",

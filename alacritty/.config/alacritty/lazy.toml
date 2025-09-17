@@ -1,0 +1,29 @@
+# lazy.toml - by OldarkDesu
+
+# Default colors
+[colors.primary]
+background = '#101010'
+foreground = '#E0E0E0'
+
+# Normal colors
+[colors.normal]
+black   = '#1d1d1d'
+red     = '#BB0033'
+green   = '#00CC66'
+yellow  = '#FF8800'
+blue    = '#9000ff'
+magenta = '#a90087'
+cyan    = '#0066FF'
+white   = '#B0B0B0'
+
+# Bright colors
+[colors.bright]
+black   = '#696969'
+red     = '#FF0044'
+green   = '#00FF88'
+yellow  = '#FFAA00'
+blue    = '#ab45ff'
+magenta = '#ff00e6'
+cyan    = '#0088FF'
+white   = '#fefefe'
+

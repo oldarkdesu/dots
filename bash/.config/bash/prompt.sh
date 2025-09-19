@@ -133,14 +133,14 @@ function set_prompt {
 
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)
-	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" 
-	# PS1="$(_sgr b M)[$(_sgr -)${os_glyph}$(_sgr -i)\u@\h$(_sgr -b)]" # this shit sucks
+	# PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]"
+	PS1="${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]" 
 	# PS1="\[\e[1;95m\][\u@\h]" 
 	
 	# ------------------------- Shell name and level ------------------------- #
-	# Shell name and level
 	if [ $SHLVL -gt 1 ] || [ -z "$(expr "$SHELL" : '.*\(bash\)')" ] ; then
-		PS1="$PS1\[\e[1;37m\][$(echo "$(basename $SHELL)" | tr a-z A-Z) lvl $SHLVL]"
+		# PS1="$PS1\[\e[1;37m\][$(echo "$(basename $SHELL)" | tr a-z A-Z) lvl $SHLVL]"
+		PS1="$PS1$_bold$_white_dim[$_italic$(basename $SHELL | tr a-z A-Z)$_rst$_italic lvl $SHLVL$_rst$_bold]"
 	fi
 	
 	# --------------------------- Show working dir --------------------------- #

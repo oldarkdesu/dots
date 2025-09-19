@@ -1,16 +1,16 @@
 # ------- ANSI Color sequences -------
 # CSI with ANSI control codes for SOH and STX. This supposedly helps bash calculate the prompt's width
-# _cpre="\001\033[" _cpost="m\002" 
-_cpre='\033[' _cpost='m'
+_cpre="\001\033[" _cpost="m\002" 
+# _cpre='\033[' _cpost='m'
 
 # Reset everything except foreground/background color:
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
 # (25: no blink) (27: not reversed) (28: no conceal) (29: not striked)
-_reset_keepcolor='\033[21;22;23;24;25;27;28;29m'
-_reset_all='\033[0m'
+_reset_keepcolor='\001\033[21;22;23;24;25;27;28;29m\002'
+_reset_all='\001\033[0m\002'
 _rsts="$_reset_keepcolor" # soft reset
 _rsth="$_reset_all" # hard reset
-_rst="$_reset_keepcolor"
+_rst="$_rsts"
 
 # font rendering codes
 _bold="${_cpre}1$_cpost"
@@ -32,6 +32,9 @@ done
 # variables for sequences in the form of  _<color>_<intensity>_<bg/fg>
 colors=(black red green yellow blue magenta cyan white '' default)
 for n in {0..7} 9 ; do 
+	# 3n=dim-fg      4n=dim-bg 
+	# 9n=bright-fg  10n=bright-bg
+
 	eval "_${colors[$n]}_dim_fg=\${_cpre}3${n}\${_cpost}"
 	eval "_${colors[$n]}_bright_fg=\${_cpre}9${n}\${_cpost}" 
 	eval "_${colors[$n]}_dim_bg=\${_cpre}4${n}\${_cpost}"
@@ -40,7 +43,7 @@ for n in {0..7} 9 ; do
 	eval "_${colors[$n]}_dim=\${_cpre}3${n}\${_cpost}"
 	eval "_${colors[$n]}_bright=\${_cpre}9${n}\${_cpost}" 
 	# bright is implied
-	eval "_${colors[$n]}=\${_cpre}3${n}\${_cpost}"
+	eval "_${colors[$n]}=\${_cpre}9${n}\${_cpost}"
 	eval "_${colors[$n]}_bg=\${_cpre}10${n}\${_cpost}"
 
 done

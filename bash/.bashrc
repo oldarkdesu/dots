@@ -12,14 +12,15 @@ if [ -f /usr/share/git/completion/git-completion.bash ] ; then
 	source /usr/share/git/completion/git-completion.bash
 fi
 
+# starship prompt 
+# eval "$(starship init bash)"
+
 source ~/.config/bash/prompt.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/aliases.sh
 
 # fetch # it gets annoying after a while
 
-# starship prompt 
-eval "$(starship init bash)"
 
 # pnpm
 export PNPM_HOME="/home/abi/.local/share/pnpm"

@@ -44,8 +44,22 @@ function print_if_nerd {
 	fi
 	return 0
 }
-function get_nerd_icon {
-	case $1 in
+
+# ----- Variables -----
+os_name=$(
+	if [ -e /etc/os-release ]; then
+		source /etc/os-release
+		echo -n "$ID"
+	elif [ -e /usr/lib/os-release ]; then
+		source /usr/lib/os-release
+		echo -n "$ID"
+	else
+		echo "unknown" >&2
+	fi
+)
+
+os_icon=$(
+	case $os_name in
 		fedora) echo -n "󰣛 ";;
 		raspberrypi) echo -n " " ;;
 		arch) echo -n "󰣇 " ;;
@@ -97,19 +111,6 @@ function get_nerd_icon {
 		windows)  echo -n "󰍲 " ;;
 		*) echo -n "󱩛 " ;;
 	esac
-}
-
-# ----- Variables -----
-os_name=$(
-	if [ -e /etc/os-release ]; then
-		source /etc/os-release
-		echo -n "$ID"
-	elif [ -e /usr/lib/os-release ]; then
-		source /usr/lib/os-release
-		echo -n "$ID"
-	else
-		echo "unknown" >&2
-	fi
 )
 
 # ------- ANSI SGR Sequences -------
@@ -125,9 +126,10 @@ function set_prompt {
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')
-	os_glyph=$(print_if_nerd "$(get_nerd_icon $os_name)" "($os_name) ")
+	os_glyph=$(print_if_nerd "$os_icon" "($os_name) ")
 	nix_glyph=$(print_if_nerd ' ' 'Nix')
-	python_glyph=$(print_if_nerd ' ') # 󱔎 <-- cute!
+	# python_glyph=$(print_if_nerd ' ') # 󱔎 <-- cute!
+	python_glyph=$(print_if_nerd '󱔎 ')
 
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)

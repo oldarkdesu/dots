@@ -14,7 +14,7 @@ _rsts="$_reset_keepcolor" # soft reset
 _rsth="$_reset_all" # hard reset
 _rst="$_rsts"
 
-# font rendering codes
+# font rendering codes: _bold _italic etc.
 styles=('' bold faint italic underline blink fastblink invert conceal strike)
 for n in {1..9} ; do
 	eval "_${styles[$n]}=\${_cpre}${n}\${_cpost}"
@@ -84,6 +84,7 @@ function _sgr {
 	# process font color options (fg)
 	opts=$2
 	case "${opts:0:1}" in
+		# bright
 		R) out="${out}${_red_bright}" ;;
 		G) out="${out}${_green_bright}" ;;
 		Y) out="${out}${_yellow_bright}" ;;
@@ -92,6 +93,7 @@ function _sgr {
 		C) out="${out}${_cyan_bright}" ;;
 		W) out="${out}${_white_bright}" ;;
 		K) out="${out}${_black_bright}" ;;
+		# dim
 		r) out="${out}${_red_dim}" ;;
 		g) out="${out}${_green_dim}" ;;
 		y) out="${out}${_yellow_dim}" ;;
@@ -106,6 +108,7 @@ function _sgr {
 
 	# process font color options (bg)
 	case "${opts:1:1}" in
+		# bright
 		R) out="${out}${_red_bright_bg}" ;;
 		G) out="${out}${_green_bright_bg}" ;;
 		Y) out="${out}${_yellow_bright_bg}" ;;
@@ -114,6 +117,7 @@ function _sgr {
 		C) out="${out}${_cyan_bright_bg}" ;;
 		W) out="${out}${_white_bright_bg}" ;;
 		K) out="${out}${_black_bright_bg}" ;;
+		# dim
 		r) out="${out}${_red_dim_bg}" ;;
 		g) out="${out}${_green_dim_bg}" ;;
 		y) out="${out}${_yellow_dim_bg}" ;;

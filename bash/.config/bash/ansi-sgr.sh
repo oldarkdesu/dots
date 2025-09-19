@@ -1,6 +1,7 @@
 # ------- ANSI Color sequences -------
 # CSI with ANSI control codes for SOH and STX. This supposedly helps bash calculate the prompt's width
-_cpre="\001\033[" _cpost="m\002" # ; _cpre='\033[' _cpost='m'
+# _cpre="\001\033[" _cpost="m\002" 
+_cpre='\033[' _cpost='m'
 
 # Reset everything except foreground/background color:
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
@@ -86,48 +87,48 @@ function _sgr {
 	done
 	# process font color options (fg)
 	opts=$2
-		case "${opts:0:1}" in
-			R) out="${out}${_red_bright}" ;;
-			G) out="${out}${_green_bright}" ;;
-			Y) out="${out}${_yellow_bright}" ;;
-			B) out="${out}${_blue_bright}" ;;
-			M) out="${out}${_magenta_bright}" ;;
-			C) out="${out}${_cyan_bright}" ;;
-			W) out="${out}${_white_bright}" ;;
-			K) out="${out}${_black_bright}" ;;
-			r) out="${out}${_red_dim}" ;;
-			g) out="${out}${_green_dim}" ;;
-			y) out="${out}${_yellow_dim}" ;;
-			b) out="${out}${_blue_dim}" ;;
-			m) out="${out}${_magenta_dim}" ;;
-			c) out="${out}${_cyan_dim}" ;;
-			w) out="${out}${_white_dim}" ;;
-			k) out="${out}${_black_dim}" ;;
-			-) out="${out}${_default}" ;;
-			*) return 1;;
-		esac
+	case "${opts:0:1}" in
+		R) out="${out}${_red_bright}" ;;
+		G) out="${out}${_green_bright}" ;;
+		Y) out="${out}${_yellow_bright}" ;;
+		B) out="${out}${_blue_bright}" ;;
+		M) out="${out}${_magenta_bright}" ;;
+		C) out="${out}${_cyan_bright}" ;;
+		W) out="${out}${_white_bright}" ;;
+		K) out="${out}${_black_bright}" ;;
+		r) out="${out}${_red_dim}" ;;
+		g) out="${out}${_green_dim}" ;;
+		y) out="${out}${_yellow_dim}" ;;
+		b) out="${out}${_blue_dim}" ;;
+		m) out="${out}${_magenta_dim}" ;;
+		c) out="${out}${_cyan_dim}" ;;
+		w) out="${out}${_white_dim}" ;;
+		k) out="${out}${_black_dim}" ;;
+		-) out="${out}${_default}" ;;
+		*) return 1;;
+	esac
 
 	# process font color options (bg)
-		case "${opts:1:1}" in
-			R) out="${out}${_red_bright_bg}" ;;
-			G) out="${out}${_green_bright_bg}" ;;
-			Y) out="${out}${_yellow_bright_bg}" ;;
-			B) out="${out}${_blue_bright_bg}" ;;
-			M) out="${out}${_magenta_bright_bg}" ;;
-			C) out="${out}${_cyan_bright_bg}" ;;
-			W) out="${out}${_white_bright_bg}" ;;
-			K) out="${out}${_black_bright_bg}" ;;
-			r) out="${out}${_red_dim_bg}" ;;
-			g) out="${out}${_green_dim_bg}" ;;
-			y) out="${out}${_yellow_dim_bg}" ;;
-			b) out="${out}${_blue_dim_bg}" ;;
-			m) out="${out}${_magenta_dim_bg}" ;;
-			c) out="${out}${_cyan_dim_bg}" ;;
-			w) out="${out}${_white_dim_bg}" ;;
-			k) out="${out}${_black_dim_bg}" ;;
-			-) out="${out}${_default_bg}" ;;
-			*) ;;
-		esac
+	case "${opts:1:1}" in
+		R) out="${out}${_red_bright_bg}" ;;
+		G) out="${out}${_green_bright_bg}" ;;
+		Y) out="${out}${_yellow_bright_bg}" ;;
+		B) out="${out}${_blue_bright_bg}" ;;
+		M) out="${out}${_magenta_bright_bg}" ;;
+		C) out="${out}${_cyan_bright_bg}" ;;
+		W) out="${out}${_white_bright_bg}" ;;
+		K) out="${out}${_black_bright_bg}" ;;
+		r) out="${out}${_red_dim_bg}" ;;
+		g) out="${out}${_green_dim_bg}" ;;
+		y) out="${out}${_yellow_dim_bg}" ;;
+		b) out="${out}${_blue_dim_bg}" ;;
+		m) out="${out}${_magenta_dim_bg}" ;;
+		c) out="${out}${_cyan_dim_bg}" ;;
+		w) out="${out}${_white_dim_bg}" ;;
+		k) out="${out}${_black_dim_bg}" ;;
+		-) out="${out}${_default_bg}" ;;
+		*) ;;
+	esac
 
 	echo -en "$out${@:3}" 
 	return 0

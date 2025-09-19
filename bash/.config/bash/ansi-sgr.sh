@@ -6,7 +6,7 @@ _cpre='\033[' _cpost='m'
 # Reset everything except foreground/background color:
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
 # (25: no blink) (27: not reversed) (28: no conceal) (29: not striked)
-_reset_keepcolor='\033[22;23;24;25;27;28;29m'
+_reset_keepcolor='\033[21;22;23;24;25;27;28;29m'
 _reset_all='\033[0m'
 _rsts="$_reset_keepcolor" # soft reset
 _rsth="$_reset_all" # hard reset
@@ -41,23 +41,24 @@ for n in {0..7} 9 ; do
 	eval "_${colors[$n]}_bright=\${_cpre}9${n}\${_cpost}" 
 	# bright is implied
 	eval "_${colors[$n]}=\${_cpre}3${n}\${_cpost}"
+	eval "_${colors[$n]}_bg=\${_cpre}10${n}\${_cpost}"
 
 done
 
 function _sgr {
 	if [ "$1" = 'help' -o "$1" = "--help" -o  "$1" = 'h' -o  "$1" = '-h' ] ; then
 		echo "Usage: _sgr <styles> [[<foreground>]<background>]"
-		echo "    [Styles]          | (dim)   [Color]        BRIGHT"
-		echo "    b    bold         | r         Red            R"
-		echo "    f    faint        | g        Green           G"
-		echo "    i    italic       | y        Yellow          Y"
-		echo "    u    underlined   | b         Blue           B"
-		echo "    k    blink        | m       Magenta          M"
-		echo "    kk   fastblink    | c         Cyan           C"
-		echo "    x    invert       | w        White           W"
-		echo "    c    conceal      | k        Black           K"
-		echo "    s    striked      | -       default          -"
-		echo "    -    reset style  | "
+		echo "    [Styles]          | (dim)     [Color]      BRIGHT"
+		echo "    b    bold         |   r         Red          R"
+		echo "    f    faint        |   g        Green         G"
+		echo "    i    italic       |   y        Yellow        Y"
+		echo "    u    underlined   |   b         Blue         B"
+		echo "    k    blink        |   m       Magenta        M"
+		echo "    kk   fastblink    |   c         Cyan         C"
+		echo "    x    invert       |   w        White         W"
+		echo "    c    conceal      |   k        Black         K"
+		echo "    s    striked      |   -       default        -"
+		echo "    -    reset style"
 		return 0
 	fi 
 	local opts i j out

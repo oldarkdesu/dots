@@ -44,8 +44,8 @@ for n in {0..7} 9 ; do
 done
 
 function _sgr {
-	if [ "$1" = 'help' -o "$1" = "--help" -o  "$1" = '-h' ] ; then
-		echo "Usage: _sgr <styles> <foreground> <background>"
+	if [ "$1" = 'help' -o "$1" = "--help" -o  "$1" = 'h' -o  "$1" = '-h' ] ; then
+		echo "Usage: _sgr <styles> [[<foreground>]<background>]"
 		echo "    [Styles]          | (dim)   [Color]        BRIGHT"
 		echo "    b    bold         | r         Red            R"
 		echo "    f    faint        | g        Green           G"
@@ -81,14 +81,12 @@ function _sgr {
 			c) out="${out}${_conceal}" ;;
 			s) out="${out}${_strike}" ;;
 			-) out="${out}${_rst}" ;;
-			*) ;;
+			*) return 1;;
 		esac
 	done
 	# process font color options (fg)
 	opts=$2
-	for ((i=0; i<${#opts}; i++)); do
-		opt="${opts:$i:1}"
-		case $opt in
+		case "${opts:0:1}" in
 			R) out="${out}${_red_bright}" ;;
 			G) out="${out}${_green_bright}" ;;
 			Y) out="${out}${_yellow_bright}" ;;
@@ -106,15 +104,11 @@ function _sgr {
 			w) out="${out}${_white_dim}" ;;
 			k) out="${out}${_black_dim}" ;;
 			-) out="${out}${_default}" ;;
-			*) ;;
+			*) return 1;;
 		esac
-	done
 
 	# process font color options (bg)
-	opts=$3
-	for ((i=0; i<${#opts}; i++)); do
-		opt="${opts:$i:1}"
-		case $opt in
+		case "${opts:1:1}" in
 			R) out="${out}${_red_bright_bg}" ;;
 			G) out="${out}${_green_bright_bg}" ;;
 			Y) out="${out}${_yellow_bright_bg}" ;;
@@ -134,9 +128,8 @@ function _sgr {
 			-) out="${out}${_default_bg}" ;;
 			*) ;;
 		esac
-	done
 
-	echo -en "$out${@:4}" 
+	echo -en "$out${@:3}" 
 	return 0
 }
 

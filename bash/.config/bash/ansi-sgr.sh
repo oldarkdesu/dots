@@ -43,6 +43,85 @@ for n in {0..7} 9 ; do
 
 done
 
+function _sgr {
+	if [ "$1" = 'help' -o "$1" = "--help" -o  "$1" = '-h'] ; then
+		echo "Usage: _sgr <styles> <foreground> <background>"
+		echo "    [Styles]          | (dim)   [Color]        BRIGHT"
+		echo "    b    bold         | r         Red            R"
+		echo "    f    faint        | g        Green           G"
+		echo "    i    italic       | y        Yellow          Y"
+		echo "    u    underlined   | b         Blue           B"
+		echo "    k    blink        | m       Magenta          M"
+		echo "    kk   fastblink    | c         Cyan           C"
+		echo "    x    invert       | w        White           W"
+		echo "    c    conceal      | k        Black           K"
+		echo "    s    striked      | -       default          -"
+		echo "    -    reset style  | "
+		return 0
+	fi 
+	local opts i j out
+
+	# process font style options (bfiulxcs)
+	local opts="$1"
+	echo -n "Style opts: "
+	for ((i=0; i<${#opts}; i++)); do
+		j=$((i+1))
+		opt="${opts:$i:1}"
+		if [ "$opt" = 'k' -a "${opts:$j:1}" = 'k' ] ; then 
+			opt='kk'
+			i=$(($i+1))
+		fi
+		case $opt in
+			b) out="${out}${_bold}" ; echo -n "bold;" ;;
+			f) out="${out}${_faint}" ; echo -n "faint;" ;;
+			i) out="${out}${_italic}" ; echo -n "italic;" ;;
+			u) out="${out}${_underline}" ; echo -n "underlined;" ;;
+			k) out="${out}${_blink}" ; echo -n "blink;" ;;
+			kk) out="${out}${_blink_rapid}" ; echo -n "fastblink;" ;;
+			x) out="${out}${_invert}" ; echo -n "invert;" ;;
+			c) out="${out}${_conceal}" ; echo -n "conceal;" ;;
+			s) out="${out}${_strike}" ; echo -n "striked;" ;;
+			-) out="${out}${_rst}" ; echo -n "softreset;" ;;
+			*) ;;
+		esac
+	done
+	
+	echo -en '\nColor opts:'
+	# process font color options (rgybmcwk)
+	opts=$2
+	for ((i=0; i<${#opts}; i++)); do
+		j=$((i+1))
+		opt="${opts:$i:1}"
+		if [ "$opt" = 'l' -a "${opts:$j:1}" = 'l' ] ; then 
+			opt='ll'
+			i=$(($i+1))
+		fi
+		case $opt in
+			R) out="${out}${_red}" ; echo -n "RED;" ;;
+			G) out="${out}${_green}" ; echo -n "GREEN;" ;;
+			Y) out="${out}${_yellow}" ; echo -n "YELLOW;" ;;
+			B) out="${out}${_blue}" ; echo -n "BLUE;" ;;
+			M) out="${out}${_magenta}" ; echo -n "MAGENTA;" ;;
+			C) out="${out}${_cyan}" ; echo -n "CYAN;" ;;
+			W) out="${out}${_white}" ; echo -n "WHITE;" ;;
+			K) out="${out}${_black}" ; echo -n "BLACK;" ;;
+			r) out="${out}${_red_dim}" ; echo -n "red;" ;;
+			g) out="${out}${_green_dim}" ; echo -n "green;" ;;
+			y) out="${out}${_yellow_dim}" ; echo -n "yellow;" ;;
+			b) out="${out}${_blue_dim}" ; echo -n "blue;" ;;
+			m) out="${out}${_magenta_dim}" ; echo -n "magenta;" ;;
+			c) out="${out}${_cyan_dim}" ; echo -n "cyan;" ;;
+			w) out="${out}${_white_dim}" ; echo -n "white;" ;;
+			k) out="${out}${_black_dim}" ; echo -n "black;" ;;
+			-) out="${out}${_default}" ; echo -n "hardreset;" ;;
+			*) ;;
+		esac
+	done
+	echo ''
+	echo -e "$out${@:3}" 
+	return 0
+}
+
 function _color_test {
 	_str=$"${_rst}Normal "
 	_str=$"${_str}${_rst}${_bold}Bold "

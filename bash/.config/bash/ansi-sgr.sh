@@ -1,6 +1,6 @@
 # ------- ANSI Color sequences -------
 # CSI with ANSI control codes for SOH and STX. This supposedly helps bash calculate the prompt's width
-_cpre="\001\033[" _cpost="m\002" ; _cpre='\033[' _cpost='m'
+_cpre="\001\033[" _cpost="m\002" # ; _cpre='\033[' _cpost='m'
 
 # Reset everything except foreground/background color:
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
@@ -22,14 +22,14 @@ _invert="${_cpre}7$_cpost"
 _conceal="${_cpre}8$_cpost"
 _strike="${_cpre}9$_cpost"
 
-styles=(bold faint italic underline blink fastblink invert conceal strike)
+styles=('' bold faint italic underline blink fastblink invert conceal strike)
 for n in {1..9} ; do
-	eval ""_${styles[$n]}=\${_cpre}${n}\${_cpost}""
+	eval "_${styles[$n]}=\${_cpre}${n}\${_cpost}"
 done
 
 # Color codes
 # variables for sequences in the form of  _<color>_<intensity>_<bg/fg>
-colors=(black red green yellow blue magenta cyan white "" default)
+colors=(black red green yellow blue magenta cyan white '' default)
 for n in {0..7} 9 ; do 
 	eval "_${colors[$n]}_dim_fg=\${_cpre}3${n}\${_cpost}"
 	eval "_${colors[$n]}_bright_fg=\${_cpre}9${n}\${_cpost}" 
@@ -44,7 +44,7 @@ for n in {0..7} 9 ; do
 done
 
 function _sgr {
-	if [ "$1" = 'help' -o "$1" = "--help" -o  "$1" = '-h'] ; then
+	if [ "$1" = 'help' -o "$1" = "--help" -o  "$1" = '-h' ] ; then
 		echo "Usage: _sgr <styles> <foreground> <background>"
 		echo "    [Styles]          | (dim)   [Color]        BRIGHT"
 		echo "    b    bold         | r         Red            R"
@@ -62,8 +62,7 @@ function _sgr {
 	local opts i j out
 
 	# process font style options (bfiulxcs)
-	local opts="$1"
-	echo -n "Style opts: "
+	opts="$1"
 	for ((i=0; i<${#opts}; i++)); do
 		j=$((i+1))
 		opt="${opts:$i:1}"
@@ -72,53 +71,72 @@ function _sgr {
 			i=$(($i+1))
 		fi
 		case $opt in
-			b) out="${out}${_bold}" ; echo -n "bold;" ;;
-			f) out="${out}${_faint}" ; echo -n "faint;" ;;
-			i) out="${out}${_italic}" ; echo -n "italic;" ;;
-			u) out="${out}${_underline}" ; echo -n "underlined;" ;;
-			k) out="${out}${_blink}" ; echo -n "blink;" ;;
-			kk) out="${out}${_blink_rapid}" ; echo -n "fastblink;" ;;
-			x) out="${out}${_invert}" ; echo -n "invert;" ;;
-			c) out="${out}${_conceal}" ; echo -n "conceal;" ;;
-			s) out="${out}${_strike}" ; echo -n "striked;" ;;
-			-) out="${out}${_rst}" ; echo -n "softreset;" ;;
+			b) out="${out}${_bold}" ;;
+			f) out="${out}${_faint}" ;;
+			i) out="${out}${_italic}" ;;
+			u) out="${out}${_underline}" ;;
+			k) out="${out}${_blink}" ;;
+			kk) out="${out}${_blink_rapid}" ;;
+			x) out="${out}${_invert}" ;;
+			c) out="${out}${_conceal}" ;;
+			s) out="${out}${_strike}" ;;
+			-) out="${out}${_rst}" ;;
 			*) ;;
 		esac
 	done
-	
-	echo -en '\nColor opts:'
-	# process font color options (rgybmcwk)
+	# process font color options (fg)
 	opts=$2
 	for ((i=0; i<${#opts}; i++)); do
-		j=$((i+1))
 		opt="${opts:$i:1}"
-		if [ "$opt" = 'l' -a "${opts:$j:1}" = 'l' ] ; then 
-			opt='ll'
-			i=$(($i+1))
-		fi
 		case $opt in
-			R) out="${out}${_red}" ; echo -n "RED;" ;;
-			G) out="${out}${_green}" ; echo -n "GREEN;" ;;
-			Y) out="${out}${_yellow}" ; echo -n "YELLOW;" ;;
-			B) out="${out}${_blue}" ; echo -n "BLUE;" ;;
-			M) out="${out}${_magenta}" ; echo -n "MAGENTA;" ;;
-			C) out="${out}${_cyan}" ; echo -n "CYAN;" ;;
-			W) out="${out}${_white}" ; echo -n "WHITE;" ;;
-			K) out="${out}${_black}" ; echo -n "BLACK;" ;;
-			r) out="${out}${_red_dim}" ; echo -n "red;" ;;
-			g) out="${out}${_green_dim}" ; echo -n "green;" ;;
-			y) out="${out}${_yellow_dim}" ; echo -n "yellow;" ;;
-			b) out="${out}${_blue_dim}" ; echo -n "blue;" ;;
-			m) out="${out}${_magenta_dim}" ; echo -n "magenta;" ;;
-			c) out="${out}${_cyan_dim}" ; echo -n "cyan;" ;;
-			w) out="${out}${_white_dim}" ; echo -n "white;" ;;
-			k) out="${out}${_black_dim}" ; echo -n "black;" ;;
-			-) out="${out}${_default}" ; echo -n "hardreset;" ;;
+			R) out="${out}${_red_bright}" ;;
+			G) out="${out}${_green_bright}" ;;
+			Y) out="${out}${_yellow_bright}" ;;
+			B) out="${out}${_blue_bright}" ;;
+			M) out="${out}${_magenta_bright}" ;;
+			C) out="${out}${_cyan_bright}" ;;
+			W) out="${out}${_white_bright}" ;;
+			K) out="${out}${_black_bright}" ;;
+			r) out="${out}${_red_dim}" ;;
+			g) out="${out}${_green_dim}" ;;
+			y) out="${out}${_yellow_dim}" ;;
+			b) out="${out}${_blue_dim}" ;;
+			m) out="${out}${_magenta_dim}" ;;
+			c) out="${out}${_cyan_dim}" ;;
+			w) out="${out}${_white_dim}" ;;
+			k) out="${out}${_black_dim}" ;;
+			-) out="${out}${_default}" ;;
 			*) ;;
 		esac
 	done
-	echo ''
-	echo -e "$out${@:3}" 
+
+	# process font color options (bg)
+	opts=$3
+	for ((i=0; i<${#opts}; i++)); do
+		opt="${opts:$i:1}"
+		case $opt in
+			R) out="${out}${_red_bright_bg}" ;;
+			G) out="${out}${_green_bright_bg}" ;;
+			Y) out="${out}${_yellow_bright_bg}" ;;
+			B) out="${out}${_blue_bright_bg}" ;;
+			M) out="${out}${_magenta_bright_bg}" ;;
+			C) out="${out}${_cyan_bright_bg}" ;;
+			W) out="${out}${_white_bright_bg}" ;;
+			K) out="${out}${_black_bright_bg}" ;;
+			r) out="${out}${_red_dim_bg}" ;;
+			g) out="${out}${_green_dim_bg}" ;;
+			y) out="${out}${_yellow_dim_bg}" ;;
+			b) out="${out}${_blue_dim_bg}" ;;
+			m) out="${out}${_magenta_dim_bg}" ;;
+			c) out="${out}${_cyan_dim_bg}" ;;
+			w) out="${out}${_white_dim_bg}" ;;
+			k) out="${out}${_black_dim_bg}" ;;
+			-) out="${out}${_default_bg}" ;;
+			*) ;;
+		esac
+	done
+
+	echo -en "$out${@:4}" 
 	return 0
 }
 

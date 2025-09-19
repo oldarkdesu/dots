@@ -1,10 +1,10 @@
 [general]
 import = [
-	"./lazy.toml", 
-	# "./alacritty-theme/blood_moon.toml",
-	# "./alacritty-theme/alabaster_dark.toml",
-	# "./alacritty-theme/gruvbox_dark.toml",
-	# "./alacritty-theme/moonfly.toml",
+	# "./lazy.toml", 
+	"./alacritty-theme/themes/blood_moon.toml",
+	# "./alacritty-theme/themes/alabaster_dark.toml",
+	# "./alacritty-theme/themes/gruvbox_dark.toml",
+	# "./alacritty-theme/themes/moonfly.toml",
 ]
 
 [font]

@@ -85,7 +85,7 @@ function set_prompt {
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)
 	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" 
-	# PS1="$(_sgr b M)[$(_sgr -)${os_glyph}$(_sgr -i)\u@\h$(_sgr -b)]"
+	# PS1="$(_sgr b M)[$(_sgr -)${os_glyph}$(_sgr -i)\u@\h$(_sgr -b)]" # this shit sucks
 	# PS1="\[\e[1;95m\][\u@\h]" 
 	
 	# ------------------------- Shell name and level ------------------------- #
@@ -122,7 +122,7 @@ function set_prompt {
 	GIT_PS1_SHOWCONFLICTSTATE=1
 	GIT_PS1_SHOWUPSTREAM="auto" # can also be verbose,name,legacy,git,svn
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
-	if [ -f "$gitprompt" ]; then
+	if command -v __git_ps1 ; then
 		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"
 	fi
 

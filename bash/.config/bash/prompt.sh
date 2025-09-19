@@ -30,14 +30,12 @@ if [ -f $gitprompt ]; then
 fi
 
 if fc-list | grep -q 'Nerd' ; then
-	NERD_FONT_AVAILABLE=yes
-else
-	NERD_FONT_AVAILABLE=no
+	NERD_FONT_AVAILABLE='yes'
 fi
 # ----- Functions -----
 
 function print_if_nerd {
-	if [ -z "$IGNORE_NERD_FONT" -a "$NERD_FONT_AVAILABLE" != 'no' ] ; then
+	if [ -z "$IGNORE_NERD_FONT" -a -n "$NERD_FONT_AVAILABLE" ] ; then
 		echo -n "$1"
 	elif [ -z "${@:2}" ]; then
 		return 0
@@ -67,6 +65,11 @@ os_name=$(
 	fi
 )
 
+# ------- ANSI SGR Sequences -------
+if [ -f $HOME/.config/bash/ansi-sgr.sh ] ; then
+	source $HOME/.config/bash/ansi-sgr.sh
+fi
+
 # Prompt command:
 function set_prompt {
 	# get last's command exit code before running anything
@@ -82,6 +85,7 @@ function set_prompt {
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)
 	PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]" 
+	PS1="${_magenta}${_bold}[${_reset}${_magenta_dim}${os_glyph}${_italic}\u@\h]"
 	# PS1="\[\e[1;95m\][\u@\h]" 
 	
 	# ------------------------- Shell name and level ------------------------- #
@@ -92,8 +96,8 @@ function set_prompt {
 	
 	# --------------------------- Show working dir --------------------------- #
 	PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
-	
-	# Show python virtual environment
+
+	# -------------------------- Show python's VENV -------------------------- #
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"
 		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$(basename $VIRTUAL_ENV)"
@@ -119,7 +123,7 @@ function set_prompt {
 	GIT_PS1_SHOWUPSTREAM="auto" # can also be verbose,name,legacy,git,svn
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
 	if [ -f "$gitprompt" ]; then
-		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s]")"
+		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"
 	fi
 
 	# ------------------------- Last command status -------------------------- #
@@ -137,3 +141,8 @@ function set_prompt {
 PS2="\[\e[1;0m\]$promptchar\[\e[1;90m\]$promptchar\[\e[1;0m\]"
 
 PROMPT_COMMAND=set_prompt
+# if [ -f $HOME/.config/bash/custom-set-prompt.sh ] ;then 
+# 	PROMPT_COMMAND='source $HOME/.config/bash/custom-set-prompt.sh'
+# else 
+# 	PROMPT_COMMAND=set_prompt
+# fi

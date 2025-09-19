@@ -17,3 +17,17 @@ Additionally, by default your current dir and its direct parent are considered t
 This repo contains a set of directories or _packages_ (as `stow` calls them), each directory here is a stow _package_, a set of files related to particular piece of software; e.g. `packages/alacritty/` contains files like `alacritty.toml` or `theme.toml`, but they're under the same directory structure as if they're were in the `$HOME` directory. For a more in-depth explaination of how stow works, read the _man_ page or _info_ page, or you can also [read it online](https://www.gnu.org/software/stow/manual/) through your web browser. 
 
 To "deploy" a _package_, you run the command `stow <package> [<...more packages>]` stow expects every _package_ to be a directory, so if you want to deploy everything at once you have to do `stow */` (notice the forward slash at the end!), since this repo contains other files like `LICENCE` or `README.md`. 
+
+## License
+
+This repository is licensed under the [GNU General Public License, version 2 (GPLv2)](LICENSE).
+
+You are free to use, modify, and distribute it under the terms of the GPLv2.
+See the LICENSE file for the full license text.
+
+## Third-Party Code
+
+This project includes third-party code via a git submodule. Please be aware that this code is governed by its own license.
+
+* **alacritty-theme**: Located in the `alacritty/.config/alacritty/alacritty-theme` directory, this code is licensed under the [Apache License, Version 2.0](alacritty/.config/alacritty/alacritty-theme/LICENSE). For the full license text, please see the `LICENSE` file within that directory.
+

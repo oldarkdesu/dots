@@ -46,9 +46,56 @@ function print_if_nerd {
 }
 function get_nerd_icon {
 	case $1 in
-		rpi) echo -n "" ;;
-		arch) echo -n "󰣇" ;;
-		*) echo -n "󱩛" ;;
+		fedora) echo -n "󰣛 ";;
+		raspberrypi) echo -n " " ;;
+		arch) echo -n "󰣇 " ;;
+
+		alpaquita)  echo -n " " ;;
+		alpine)  echo -n " " ;;
+		almaLinux)  echo -n " " ;;
+		amazon)  echo -n " " ;;
+		android)  echo -n " " ;;
+		arch)  echo -n " " ;;
+		artix)  echo -n " " ;;
+		cachyOS)  echo -n " " ;;
+		centOS)  echo -n " " ;;
+		debian)  echo -n " " ;;
+		dragonFly)  echo -n " " ;;
+		emscripten)  echo -n " " ;;
+		endeavourOS)  echo -n " " ;;
+		fedora)  echo -n " " ;;
+		freeBSD)  echo -n " " ;;
+		garuda)  echo -n "󰛓 " ;;
+		gentoo)  echo -n " " ;;
+		hardenedBSD)  echo -n "󰞌 " ;;
+		illumos)  echo -n "󰈸 " ;;
+		kali)  echo -n " " ;;
+		linux)  echo -n " " ;;
+		mabox)  echo -n " " ;;
+		macos)  echo -n " " ;;
+		manjaro)  echo -n " " ;;
+		mariner)  echo -n " " ;;
+		midnightBSD)  echo -n " " ;;
+		mint)  echo -n " " ;;
+		netBSD)  echo -n " " ;;
+		nixOS)  echo -n " " ;;
+		nobara)  echo -n " " ;;
+		openBSD)  echo -n "󰈺 " ;;
+		openSUSE)  echo -n " " ;;
+		oracleLinux)  echo -n "󰌷 " ;;
+		pop)  echo -n " " ;;
+		raspbian)  echo -n " " ;;
+		redhat)  echo -n " " ;;
+		redHatEnterprise)  echo -n " " ;;
+		rockyLinux)  echo -n " " ;;
+		redox)  echo -n "󰀘 " ;;
+		solus)  echo -n "󰠳 " ;;
+		suse)  echo -n " " ;;
+		ubuntu)  echo -n " " ;;
+		unknown)  echo -n " " ;;
+		void)  echo -n " " ;;
+		windows)  echo -n "󰍲 " ;;
+		*) echo -n "󱩛 " ;;
 	esac
 }
 
@@ -78,7 +125,7 @@ function set_prompt {
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')
-	os_glyph=$(print_if_nerd "$(get_nerd_icon $os_name) " "($os_name) ")
+	os_glyph=$(print_if_nerd "$(get_nerd_icon $os_name)" "($os_name) ")
 	nix_glyph=$(print_if_nerd ' ' 'Nix')
 	python_glyph=$(print_if_nerd ' ') # 󱔎 <-- cute!
 
@@ -122,7 +169,7 @@ function set_prompt {
 	GIT_PS1_SHOWCONFLICTSTATE=1
 	GIT_PS1_SHOWUPSTREAM="auto" # can also be verbose,name,legacy,git,svn
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
-	if command -v __git_ps1 ; then
+	if command -v __git_ps1 >/dev/null ; then
 		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"
 	fi
 

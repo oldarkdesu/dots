@@ -18,6 +18,9 @@ source ~/.config/bash/aliases.sh
 
 # fetch # it gets annoying after a while
 
+# starship prompt 
+eval "$(starship init bash)"
+
 # pnpm
 export PNPM_HOME="/home/abi/.local/share/pnpm"
 case ":$PATH:" in

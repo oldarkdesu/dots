@@ -139,24 +139,24 @@ function _sgr {
 }
 
 function _color_test {
-	_str=$"${_rst}Normal "
-	_str=$"${_str}${_rst}${_bold}Bold "
-	_str=$"${_str}${_rst}${_faint}Faint "
-	_str=$"${_str}${_rst}${_italic}Italic "
-	_str=$"${_str}${_rst}${_underline}Underline "
-	_str=$"${_str}${_rst}${_blink}Blink "
-	_str=$"${_str}${_rst}${_blink_rapid}FastBlink "
-	_str=$"${_str}${_rst}${_invert}Inverted "
-	_str=$"${_str}${_rst}${_conceal}Concealed "
-	_str=$"${_str}${_rst}${_strike}Strike "
+	_str=$"${_rst} Normal"
+	_str=$"${_str}${_rst} ${_bold}Bold"
+	_str=$"${_str}${_rst} ${_faint}Faint"
+	_str=$"${_str}${_rst} ${_italic}Italic"
+	_str=$"${_str}${_rst} ${_underline}Underline"
+	_str=$"${_str}${_rst} ${_blink}Blink"
+	_str=$"${_str}${_rst} ${_blink_rapid}FastBlink"
+	_str=$"${_str}${_rst} ${_invert}Inverted"
+	_str=$"${_str}${_rst} ${_conceal}Concealed"
+	_str=$"${_str}${_rst} ${_strike}Strike"
 	_str=$"${_str}${_reset_all}"
-
+	
 	echo "ANSI SGR SEQUENCE TEST"
-	echo "     [0]    [1]  [2]   [3]    [4]       [5]   [6]       [7]      [8]       [9]   "
-	echo "     Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
-	echo "     ------|----|-----|------|---------|-----|---------|--------|---------|------"
+	echo  "     [0]    [1]  [2]   [3]    [4]       [5]   [6]       [7]      [8]       [9]   "
+	echo  "     Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
+	echo  "     ------|----|-----|------|---------|-----|---------|--------|---------|------"
 	for c in {0..7}; do
-		echo -e  "\e[3${c}m[3$c] $_str\e[0m"
-		echo -e  "\e[9${c}m[9$c] $_str\e[0m"
+		echo -e  "[3$c]\e[3${c}m$_str\e[0m"
+		echo -e  "[9$c]\e[9${c}m$_str\e[0m"
 	done
 }

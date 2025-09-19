@@ -144,23 +144,25 @@ function set_prompt {
 	fi
 	
 	# --------------------------- Show working dir --------------------------- #
-	PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
-
+	# PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
+	PS1="$PS1$_blue$_bold[$dir_glyph$_rst$_italic\w$_rst$_bold]"
 	# -------------------------- Show python's VENV -------------------------- #
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"
 		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$(basename $VIRTUAL_ENV)"
-		PS1="$PS1\[\e[1;92m\][\[\e[0;92m\]${python_glyph}\[\e[1;92m\]${venv_root} ($python_version)]"
+		# PS1="$PS1\[\e[1;92m\][\[\e[0;92m\]${python_glyph}\[\e[1;92m\]${venv_root} ($python_version)]"
+		PS1="$PS1$_green$_bold[$_rst${python_glyph}$_italic${venv_root} ($python_version)$_bold]"
 	fi
 
 	# ------------------------ Show if inside Nixenv ------------------------- #
-	# TODO: Need to improve this. 
+	# TODO: Need to improve this. Maybe add the location of the temporary nix store
 	#   - https://github.com/NixOS/nix/issues/6677
 	#   - https://nix.dev/manual/nix/2.18/command-ref/nix-shell#env-IN_NIX_SHELL
 	# if expr "$(env)" : ".*\/nix\/store" > /dev/null ; then 
 	# if echo "$(env)" | grep -q '/nix/store' ; then
 	if [ -n "$IN_NIX_SHELL" ] ; then 
-		PS1="$PS1\[\e[1;96m\][$nix_glyph]"
+		# PS1="$PS1\[\e[1;96m\][$nix_glyph]"
+		PS1="$PS1$_bold$_cyan[$_rst$nix_glyph$_bold]"
 	fi
 
 	# --------------------------- Git repo status ---------------------------- #
@@ -172,22 +174,28 @@ function set_prompt {
 	GIT_PS1_SHOWUPSTREAM="auto" # can also be verbose,name,legacy,git,svn
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
 	if command -v __git_ps1 >/dev/null ; then
-		PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"
+		# PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"
+		git_status=$(__git_ps1 "$_yellow$_bold[$_rst${git_glyph}$_italic%s$_rst$_bold$yellow]")
+		PS1="$PS1$git_status"
 	fi
 
 	# ------------------------- Last command status -------------------------- #
 	if [ $LAST_COMMAND_EXIT -eq 0 ]; then
-		PS1="${PS1}\n\[\e[1;92m\]$promptchar"
+		# PS1="${PS1}\n\[\e[1;92m\]$promptchar"
+		PS1="${PS1}\n$_green$_bold$promptchar"
 	else
-		PS1="${PS1}\n\[\e[0;31m\]${LAST_COMMAND_EXIT}\[\e[1;91m\]$promptchar"
+		# PS1="${PS1}\n\[\e[0;31m\]${LAST_COMMAND_EXIT}\[\e[1;91m\]$promptchar"
+		PS1="${PS1}\n$_red_dim$_rst$LAST_COMMAND_EXIT$_bold$_red$promptchar"
 	fi
 	
 	# space & reset colors
-	PS1="$PS1\[\e[m\] "
+	# PS1="$PS1\[\e[m\] "
+	PS1="$PS1$_reset_all "
 }
 
 # PS2 is the thing you get when inserting multi-line commands
-PS2="\[\e[1;0m\]$promptchar\[\e[1;90m\]$promptchar\[\e[1;0m\]"
+# PS2="\[\e[1;0m\]$promptchar\[\e[1;90m\]$promptchar\[\e[1;0m\]"
+PS2="$_reset_all$_bold$promptchar$_faint$_black${promptchar}$_reset_all"
 
 PROMPT_COMMAND=set_prompt
 # if [ -f $HOME/.config/bash/custom-set-prompt.sh ] ;then 

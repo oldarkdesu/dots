@@ -6,23 +6,15 @@ _cpre="\001\033[" _cpost="m\002"
 # Reset everything except foreground/background color:
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
 # (25: no blink) (27: not reversed) (28: no conceal) (29: not striked)
-_reset_keepcolor='\001\033[21;22;23;24;25;27;28;29m\002'
-_reset_all='\001\033[0m\002'
+# There's also 21 which some terminals use to disable bold, but it's actually 
+# supposed to do double underlines
+_reset_keepcolor="${_cpre}22;23;24;25;27;28;29${_cpost}"
+_reset_all="${_cpre}0${_cpost}"
 _rsts="$_reset_keepcolor" # soft reset
 _rsth="$_reset_all" # hard reset
 _rst="$_rsts"
 
 # font rendering codes
-_bold="${_cpre}1$_cpost"
-_faint="${_cpre}2$_cpost"
-_italic="${_cpre}3$_cpost"	
-_underline="${_cpre}4$_cpost"
-_blink="${_cpre}5$_cpost" _blink_slow="$_blink"
-_blink_rapid="${_cpre}6$_cpost"
-_invert="${_cpre}7$_cpost"
-_conceal="${_cpre}8$_cpost"
-_strike="${_cpre}9$_cpost"
-
 styles=('' bold faint italic underline blink fastblink invert conceal strike)
 for n in {1..9} ; do
 	eval "_${styles[$n]}=\${_cpre}${n}\${_cpost}"

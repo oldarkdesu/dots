@@ -1,8 +1,9 @@
-# reminder that you can use a backslash like `\ls` to run ls bypassing the alias
-
+# Bash Aliases
+# reminder that you can add a leading backslash to bypass the alias
+# e.g. running `\ls` will run plain ls without any alias
 
 # check if doas/sudo
-if command -v doas >/dev/null && [ -f /etc/doas.conf ] 2>&1 ; then
+if command -v doas >/dev/null && [ -f /etc/doas.conf ] && doas -C /etc/doas.conf ; then
 	SUCMD=doas
 else
 	SUCMD=sudo

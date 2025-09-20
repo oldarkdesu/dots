@@ -1,6 +1,6 @@
 # ------- ANSI Color sequences -------
 # CSI with ANSI control codes for SOH and STX. This supposedly helps bash calculate the prompt's width
-_cpre="\001\033[" _cpost="m\002" 
+_cpre="\001\033[" _cpost="m\002"
 # _cpre='\033[' _cpost='m'
 
 # Reset everything except foreground/background color:
@@ -135,17 +135,17 @@ function _sgr {
 }
 
 function _color_test {
-	_str=$"${_rst} Normal"
-	_str=$"${_str}${_rst} ${_bold}Bold"
-	_str=$"${_str}${_rst} ${_faint}Faint"
-	_str=$"${_str}${_rst} ${_italic}Italic"
-	_str=$"${_str}${_rst} ${_underline}Underline"
-	_str=$"${_str}${_rst} ${_blink}Blink"
-	_str=$"${_str}${_rst} ${_blink_rapid}FastBlink"
-	_str=$"${_str}${_rst} ${_invert}Inverted"
-	_str=$"${_str}${_rst} ${_conceal}Concealed"
-	_str=$"${_str}${_rst} ${_strike}Strike"
-	_str=$"${_str}${_reset_all}"
+	_str="${_rst} Normal"
+	_str="${_str}${_rst} ${_bold}Bold"
+	_str="${_str}${_rst} ${_faint}Faint"
+	_str="${_str}${_rst} ${_italic}Italic"
+	_str="${_str}${_rst} ${_underline}Underline"
+	_str="${_str}${_rst} ${_blink}Blink"
+	_str="${_str}${_rst} ${_blink_rapid}FastBlink"
+	_str="${_str}${_rst} ${_invert}Inverted"
+	_str="${_str}${_rst} ${_conceal}Concealed"
+	_str="${_str}${_rst} ${_strike}Strike"
+	_str="${_str}${_reset_all}"
 	
 	echo "ANSI SGR SEQUENCE TEST"
 	echo  "     [0]    [1]  [2]   [3]    [4]       [5]   [6]       [7]      [8]       [9]   "

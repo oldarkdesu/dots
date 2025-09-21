@@ -36,13 +36,15 @@ alias tree='tree -FCal -I node_modules/ -I .git/ -I .venv/ -I venv/ --filelimit=
 alias oyasumi='systemctl suspend'
 alias reboot-user='systemctl soft-reboot'
 alias boot2windows='systemctl reboot --boot-loader-menu=1 --boot-loader-entry=windows.conf'
-alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
-
-# Debian/Ubuntu
-alias aptup="pls bash -c 'apt update -y && apt upgrade -y && echo -e '\n\[\e[1;92m\][FINISHED]\[\e[0m\]'"
 alias lsblk='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINTS,SIZE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID'
 alias screencopy='scrcpy'
 alias pn='pnpm'
+
+# think twice before using rm
+alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
+
+# Debian/Ubuntu
+alias aptup="pls bash -c 'apt update -y && apt upgrade -y && echo -e \"\n\[\e[1;92m\][APT UPGRADE FINISHED]\[\e[0m\]\""
 
 alias codefp='flatpak run com.visualstudio.code'
 alias showpath="echo $PATH | sed 's/:/\n/g'"

@@ -135,7 +135,7 @@ function _sgr {
 }
 
 function _color_test {
-	_str="${_rst} Normal"
+	_str="${_rst}Normal"
 	_str="${_str}${_rst} ${_bold}Bold"
 	_str="${_str}${_rst} ${_faint}Faint"
 	_str="${_str}${_rst} ${_italic}Italic"
@@ -152,7 +152,7 @@ function _color_test {
 	echo  "     Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
 	echo  "     ------|----|-----|------|---------|-----|---------|--------|---------|------"
 	for c in {0..7}; do
-		echo -e  "[3$c]\e[3${c}m$_str\e[0m"
-		echo -e  "[9$c]\e[9${c}m$_str\e[0m"
+		echo -e  "3$c: \e[3${c}m$_str\e[0m"
+		echo -e  "9$c: \e[9${c}m$_str\e[0m"
 	done
 }

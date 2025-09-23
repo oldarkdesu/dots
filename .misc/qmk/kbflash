@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Usage: kbflash KEYBOARD_NAME"
+  echo "currently supported keyboards: "
+  echo "	- ab"
+  echo "	- orthodox"
+  echo "	- dm"
+  exit 1
+fi
+
+case "$1" in
+  "ab")
+    echo "Compiling 'ab'"
+    qmk flash -kb handwired/ab -km default
+    ;;
+  "orthodox")
+    echo "Compiling 'orthodox'"
+    qmk flash -kb handwired/orthodox -km default
+    ;;
+  "dm")
+    echo "Compilyng 'dactyl_manuform/5x6' with keymap 'desu'"
+    qmk flash -kb handwired/dactyl_manuform/5x6 -km desu
+    ;;
+esac

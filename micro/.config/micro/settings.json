@@ -1,6 +1,8 @@
 {
     "clipboard": "terminal",
     "colorcolumn": 80,
+    "colorscheme": "simple",
+    "eofnewline": false,
     "indentchar": "⇥ ",
     "mkparents": true,
     "softwrap": true,

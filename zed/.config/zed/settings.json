@@ -7,15 +7,40 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "show_whitespaces": "selection",
-  "ui_font_size": 16,
-  "ui_font_family": "Iosevka",
-  "buffer_font_family": "Iosevka",
-  "buffer_font_size": 16,
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "Tokyo Night"
-  },
-  "agent": { "enabled": false }
+	"show_whitespaces": "selection",
+	"ui_font_size": 16,
+	"ui_font_family": "Iosevka",
+	"buffer_font_family": "Iosevka",
+	"buffer_font_size": 16,
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	},
+	"theme": {
+		"mode": "system",
+		"light": "Tokyo Night Light",
+		"dark": "Tokyo Night"
+	},
+	"icon_theme": {
+		"mode": "light",
+		"light": "Catppuccin Latte",
+		"dark": "Catppuccin Mocha"
+	},
+	"gutter": {
+		"breakpoints": false,
+		"runnables": false,
+		"min_line_number_digits": 0
+	},
+	"indent_guides": {
+		"coloring": "fixed",
+		"line_width": 1,
+		"active_line_width": 2
+	},
+	"agent": { "enabled": false },
+	"format_on_save": "off",
+	"ensure_final_newline_on_save": false,
+
+	"hard_tabs": true,
+	"tab_size": 4,
+	"terminal": { "line_height": "standard" }
 }

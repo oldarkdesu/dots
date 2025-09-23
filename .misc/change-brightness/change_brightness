@@ -1,0 +1,71 @@
+#!/usr/bin/python3
+
+import math
+import sys
+
+HELP_STR = """change_brightness.py    sets the brightness as a percentage of the system's max brightness.
+
+Usage: 
+    {BIN} [OPTIONS] <percentage 0 - 100>
+Available Options:
+    -s --show-current   Do not change brightness. Print current brightness to STDOUT
+    -v --verbose        Print runtime information to STDOUT
+    -h --help           Print this message to STDOUT"""
+
+testing = False # '--not-testing' not in sys.argv[1:]
+show_current = any(opt in ['-s', '--show-current'] for opt in sys.argv[1:])
+show_help = any(opt in ['-h', '--help'] for opt in sys.argv[1:])
+verbose = any(opt in ['-v', '--verbose'] for opt in sys.argv[1:])
+
+files: dict = {
+    "max_brightness": "/sys/class/backlight/intel_backlight/max_brightness" if not testing else 'test_max_brightness.txt',
+    "brightness": "/sys/class/backlight/intel_backlight/brightness" if not testing else 'test_brightness.txt'
+}
+
+print_help = lambda: print(HELP_STR.format(BIN=sys.argv[0]))
+
+def find_int(options:list[str]) -> int:
+    for opt in options:
+        try:
+            return int(opt)
+        except ValueError as e:
+            if verbose:
+                print(f"Cant parse '{opt}' into an integer. Trying next option.")
+            continue
+        
+    return -1
+
+def get_max_brightness(filename):
+    with open(filename, 'r') as file:
+        foo = file.read()
+        return int(foo)
+if show_help:
+    print_help()
+elif show_current: 
+    print(get_max_brightness(files['max_brightness']))
+else:
+    try:
+        max_brightness = get_max_brightness(files["max_brightness"])
+        if verbose:
+            print(f'Max brightness: {max_brightness} ({files["max_brightness"]}):')
+        
+        target_brightness = find_int(sys.argv[1:])
+        
+        if target_brightness < 0:
+            print("Cant set negative brightness")
+            exit(1)
+        elif target_brightness > 100:
+            print("Percentage cant be bigger than 100")
+            exit(1)
+        computed_brightness = math.floor(max_brightness * (target_brightness / 100))
+        if verbose:
+            print(f"Writing {target_brightness} to {files['brightness']}...")
+        with open(files["brightness"], 'w') as file:
+            bytes_written = file.write(str(computed_brightness))
+            if verbose:
+                print(f"{bytes_written} bytes written to {files['brightness']}")
+
+    except Exception as e:
+        print('there was an error', e)
+        print_help()
+        exit(1)

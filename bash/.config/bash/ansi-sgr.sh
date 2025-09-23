@@ -148,11 +148,20 @@ function _color_test {
 	_str="${_str}${_reset_all}"
 	
 	echo "ANSI SGR SEQUENCE TEST"
-	echo  "     [0]    [1]  [2]   [3]    [4]       [5]   [6]       [7]      [8]       [9]   "
-	echo  "     Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
-	echo  "     ------|----|-----|------|---------|-----|---------|--------|---------|------"
-	for c in {0..7}; do
-		echo -e  "3$c: \e[3${c}m$_str\e[0m"
-		echo -e  "9$c: \e[9${c}m$_str\e[0m"
-	done
+	echo  "    [0]    [1]  [2]   [3]    [4]       [5]   [6]       [7]      [8]       [9]   "
+	echo  "    Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
+	echo  "    ------|----|-----|------|---------|-----|---------|--------|---------|------"
+	if [ "$1" = "alt" ] ; then 
+		for c in {0..7}; do
+			echo -e  "3$c: \e[3${c}m$_str\e[0m"
+		done
+		for c in {0..7}; do
+			echo -e  "9$c: \e[9${c}m$_str\e[0m"
+		done
+	else
+		for c in {0..7}; do
+			echo -e  "3$c: \e[3${c}m$_str\e[0m"
+			echo -e  "9$c: \e[9${c}m$_str\e[0m"
+		done
+	fi
 }

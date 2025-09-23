@@ -79,28 +79,28 @@ if test $1 ; then
 			;;
 		info ) 
 			if [ -n "$3" ]; then 
-				echo -e "\e[1;93m[pman]\e[0m Only one package name supported by \`pman info\`, ignoring the rest..." >&2
+				echo -e "\e[1;33m[pman]\e[0m Only one package name supported by \`pman info\`, ignoring the rest..." >&2
 			fi
 			pacman -Qii $2 
 			if [ $? -ne 0 ]; then
-				echo -e "\e[1;93m[pman]\e[0m \`$2\` not found in local database. Trying again with command \`$(basename $0) info-remote\`" >&2
+				echo -e "\e[1;33m[pman]\e[0m \`$2\` not found in local database. Trying again with command \`$(basename $0) info-remote\`" >&2
 				pman info-remote $2
 			fi
 			;;
 		ir | infore | info-remote )
 			if [ -n "$3" ]; then 
-				echo -e "\e[1;93m[pman]\e[0m Only one package name supported by \`pman info-remote\`, ignoring the rest..." >&2
+				echo -e "\e[1;33m[pman]\e[0m Only one package name supported by \`pman info-remote\`, ignoring the rest..." >&2
 			fi
 			pacman -Sii $2
 			if [ $? -ne 0 ]; then
-				echo -e "\e[1;91m[pman]\e[0m Could not find $2, try \`$(basename $0) refresh && $(basename $0) info $2\`" >&2
+				echo -e "\e[1;31m[pman]\e[0m Could not find $2, try \`$(basename $0) refresh && $(basename $0) info $2\`" >&2
 				exit 1
 			fi
 			;;
 		autoremove ) 
 			TARGETS="$(pacman -Qdttnq)"
 			if [ -z "$TARGETS" ] ; then
-				echo -e "\e[1;92m[pman]\e[0m Nothing to remove";
+				echo -e "\e[1;32m[pman]\e[0m Nothing to remove";
 			else
 				echo "$TARGETS" | $SUCMD pacman -Rns --confirm
 			fi

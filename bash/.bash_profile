@@ -16,8 +16,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # Switching this to default location since this folder is used for everything,
-# not just the configuration, so I think that having the keys themselves there
-# is a little bit messy :P
+# not just the configuration, so I think that having the kuys, configuration and
+# database in there is a little bit messy :P
 # export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 
 export LESSHISTFILE="${XDG_CONFIG_HOME}/less/history"

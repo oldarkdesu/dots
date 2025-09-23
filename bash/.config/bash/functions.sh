@@ -22,7 +22,7 @@ extract () {
 }
 
 open() {
-	if test $1 ; then
+	if [ -n "$1" ] ; then
 		xdg-open $1 2>&1 > /dev/null & disown 
 	else
 		echo "Need to pass at least one argument, dwag"

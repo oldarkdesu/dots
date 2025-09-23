@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Pman - small `pacman` wrapper for everyday operations
 # Copyright (C) 2025  OldarkDesu

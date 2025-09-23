@@ -25,6 +25,7 @@ export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
 
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npmrc"
 export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
+export PNPM_HOME="/home/abi/.local/share/pnpm"
 
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"

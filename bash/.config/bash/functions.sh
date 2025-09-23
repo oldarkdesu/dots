@@ -1,5 +1,4 @@
-# Bash Function To Extract File Archives Of Varios Types,
-#                      (taken from some stackexchange guy)
+# functions.sh
 
 open() {
 	if [ -n "$1" ] ; then

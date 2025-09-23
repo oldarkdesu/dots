@@ -35,7 +35,7 @@ export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
 # I love colors
 export LESS='-Ri --use-color -Dd+M-$Du+C-$DS+Y-'
-export MANROFFOPT='-c' # this fixes coloring in arch linux, I still don't fully understand why
+export MANROFFOPT='-c' # this fixes coloring in arch linux, I still dont fully understand why 
 export MICRO_TRUECOLOR=1
 export BAT_THEME='ansi'
 if [ -z "$LS_COLORS" ] ; then

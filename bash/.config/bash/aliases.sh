@@ -44,8 +44,18 @@ alias pn='pnpm'
 alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
 
 # Debian/Ubuntu
-alias aptup="pls bash -c 'apt update -y && apt upgrade -y && echo -e \"\n\e[1;92m[APT UPGRADE FINISHED]\e[0m\"'"
-alias bat='batcat'
+case  $(source /etc/os-release && echo "$ID") in
+	debian)
+		alias bat='batcat'
+		alias aptup="pls bash -c 'apt update -y && apt upgrade -y && echo -e \"\n\e[1;92m[APT UPGRADE FINISHED]\e[0m\"'"
+		;;
+	ubuntu)
+		alias aptup="pls bash -c 'apt update -y && apt upgrade -y && echo -e \"\n\e[1;92m[APT UPGRADE FINISHED]\e[0m\"'"
+		;;
+	arch)
+		# TODO: I swear i had something in mind to put here. I'll add it when I remember what it was
+		;;
+esac
 
 alias codefp='flatpak run com.visualstudio.code'
 alias showpath="echo $PATH | sed 's/:/\n/g'"

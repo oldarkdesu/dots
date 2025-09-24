@@ -7,18 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"show_whitespaces": "selection",
+	/* VISUALS */
 	"ui_font_size": 16,
 	"ui_font_family": "Iosevka",
-	"buffer_font_family": "Iosevka",
 	"buffer_font_size": 16,
-	"telemetry": {
-		"diagnostics": false,
-		"metrics": false
-	},
+	"buffer_font_family": "Iosevka",
+	"buffer_line_height": "standard",
+	"terminal": { "line_height": "standard" },
+	"show_whitespaces": "selection",
+	"hard_tabs": true,
+	"tab_size": 4,
 	"theme": {
 		"mode": "system",
-		"light": "Tokyo Night Light",
+		"light": "Catppuccin Latte",
 		"dark": "Tokyo Night"
 	},
 	"icon_theme": {
@@ -29,6 +30,7 @@
 	"gutter": {
 		"breakpoints": false,
 		"runnables": false,
+		"folds": false,
 		"min_line_number_digits": 0
 	},
 	"indent_guides": {
@@ -36,11 +38,25 @@
 		"line_width": 1,
 		"active_line_width": 2
 	},
-	"agent": { "enabled": false },
+	/* BEHAVIOR */
 	"format_on_save": "off",
 	"ensure_final_newline_on_save": false,
-
-	"hard_tabs": true,
-	"tab_size": 4,
-	"terminal": { "line_height": "standard" }
+	"agent": { "enabled": false },
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	},
+	"ssh_connections": [
+		{
+			"host": "rpi",
+			"projects": [
+				{
+					"paths": ["/home/abi"]
+				},
+				{
+					"paths": ["/home/abi/ebzuluaga.github.io"]
+				}
+			]
+		}
+	]
 }

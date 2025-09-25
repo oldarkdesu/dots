@@ -21,9 +21,6 @@ source ~/.config/bash/prompt.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/aliases.sh
 
-# fetch # it gets annoying after a while
-
-
 # pnpm
 export PNPM_HOME="/home/abi/.local/share/pnpm"
 case ":$PATH:" in

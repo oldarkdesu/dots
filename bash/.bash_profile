@@ -6,8 +6,8 @@
 
 
 # ENVIRONMENT SETUP
-
-export PATH="$HOME/scripts:$HOME/.local/bin:$HOME/.local/bin/scripts:$PATH"
+os_name=$(source /etc/os-release && echo "$ID" || echo 'unknown')
+export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.local/bin/scripts/$os_name:$PATH"
 
 # XDG dirs Autism:
 export XDG_CONFIG_HOME="$HOME/.config"

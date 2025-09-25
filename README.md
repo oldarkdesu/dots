@@ -36,11 +36,16 @@ cd ~/dots
 stow bash alacritty ghostty # you can specify multiple packages
 
 # Unstow the packages from the target dir
-stow -D alacritty # 
+stow -D alacritty # or unstow, if you have an alias, if you dont, well You can stow
 
 # Stow everything into the target dir
 sotw */  # the shell will expand this to all the directories in the current dir
 ```
+
+## Notes
+
+- The `scripts/.local/bin/scripts/` folder should contain scripts that i can run on any of the linux distros I have installed. Subfolders within it (e.g. `scripts/.local/bin/scripts/arch/`) contain distro specific scripts, `pman` for example, which is a small `pacman` wrapper and thus there's no reason to make it available in the PATH on every single distro. The code for detecting the distro and adding the scripts to PATH is located in the shell's profile configuration (currently just `.bash_profile`)
+- If you think something in thes repository can improve, or have any questions, you can open a Github Issue, or send me an email at `oldarkdesu@gmail.com`. I'll try to respond as I can `:-)`
 
 ## License
 

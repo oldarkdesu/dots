@@ -43,6 +43,7 @@ alias pn='pnpm'
 # think twice before using rm
 alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
 
+# TODO: move this logic somewhre else. maybe add some environment variable or something.
 # Debian/Ubuntu
 case  $(source /etc/os-release && echo "$ID") in
 	ubuntu|debian)
@@ -61,6 +62,7 @@ esac
 
 alias codefp='flatpak run com.visualstudio.code'
 alias showpath="echo $PATH | sed 's/:/\n/g'"
+
 # function dont_use_clear {
 # 	echo "Use ^L"
 # 	return 1

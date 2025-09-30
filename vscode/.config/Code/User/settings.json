@@ -13,7 +13,7 @@
 	"editor.minimap.autohide": "mouseover",
 	"editor.minimap.enabled": false,
 	"editor.stickyScroll.enabled": false,
-	"editor.folding": false,
+	// "editor.folding": false,
 	"editor.renderWhitespace": "selection",
 	"window.menuBarVisibility": "toggle",
 	"window.density.editorTabHeight": "compact",

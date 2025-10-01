@@ -44,7 +44,7 @@ archive () {
 		to="$2"
 	else
 		from="$1"
-		to="$(expr $1 : '\(.*\)/').tar" # this converts `some/directory/some/where/` into `some/directory/some/where`
+		to="$(expr $1 : '\(.*\)/').tar" # this converts `some/directory/` into `some/directory`
 	fi
 	echo "Archiving \`$from\` into $to..."
 	tar --exclude=.git --exclude=node_modules -cvf $to $from
@@ -61,14 +61,18 @@ check_sha256() {
 	[ -z "$1" -o -z "$2" -o $# -ne 2 ] && ( echo "Usage: check_sha256 FILE SHA256_HASH" ; return 3 )
 
 	file_sum=$(
+		echo "[check_sha256] Attempting to hash $1"
 		hash=$(sha256sum "$1")
-		[ $? -eq 0 ] && echo $hash | awk '{print $1}'
+		ext=$? 
+		[ $ext -eq 0 ] || ( echo -e "$hash\n[check_sha256] error while running sha256sum" ; return $ext )
+
+		echo $hash | awk '{print $1}' | tr a-z A-Z
 	)
-	if [ $file_sum = $2 ] ; then
-		echo "Success" 
+	if [ "$file_sum" = "$2" ] ; then
+		echo "[check_sha256] Success!" 
 		return 0
 	else
-		echo "Fail"
+		echo "[check_sha256] Fail!"
 		return 1
 	fi
 }

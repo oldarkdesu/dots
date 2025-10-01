@@ -1,7 +1,7 @@
 {
 	/* VISUALS */
-	"workbench.colorTheme": "Bearded Theme Vivid Black",
-	"workbench.iconTheme": "bearded-icons",
+	"workbench.colorTheme": "Tokyo Night",
+	"workbench.iconTheme": "vs-seti",
 	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
 	"editor.fontSize": 16,
 	"editor.rulers": [

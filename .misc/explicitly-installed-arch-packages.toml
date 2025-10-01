@@ -1,0 +1,58 @@
+# WARNING: this is a mess. I'm not sure yet what will be the shape of the final 
+# configuration schema for installing all the packages i need. 
+cterminals = ['alacritty', 'foot', 'ghostty']
+non-essential-cli-tools = [
+	'bat',        # colorize everything
+	'btop',       # fancy resource monitor
+	'glow',       # fancy markdown reader
+	'htop',       # popular resource monitor
+	'miniupnpc',  # small upnp client
+	'nmap',       # network scanner
+	'pandoc-bin', # convert between document formats
+	'pass',       # simple password manager
+	'jq',         # json processor
+	'git-delta',  # fancy diff viewer for git
+	'stow',       # manage symlink farms (such as my dotfile repo)
+	'tmux',
+	'tree',
+	'zellij',
+]
+system = [
+	'ntfs3g',           # support for NTFS file systems
+	'openrazer-daemon', # configure 
+	'opendoas',         # alternative to sudo
+	# 'pacman-contrib',   # pacman extras
+	'reflector', # update pacman mirrors
+	'rsync',     # dependency of various packages. useful for backups
+	'sshfs',     # mount remote file systems
+	'trash-cli',
+	'wev',       # monitor events of input devices in wayland
+	'xdg-utils', # xdg-open for opening stuff with default apps, etc.
+]
+text-editors = ['micro', 'neovim']
+desktop-apps = [
+	'firefox',
+	'gimp',
+	'qpgraph',
+	'scrcpy',
+	[
+		'zathura',
+		'zathura-pdf-mupdf',
+	],
+	'zed',
+]
+packages = ['flatpak', 'python-pip', 'python-pipx']
+eyecandy = ['fastfetch', 'terminus-font']
+documentation = [
+	'man-db',    # The man utility for reading man pages
+	'man-pages', # linux man pages
+]
+[dev]
+tooling = ['docker', 'docker-buildx', 'docker-compose', 'git']
+programming = ['ipython', 'rustup']
+other = [
+	'nginx', # web server
+	'qmk',   # compile keyboard firmware
+]
+[aur]
+desktop-apps = ['visual-studio-code-bin']

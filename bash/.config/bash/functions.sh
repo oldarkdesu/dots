@@ -63,8 +63,8 @@ check_sha256() {
 	file_sum=$(
 		echo "[check_sha256] Attempting to hash $1"
 		hash=$(sha256sum "$1")
-		ext=$? 
-		[ $ext -eq 0 ] || ( echo -e "$hash\n[check_sha256] error while running sha256sum" ; return $ext )
+		EXT_VAL=$? 
+		[ $EXT_VAL -eq 0 ] || ( echo -e "$hash\n[check_sha256] error while running sha256sum" ; return $EXT_VAL )
 
 		echo $hash | awk '{print $1}' | tr a-z A-Z
 	)

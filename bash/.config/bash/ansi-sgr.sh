@@ -1,4 +1,10 @@
 # ------- ANSI Color sequences -------
+# Glosary:
+# CSI = Control Sequence Iniciator
+# SGR = Set Graphical Rendering
+# SOH = Start of headers
+# STX = Start of text
+
 # CSI with ANSI control codes for SOH and STX. This supposedly helps bash calculate the prompt's width
 _cpre="\001\033[" _cpost="m\002"
 # _cpre='\033[' _cpost='m'

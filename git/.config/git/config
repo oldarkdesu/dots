@@ -25,3 +25,4 @@
 [alias]
 	l = log --pretty=lf --graph --date=human
 	s = status --short
+	badcommit = !git add . && git commit -m 'lazyly committing all changes...'

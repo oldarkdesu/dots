@@ -77,4 +77,4 @@ check_sha256() {
 	fi
 }
 
-foo () { echo -e "mission failed successfully \n\$#: $#" && return 69 ; }
+foo () { echo -e "mission failed successfully \n\$#: $#" ; return 69 ; }

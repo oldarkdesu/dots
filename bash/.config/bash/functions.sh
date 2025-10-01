@@ -9,7 +9,7 @@ open() {
 	fi
 }
 
-encrypt () {
+_encrypt () {
 	echo "WARNING: this function is a work in progress" >&2
 	if [ "$1" = "s" -o "$1" = "sym" -o "$1" = "symmetric" ] ; then
 		echo "Using symmetric encryption..."
@@ -36,7 +36,7 @@ encrypt () {
 }
 
 archive () {
-	if [ $# > 2] ; then 
+	if [ $# > 2 ] ; then 
 		return 1 
 	fi
 	if [ -n "$2" ] ; then
@@ -53,3 +53,24 @@ archive () {
 unarchive () {
 	tar -xvf $1
 }
+
+check_sha256() {
+	# check if sha256sum is available
+	command -v sha256sum 2>&1 > /dev/null || ( echo 'Cannot find command `sha256sum`' ; return 2 )
+	# verify that exactly 2 arguments were passed (and they're of non-zero length)
+	[ -z "$1" -o -z "$2" -o $# -ne 2 ] && ( echo "Usage: check_sha256 FILE SHA256_HASH" ; return 3 )
+
+	file_sum=$(
+		hash=$(sha256sum "$1")
+		[ $? -eq 0 ] && echo $hash | awk '{print $1}'
+	)
+	if [ $file_sum = $2 ] ; then
+		echo "Success" 
+		return 0
+	else
+		echo "Fail"
+		return 1
+	fi
+}
+
+foo () { echo -e "mission failed successfully \n\$#: $#" && return 69 ; }

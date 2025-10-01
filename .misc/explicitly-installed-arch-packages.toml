@@ -18,19 +18,18 @@ non-essential-cli-tools = [
 	'zellij',
 ]
 system = [
-	'exfatprogs', # exfat filesystem
-	'dosfstools', # fat filesystem
+	'exfatprogs',       # exfat filesystem
+	'dosfstools',       # fat filesystem
 	'ntfs3g',           # support for NTFS file systems
-	'udftools', # udf filesystem
+	'udftools',         # udf filesystem
 	'openrazer-daemon', # configure 
 	'opendoas',         # alternative to sudo
-	# 'pacman-contrib',   # pacman extras
-	'reflector', # update pacman mirrors
-	'rsync',     # dependency of various packages. useful for backups
-	'sshfs',     # mount remote file systems
+	'reflector',        # update pacman mirrors
+	'rsync',            # dependency of various packages. useful for backups
+	'sshfs',            # mount remote file systems
 	'trash-cli',
-	'wev',       # monitor events of input devices in wayland
-	'xdg-utils', # xdg-open for opening stuff with default apps, etc.
+	'wev',              # monitor events of input devices in wayland
+	'xdg-utils',        # xdg-open for opening stuff with default apps, etc.
 ]
 text-editors = ['micro', 'neovim']
 desktop-apps = [

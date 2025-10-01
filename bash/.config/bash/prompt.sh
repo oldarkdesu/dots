@@ -198,8 +198,3 @@ function set_prompt {
 PS2="$_reset_all$_bold$promptchar$_faint$_black${promptchar}$_reset_all"
 
 PROMPT_COMMAND=set_prompt
-# if [ -f $HOME/.config/bash/custom-set-prompt.sh ] ;then 
-# 	PROMPT_COMMAND='source $HOME/.config/bash/custom-set-prompt.sh'
-# else 
-# 	PROMPT_COMMAND=set_prompt
-# fi

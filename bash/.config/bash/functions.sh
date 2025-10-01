@@ -77,4 +77,17 @@ check_sha256() {
 	fi
 }
 
+destroy_disk_and_flash () {
+	if command -v doas >/dev/null && [ -f /etc/doas.conf ] 2>&1 ; then
+		SUCMD=doas
+	elif command -v sudo >/dev/null ; then
+		SUCMD=sudo
+	else
+		echo -e "\e[1;93m[pman]\e[0m Warning! Neither 'sudo' nor 'doas' is available." >&2
+	fi
+	echo "$SUCMD dd bs=4M if="$1" of="$2" conv=fsync oflag=direct status=progress"
+	$SUCMD dd bs=4M if="$1" of="$2" conv=fsync oflag=direct status=progress
+}
+alias flash_iso=destroy_disk_and_flash
+
 foo () { echo -e "mission failed successfully \n\$#: $#" ; return 69 ; }

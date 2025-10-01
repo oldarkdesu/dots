@@ -18,7 +18,10 @@ non-essential-cli-tools = [
 	'zellij',
 ]
 system = [
+	'exfatprogs', # exfat filesystem
+	'dosfstools', # fat filesystem
 	'ntfs3g',           # support for NTFS file systems
+	'udftools', # udf filesystem
 	'openrazer-daemon', # configure 
 	'opendoas',         # alternative to sudo
 	# 'pacman-contrib',   # pacman extras
@@ -42,7 +45,14 @@ desktop-apps = [
 	'zed',
 ]
 packages = ['flatpak', 'python-pip', 'python-pipx']
-eyecandy = ['fastfetch', 'terminus-font']
+eyecandy = ['fastfetch', 'lolcat', 'cowsay']
+fonts = [
+	'ttf-liberation',
+	'ttf-nerd-fonts-symbols',
+	'noto-fonts',
+	'noto-fonts-cjk',
+	'noto-fonts-emoji',
+]
 documentation = [
 	'man-db',    # The man utility for reading man pages
 	'man-pages', # linux man pages

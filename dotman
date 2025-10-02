@@ -1,21 +1,3 @@
 #!/usr/bin/env bash
 
-: '
-
-Usage: 
-dotman list : lists the available configs
-
-
-'
-
-if [ -f "$HOME/.stowrc" ] ; then
-	STOW_CONFIG="$HOME/.stowrc"
-else
-	echo "[dotman] no stow config found in home directory"
-fi
-
-if [ -z "$1" ]; then
-	
-fi
-
-
+# WIP

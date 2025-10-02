@@ -24,11 +24,11 @@ This script (when not passing `--help` or `-h` or `info` as the first arg) shows
 Styles 1 through 9 (after normal text for reference) in both dim and bright ver-
 sions of the foreground colors 0 to 7 (plus normal foreground color).
 '
-sgr_style_reset='\e[22;23;24;25;27;28;29m'
+style_reset='\e[22;23;24;25;27;28;29m'
 styles=( Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike )
-str="${sgr_style_reset}Normal"
+str="${style_reset}Normal"
 for i in {1..9} ; do 
-	str="$str$sgr_style_reset \e[${i}m${styles[$i]}"
+	str="$str$style_reset \e[${i}m${styles[$i]}"
 done
 
 if echo $1 | grep -qiE '(info|--help|-h)' ; then

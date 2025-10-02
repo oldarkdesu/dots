@@ -14,11 +14,13 @@ Where X is an integer from 0 to 9:
  9X -> Foreground of color X (bright) (non-standard but widely supported)
 10X -> Background of color X (bright) (non-standard but widely supported)
 
-ANSI descrives colors as: 
-0: Black    4: Blue     8: Idexed colors and Truecolor (not used in this script)
-1: Red      5: Magenta  9: Default Color
-2: Green    6: Cyan
-3: Yellow   7: White
+0 to 7 integers correspond to: 
+0: Black 2: Green   4: Blue    6: Cyan
+1: Red   3: Yellow  5: Magenta 7: White
+
+While 8 and 9 have special meaning:
+8: Idexed colors and Truecolor (not used in this script)
+9: Default Color
 
 This script (when not passing `--help` or `-h` or `info` as the first arg) shows
 Styles 1 through 9 (and normal text for reference) in both dim and bright ver-

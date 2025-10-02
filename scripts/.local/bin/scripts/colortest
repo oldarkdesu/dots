@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+infostr='ABOUT ANSI ESCAPE SEQUENCES: http://en.wikipedia.org/wiki/ANSI_escape_code
+
+STYLE CODES
+Code 0 resets everything to normal. Codes 1 to 9 set the font style to bold, 
+faint, italic, underline, blink, fastblink, invert, conceal and strike, 
+respectively.
+
+COLOR CODES
+Where X is an integer from 0 to 9: 
+
+ 3X -> Foreground of color X (dim)
+ 4X -> Background of color X (dim)
+ 9X -> Foreground of color X (bright) (non-standard)
+10X -> Background of color X (bright) (non-standard)
+
+ANSI descrives colors as: 
+0: Black    4: Blue     8: Truecolor, in the form \033[38;r;g;bm (not used here)
+1: Red      5: Magenta  9: Default Color
+2: Green    6: Cyan
+3: Yellow   7: White
+
+This script (when not passing `--help` or `-h` or `info` as the first arg) shows
+Styles 1 through 9 (after normal text for reference) in both dim and bright ver-
+sions of the foreground colors 0 to 7 (plus normal foreground color).
+'
+sgr_style_reset='\e[22;23;24;25;27;28;29m'
+styles=( Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike )
+str="${sgr_style_reset}Normal"
+for i in {1..9} ; do 
+	str="$str$sgr_style_reset \e[${i}m${styles[$i]}"
+done
+
+if echo $1 | grep -qiE '(info|--help|-h)' ; then
+	echo "$infostr"
+	exit 0
+fi
+
+echo "    0:     1:   2:    3:     4:        5:    6:        7:       8:        9:    "
+echo "    Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
+
+for c in {0..7} 9 ; do
+	echo -e  "3$c: \e[3${c}m$str\e[0m"
+	echo -e  "9$c: \e[9${c}m$str\e[0m"
+done

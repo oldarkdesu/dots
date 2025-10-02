@@ -77,17 +77,40 @@ check_sha256() {
 	fi
 }
 
-destroy_disk_and_flash () {
-	if command -v doas >/dev/null && [ -f /etc/doas.conf ] 2>&1 ; then
-		SUCMD=doas
-	elif command -v sudo >/dev/null ; then
-		SUCMD=sudo
-	else
-		echo -e "\e[1;93m[pman]\e[0m Warning! Neither 'sudo' nor 'doas' is available." >&2
+
+flash_iso_DESTRUCTIVE () {
+	confirm () {
+		local prompt="${1:-"Are you sure?"}"
+		local response
+
+		while true ; do
+			echo -n "$prompt (yes/no): "
+			read response
+			response="$(echo $response | tr A-Z a-z)"
+			case "$response" in 
+				y | ye | yes ) return 0 ;;
+				n | no ) return 1 ;;
+			esac
+		done
+		echo ERROR
+		return 1
+	}
+	if [ $# -ne 2 ] ; then
+		echo "Usage: flash_iso PATH_TO_ISO DEVICE"
+		return 1
 	fi
-	echo "$SUCMD dd bs=4M if="$1" of="$2" conv=fsync oflag=direct status=progress"
+
+	if ! confirm "IF=$1 ; OF=$2"; then
+		echo "Don't waste my time next time :/"
+		return 1
+	fi
+	# check for doas/sudo
+	command -v sudo 2>&1 >/dev/null                          && SUCMD=sudo
+	command -v doas 2>&1 >/dev/null && [ -f /etc/doas.conf ] && SUCMD=doas
+	[ -z $SUCMD ] && echo -e '\e[1;93mWarning! \e[0mNeither `sudo` or `doas` is available.' >&2
+
+	echo "$SUCMD dd bs=4M if=\"$1\" of=\"$2\" conv=fsync oflag=direct status=progress"
 	$SUCMD dd bs=4M if="$1" of="$2" conv=fsync oflag=direct status=progress
 }
-alias flash_iso=destroy_disk_and_flash
 
 foo () { echo -e "mission failed successfully \n\$#: $#" ; return 69 ; }

@@ -1,11 +1,12 @@
 # ------- ANSI Color sequences -------
 # Glosary:
 # CSI = Control Sequence Iniciator
-# SGR = Set Graphical Rendering
+# SGR = Select Graphical Rendition (rendering)
 # SOH = Start of headers
 # STX = Start of text
 
-# CSI with ANSI control codes for SOH and STX. This supposedly helps bash calculate the prompt's width
+# CSI with ANSI control codes for SOH and STX. This supposedly helps bash when
+# calculatting the prompt's width
 _cpre="\001\033[" _cpost="m\002"
 # _cpre='\033[' _cpost='m'
 
@@ -13,7 +14,8 @@ _cpre="\001\033[" _cpost="m\002"
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
 # (25: no blink) (27: not reversed) (28: no conceal) (29: not striked)
 # There's also 21 which some terminals use to disable bold, but it's actually 
-# supposed to do double underlines
+# supposed to do double underlines. 26 Means proportional spacing but nothing
+# uses it
 _reset_keepcolor="${_cpre}22;23;24;25;27;28;29${_cpost}"
 _reset_all="${_cpre}0${_cpost}"
 _rsts="$_reset_keepcolor" # soft reset
@@ -138,36 +140,4 @@ function _sgr {
 
 	echo -en "$out${@:3}" 
 	return 0
-}
-
-function _color_test {
-	_str="${_rst}Normal"
-	_str="${_str}${_rst} ${_bold}Bold"
-	_str="${_str}${_rst} ${_faint}Faint"
-	_str="${_str}${_rst} ${_italic}Italic"
-	_str="${_str}${_rst} ${_underline}Underline"
-	_str="${_str}${_rst} ${_blink}Blink"
-	_str="${_str}${_rst} ${_blink_rapid}FastBlink"
-	_str="${_str}${_rst} ${_invert}Inverted"
-	_str="${_str}${_rst} ${_conceal}Concealed"
-	_str="${_str}${_rst} ${_strike}Strike"
-	_str="${_str}${_reset_all}"
-	
-	echo "ANSI SGR SEQUENCE TEST"
-	echo  "    [0]    [1]  [2]   [3]    [4]       [5]   [6]       [7]      [8]       [9]   "
-	echo  "    Normal Bold Faint Italic Underline Blink FastBlink Inverted Concealed Strike"
-	echo  "    ------|----|-----|------|---------|-----|---------|--------|---------|------"
-	if [ "$1" = "alt" ] ; then 
-		for c in {0..7}; do
-			echo -e  "3$c: \e[3${c}m$_str\e[0m"
-		done
-		for c in {0..7}; do
-			echo -e  "9$c: \e[9${c}m$_str\e[0m"
-		done
-	else
-		for c in {0..7}; do
-			echo -e  "3$c: \e[3${c}m$_str\e[0m"
-			echo -e  "9$c: \e[9${c}m$_str\e[0m"
-		done
-	fi
 }

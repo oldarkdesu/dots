@@ -189,7 +189,6 @@ function set_prompt {
 	fi
 	
 	# space & reset colors
-	# PS1="$PS1\[\e[m\] "
 	PS1="$PS1$_reset_all "
 }
 

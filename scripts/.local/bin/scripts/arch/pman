@@ -46,7 +46,9 @@ Subcommands:
     search-exact PACKAGE(S) 
         Aliases: sx
                                 search PACKAGE(S) in package repos
-    info PACKAGE        get information about PACKAGE in local the database
+    info PACKAGE             
+	                            get information about PACKAGE in the local
+								database
     info-remote PACKAGE
         Aliases: ir, infore
                                 get information about PACKAGE in remote 
@@ -70,7 +72,7 @@ if test $1 ; then
 			pacman -Ss "^(${*:2})$"
 			;;
 		s | se | search ) 
-			echo "Searching in local database..."
+			echo "Searching $2 in local database..."
 			pacman -Qs $2
 			;;
 		sx | sex | search-exact )

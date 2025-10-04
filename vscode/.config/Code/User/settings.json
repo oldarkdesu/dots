@@ -64,6 +64,7 @@
 	"python.terminal.activateEnvironment": true,
 	"python.analysis.autoFormatStrings": true,
 	"git.openRepositoryInParentFolders": "never",
+	"liveServer.settings.donotVerifyTags": true,
 	// "explorer.fileNesting.enabled": true,
 	// "explorer.fileNesting.patterns": {
 	// 	"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",

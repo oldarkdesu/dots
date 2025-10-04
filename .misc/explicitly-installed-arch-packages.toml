@@ -13,9 +13,9 @@ non-essential-cli-tools = [
 	'jq',         # json processor
 	'git-delta',  # fancy diff viewer for git
 	'stow',       # manage symlink farms (such as my dotfile repo)
-	'tmux',
-	'tree',
-	'zellij',
+	'tmux',       # terminal multiplexer
+	'tree',       # recursively list files in a 
+	'zellij',     # another terminal multiplexer
 ]
 system = [
 	'exfatprogs',       # exfat filesystem
@@ -27,7 +27,7 @@ system = [
 	'reflector',        # update pacman mirrors
 	'rsync',            # dependency of various packages. useful for backups
 	'sshfs',            # mount remote file systems
-	'trash-cli',
+	'trash-cli',        # use the trash 
 	'wev',              # monitor events of input devices in wayland
 	'xdg-utils',        # xdg-open for opening stuff with default apps, etc.
 ]

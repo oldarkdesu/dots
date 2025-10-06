@@ -11,12 +11,12 @@
 	"tab_size": 4,
 	"theme": {
 		"mode": "system",
-		"light": "Catppuccin Latte",
-		"dark": "Zedokai (Filter Spectrum)"
+		"light": "Zen Light",
+		"dark": "Kanagawa"
 	},
 	"icon_theme": {
 		"mode": "light",
-		"light": "Catppuccin Latte",
+		"light": "Seti Icon Theme",
 		"dark": "Catppuccin Mocha"
 	},
 	"gutter": {

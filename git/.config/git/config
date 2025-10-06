@@ -1,16 +1,3 @@
-[core]
-    pager = delta
-
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    navigate = true  # use n and N to move between diff sections
-    # dark = true      # or light = true, or omit for auto-detection
-
-[merge]
-    conflictStyle = zdiff3
-
 [pretty]
 	# got the following from this nice gentleman at github https://github.com/alfunx/.dotfiles/blob/master/.gitconfig
 	# lo  = tformat:%C(auto)%h%C(reset)%C(auto)%d%C(reset) %s %C(italic blue)%ad%C(reset) %C(241)%aN%C(reset)
@@ -24,7 +11,10 @@
 
 [alias]
 	l = log --graph --all --date=human --pretty=medium
+	ll = log --graph --all --pretty=fuller
 	lol = log --graph --all --date=human --pretty=oneline
 	s = status --short
 	badcommit = !git add . && git commit -m 'lazyly committing all changes...'
 	fastcommit = !git add . && git commit -m 
+[include]
+	path = userconfig

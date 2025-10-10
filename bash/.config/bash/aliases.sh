@@ -13,7 +13,7 @@ alias edit='$EDITOR'
 alias e=edit
 alias ee='pls edit'
 
-if [ -f  $HOME/.config/fastfetch/default.jsonc ]; then 
+if [ -f  $HOME/.config/fastfetch/default.jsonc ]; then
 	alias fastfetch='fastfetch -c ~/.config/fastfetch/default.jsonc'
 fi
 alias fetch=fastfetch
@@ -36,7 +36,7 @@ alias tree='tree -FCal -I node_modules/ -I .git/ -I .venv/ -I venv/ --filelimit=
 alias oyasumi='systemctl suspend'
 alias reboot-user='systemctl soft-reboot'
 alias boot2windows='systemctl reboot --boot-loader-menu=1 --boot-loader-entry=windows.conf'
-alias lsblk='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINTS,SIZE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID'
+alias lsblk='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINTS,SIZE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID | bat -l conf'
 alias screencopy='scrcpy'
 alias pn='pnpm'
 

@@ -2,7 +2,7 @@
 
 open() {
 	if [ -n "$1" ] ; then
-		xdg-open $1 2>&1 > /dev/null & disown 
+		xdg-open $1 2>&1 > /dev/null & disown
 	else
 		echo "Need to pass at least one argument, dwag"
 		return 1
@@ -13,7 +13,7 @@ _encrypt () {
 	echo "WARNING: this function is a work in progress" >&2
 	if [ "$1" = "s" -o "$1" = "sym" -o "$1" = "symmetric" ] ; then
 		echo "Using symmetric encryption..."
-		if [ -d "$2" ] ; then 
+		if [ -d "$2" ] ; then
 			printf 'tar cf "%s" $2 && gpg -c "%s"' "${2}.tar" "${2}.tar"
 			tar cf "${2}.tar" $2 && gpg -c "${2}.tar" || EXT_VAL=$? ; echo -e "\e[31mERROR ($EXT_VAL)\e[m"
 			return $EXT_VAL
@@ -36,8 +36,8 @@ _encrypt () {
 }
 
 archive () {
-	if [ $# > 2 ] ; then 
-		return 1 
+	if [ $# > 2 ] ; then
+		return 1
 	fi
 	if [ -n "$2" ] ; then
 		from="$1"
@@ -47,7 +47,7 @@ archive () {
 		to="$(expr $1 : '\(.*\)/').tar" # this converts `some/directory/` into `some/directory`
 	fi
 	echo "Archiving \`$from\` into $to..."
-	tar --exclude=.git --exclude=node_modules -cvf $to $from
+	tar --exclude=.git --exclude=node_modules --exclude=venv --exclude=.venv -cvf $to $from
 }
 
 unarchive () {
@@ -63,13 +63,13 @@ check_sha256() {
 	file_sum=$(
 		echo "[check_sha256] Attempting to hash $1"
 		hash=$(sha256sum "$1")
-		EXT_VAL=$? 
+		EXT_VAL=$?
 		[ $EXT_VAL -eq 0 ] || ( echo -e "$hash\n[check_sha256] error while running sha256sum" ; return $EXT_VAL )
 
 		echo $hash | awk '{print $1}' | tr a-z A-Z
 	)
 	if [ "$file_sum" = "$2" ] ; then
-		echo "[check_sha256] Success!" 
+		echo "[check_sha256] Success!"
 		return 0
 	else
 		echo "[check_sha256] Fail!"
@@ -87,7 +87,7 @@ flash_iso_DESTRUCTIVE () {
 			echo -n "$prompt (yes/no): "
 			read response
 			response="$(echo $response | tr A-Z a-z)"
-			case "$response" in 
+			case "$response" in
 				y | ye | yes ) return 0 ;;
 				n | no ) return 1 ;;
 			esac

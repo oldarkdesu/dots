@@ -1,7 +1,7 @@
 [general]
 import = [
-	# "./lazy.toml",
-	"./alacritty-theme/themes/blood_moon.toml",
+	"./lazy.toml",
+	# "./fav-themes/blood_moon.toml",
 	# "./alacritty-theme/themes/alabaster_dark.toml",
 	# "./alacritty-theme/themes/gruvbox_dark.toml",
 	# "./alacritty-theme/themes/moonfly.toml",
@@ -9,7 +9,7 @@ import = [
 
 [font]
 normal = {family = 'Iosevka Curly'}
-size = 13
+size = 12
 
 [window]
 opacity = 0.85
@@ -27,5 +27,3 @@ save_to_clipboard = true
 
 [terminal]
 osc52 = "CopyPaste"
-
-

@@ -1,5 +1,5 @@
-# WARNING: this is a mess. I'm not sure yet what will be the shape of the final 
-# configuration schema for installing all the packages i need. 
+# WARNING: this is a mess. I'm not sure yet what will be the shape of the final
+# configuration schema for installing all the packages i need.
 cterminals = ['alacritty', 'foot', 'ghostty']
 non-essential-cli-tools = [
 	'bat',        # colorize everything
@@ -14,7 +14,7 @@ non-essential-cli-tools = [
 	'git-delta',  # fancy diff viewer for git
 	'stow',       # manage symlink farms (such as my dotfile repo)
 	'tmux',       # terminal multiplexer
-	'tree',       # recursively list files in a 
+	'tree',       # recursively list files in a
 	'zellij',     # another terminal multiplexer
 ]
 system = [
@@ -22,12 +22,12 @@ system = [
 	'dosfstools',       # fat filesystem
 	'ntfs3g',           # support for NTFS file systems
 	'udftools',         # udf filesystem
-	'openrazer-daemon', # configure 
+	'openrazer-daemon', # configure
 	'opendoas',         # alternative to sudo
 	'reflector',        # update pacman mirrors
 	'rsync',            # dependency of various packages. useful for backups
 	'sshfs',            # mount remote file systems
-	'trash-cli',        # use the trash 
+	'trash-cli',        # use the trash
 	'wev',              # monitor events of input devices in wayland
 	'xdg-utils',        # xdg-open for opening stuff with default apps, etc.
 ]
@@ -47,6 +47,7 @@ packages = ['flatpak', 'python-pip', 'python-pipx']
 eyecandy = ['fastfetch', 'lolcat', 'cowsay']
 fonts = [
 	'ttf-liberation',
+	'ttf-croscore',
 	'ttf-nerd-fonts-symbols',
 	'noto-fonts',
 	'noto-fonts-cjk',

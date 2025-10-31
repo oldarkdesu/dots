@@ -9,7 +9,9 @@ super + Return
 # program launcher
 super + @space
 	rofi -show run
-
+# programs
+super + b
+	firefox
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

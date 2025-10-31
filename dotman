@@ -1,3 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-# WIP
+from sys imprt exit
+print('WIP')
+exit(1)

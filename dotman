@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
 
-from sys imprt exit
+from sys import exit
 print('WIP')
 exit(1)

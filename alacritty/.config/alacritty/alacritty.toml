@@ -9,7 +9,7 @@ import = [
 
 [font]
 normal = {family = 'Iosevka Curly'}
-size = 12
+size = 10
 
 [window]
 opacity = 0.85

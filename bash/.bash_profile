@@ -51,8 +51,8 @@ export VISUAL='micro'
 
 # Now some important stuff...
 
-# Start the ssh-agent
-if [ -z "$SSH_AUTH_SOCK" ]; then
+# Start the ssh-agent (On arch there's the ssh-agent user service)
+if [ $os-name != 'arch' -a -z "$SSH_AUTH_SOCK" ]; then
 	eval "$(ssh-agent -s)" > /dev/null
 fi
 

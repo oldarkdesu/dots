@@ -1,9 +1,9 @@
 {
 	/* VISUALS */
 	"vim_mode": false,
- "ui_font_size": 18,
+	"ui_font_size": 12,
 	"ui_font_family": "Iosevka Curly",
-	"buffer_font_size": 16,
+	"buffer_font_size": 12.0,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
 	"terminal": { "line_height": "standard" },
@@ -12,14 +12,14 @@
 	"tab_size": 4,
 	"theme": {
 		"mode": "dark",
-		"light": "Gruvbox Light",
-		"dark": "Gruvbox Dark"
+		"light": "Tokyo Night Light",
+		"dark": "Tokyo Night"
 	},
-	"icon_theme": {
-		"mode": "dark",
-		"light": "Seti Icon Theme",
-		"dark": "Catppuccin Mocha"
-	},
+	// "icon_theme": {
+	// 	"mode": "dark",
+	// 	"light": "Seti Icon Theme",
+	// 	"dark": "Catppuccin Mocha"
+	// },
 	"gutter": {
 		"breakpoints": false,
 		"runnables": false,
@@ -38,18 +38,5 @@
 	"telemetry": {
 		"diagnostics": false,
 		"metrics": false
-	},
-	"ssh_connections": [
-		{
-			"host": "rpi",
-			"projects": [
-				{
-					"paths": ["/home/abi"]
-				},
-				{
-					"paths": ["/home/abi/ebzuluaga.github.io"]
-				}
-			]
-		}
-	]
+	}
 }

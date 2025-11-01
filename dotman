@@ -1,5 +1,75 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-from sys import exit, stderr
-print('WIP', file=stderr)
-exit(1)
+echo WORK IN PROGRESS >&2
+exit 1
+
+# TODO: 
+#   -add the list option to list all available configs
+
+config_alacritty=$HOME/.config/alacritty/alacritty.toml
+
+config_bash_rc=$HOME/.bashrc
+config_bash_profile=$HOME/.bash_profile
+config_bash_aliases=$HOME/.config/bash/aliases.sh
+config_bash_prompt=$HOME/.config/bash/prompt.sh
+config_bash_functions=$HOME/.config/bash/functions.sh
+config_bash=$config_bash_rc
+
+config_bspwm=$HOME/.config/bspwm/bspwmrc
+config_sxhkd=$HOME/.config/sxhkd/sxhkdrc
+config_dunst=$HOME/.config/dunst/dunstrc
+config_fontconfig=$HOME/.config/fontconfig/conf.d/60-my-preferences.conf
+config_git=$HOME/.config/git/config
+config_micro=$HOME/.config/micro/settings.json
+config_picom=$HOME/.config/picom.conf
+config_polybar=$HOME/.config/polybar/config.ini
+config_ssh=$HOME/.ssh/config
+config_starship=$HOME/.config/starship.toml
+config_tofi=$HOME/.config/tofi/config
+config_vscode=$HOME/.config/Code/User/settings.conf
+config_vscodefp=$HOME/.var/.app/com.visualstudio.code/config/Code/User/settings.conf
+config_xinitrc=$HOME/.config/x/xinitrc
+config_xresources=$HOME/.config/x/Xresources
+config_x=$config_xinitrc
+config_xres=$config_xresources
+config_zathura=$HOME/.config/zathura/zathurarc
+config_zed_settings=$HOME/.config/zed/settings.json
+config_zed_keymap=$HOME/.config/zed/keymap.json
+config_zed=$config_zed_settings
+
+usage_str="\
+Usage: 
+dotman edit PROGRAM          edit PROGRAM's configuration file
+       help                  show help"
+
+if [ -z "$1" ] ; then
+    echo "$usage_str" >&2
+    exit 1
+fi 
+
+if [ "$1" == 'edit' ] ; then
+    if [ -n "$2" ] ; then
+        #`dotman edit alacritty` -> `selection=config_alacritty`
+        # so that `$selection` expands to `/home/abi/.config/alacritty/alacritty.toml`
+        eval 'selection=config_$2'
+        config_var_name="config_$2" 
+        eval "file=\${}"
+        if [ -n "$selection" ] ; then
+            eval "file=\$$selection"
+            echo "Editing $selection ..."
+            exec ${EDITOR:-nvim} "$selection"
+        else
+            echo "$2 does not have a config file ..." >&2
+            exit 1
+        fi
+    else
+        echo 'What to edit?' >&2
+        exit 1
+    fi
+elif [ "$1" == 'help' -o "$1" == "--help" -o "$1" == "-h" ] ; then
+    echo "$usage_str"
+else
+    echo "Option not recognized" >&2
+    echo "$usage_str" >&2
+    exit 1
+fi

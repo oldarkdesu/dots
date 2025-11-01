@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-echo WORK IN PROGRESS >&2
-exit 1
+echo 'WORK IN PROGRESS' >&2
+# exit 1
 
-# TODO: 
+# TODO:
 #   -add the list option to list all available configs
+
 
 config_alacritty=$HOME/.config/alacritty/alacritty.toml
 
@@ -37,26 +38,21 @@ config_zed_settings=$HOME/.config/zed/settings.json
 config_zed_keymap=$HOME/.config/zed/keymap.json
 config_zed=$config_zed_settings
 
-usage_str="\
-Usage: 
+usage_str="Usage:
 dotman edit PROGRAM          edit PROGRAM's configuration file
        help                  show help"
 
 if [ -z "$1" ] ; then
+	echo "Must pass an action" >&2
     echo "$usage_str" >&2
     exit 1
-fi 
+fi
 
 if [ "$1" == 'edit' ] ; then
     if [ -n "$2" ] ; then
-        #`dotman edit alacritty` -> `selection=config_alacritty`
-        # so that `$selection` expands to `/home/abi/.config/alacritty/alacritty.toml`
-        eval 'selection=config_$2'
-        config_var_name="config_$2" 
-        eval "file=\${}"
-        if [ -n "$selection" ] ; then
-            eval "file=\$$selection"
-            echo "Editing $selection ..."
+        eval "file=\$config_$2"
+        if [ -n "$file" ] ; then
+            echo "Editing $file ..."
             exec ${EDITOR:-nvim} "$selection"
         else
             echo "$2 does not have a config file ..." >&2

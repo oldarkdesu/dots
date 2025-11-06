@@ -1,7 +1,7 @@
 [general]
 import = [
-	"./lazy.toml",
-	# "./fav-themes/blood_moon.toml",
+	# "./lazy.toml",
+	"./fav-themes/blood_moon.toml",
 	# "./alacritty-theme/themes/alabaster_dark.toml",
 	# "./alacritty-theme/themes/gruvbox_dark.toml",
 	# "./alacritty-theme/themes/moonfly.toml",

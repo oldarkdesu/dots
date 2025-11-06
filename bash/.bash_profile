@@ -58,9 +58,9 @@ fi
 
 # If on tty1, run hyprland
 # I am told this is a bad idea. Commenting until further examination is conducted
-# if [ "$(tty)" = "/dev/tty1" ]; then
-#     # export XINITRC="$HOME/.config/x/xinitrc"
-#     # export XAUTHORITY="$HOME/.cache/Xauthority"
-#     # exec startx
-#     exec Hyprland
-# fi
+if [ "$(tty)" = "/dev/tty1" ]; then
+    export XINITRC="$HOME/.config/x/xinitrc"
+    export XAUTHORITY="$HOME/.cache/Xauthority"
+    exec startx
+    # exec Hyprland
+fi

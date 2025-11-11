@@ -2,6 +2,10 @@
 # ~/.bashrc
 #
 
+if [ -f ~/.bashrc.old ] ; then
+	source ~/.bashrc.old
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -21,8 +25,9 @@ source ~/.config/bash/prompt.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/aliases.sh
 
+
 # pnpm
-export PNPM_HOME="/home/abi/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;

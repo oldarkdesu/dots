@@ -104,7 +104,7 @@ if test $1 ; then
 			if [ -z "$TARGETS" ] ; then
 				echo -e "\e[1;32m[pman]\e[0m Nothing to remove";
 			else
-				echo "$TARGETS" | $SUCMD pacman -Rns --confirm
+				echo "$TARGETS" | $SUCMD pacman -Rns --confirm -
 			fi
 			;; 
 		refresh) $SUCMD pacman -Sy ;;

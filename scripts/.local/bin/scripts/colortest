@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 infostr='ABOUT ANSI ESCAPE SEQUENCES: http://en.wikipedia.org/wiki/ANSI_escape_code
 
 STYLE CODES

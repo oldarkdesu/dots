@@ -113,4 +113,4 @@ flash_iso_DESTRUCTIVE () {
 	$SUCMD dd bs=4M if="$1" of="$2" conv=fsync oflag=direct status=progress
 }
 
-foo () { echo -e "mission failed successfully \n\$#: $#" ; return 69 ; }
+# foo () { echo -e "mission failed successfully \n\$#: $#" ; return 69 ; }

@@ -16,5 +16,7 @@
 	s = status --short
 	badcommit = !git add . && git commit -m 'lazyly committing all changes...'
 	fastcommit = !git add . && git commit -m 
+	use-id = !git-use-id $1
+	use-key = use-id
 [include]
 	path = userconfig

@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if [ "$1" = 'help' -o "$1" = '-h' -o "$1" = '--help' ] ; then
+	echo "Usage: git-use-id (personal|oldarkdesu|university)"
+	exit 0
+fi
+
+id_name="$1"
+url=$(git remote get-url origin) ; [ $? -gt 0 ] && exit 2
+repo=$(basename "$url" .git)
+
+case "$id_name" in
+	personal)   username=ebzuluaga ;;
+	university) username=estebanbedoyazuluaga ;;
+	oldarkdesu) username=oldarkdesu ;;
+	*)          username= ;;
+esac
+
+[ -z "$username" ] && echo 'Incorrect key-name for id' >&2 && exit 1
+
+echo "Executing: git remote set-url origin gh.${id_name}:${username}/${repo}.git"
+
+confirm() {
+    # call with a prompt string or use a default
+	echo -n "Are you sure? [y/N] " 
+    read -r response
+    case "$(echo $response | tr A-Z a-z)" in
+        yes|ye|y) 
+            true
+			$@
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+confirm git remote set-url origin "gh.${id_name}:${username}/${repo}.git"

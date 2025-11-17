@@ -14,9 +14,9 @@
 	ll = log --graph --all --pretty=fuller
 	lol = log --graph --all --date=human --pretty=oneline
 	s = status --short
-	badcommit = !git add . && git commit -m 'lazyly committing all changes...'
+	badcommit = !git add . && git commit -m 'git badcommit: lazyly committing all changes...'
 	fastcommit = !git add . && git commit -m 
 	use-id = !git-use-id $1
-	use-key = use-id
+	use = use-id
 [include]
 	path = userconfig

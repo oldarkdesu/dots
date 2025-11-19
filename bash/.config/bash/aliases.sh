@@ -49,9 +49,10 @@ alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
 case  $(source /etc/os-release && echo "$ID") in
 	ubuntu|debian)
 		alias aptup="pls bash -c 'apt update -y && apt upgrade -y && echo -e \"\n\e[1;92m[APT UPGRADE FINISHED]\e[0m\"'"
-		;;&
-	debian)
+		alias aptin="pls apt update -y && pls apt install"
 		alias bat='batcat'
+		;;& # fallthrough`
+	debian)
 		;;
 	ubuntu)
 		# custom configs for ubuntu incomming...

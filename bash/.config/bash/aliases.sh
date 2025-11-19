@@ -8,9 +8,14 @@ if command -v doas >/dev/null && [ -f /etc/doas.conf ] && doas -C /etc/doas.conf
 else
 	SUCMD=sudo
 fi
-alias pls='$SUCMD'
+
+if command -v micro >/dev/null ; then
+	EDITOR=micro
+fi
+
+alias pls='$SUCMD ' # the space is important for other aliases to resolve when this one is used in front of them (e.g. the `ee' acouple of lines below)
 alias edit='$EDITOR'
-alias e=edit
+alias e='edit'
 alias ee='pls edit'
 
 if [ -f  $HOME/.config/fastfetch/default.jsonc ]; then
@@ -25,7 +30,7 @@ alias grep='grep --ignore-case --line-number --color=auto'
 alias diff='diff --color=auto'
 alias ls='ls --color=auto -AF -w 80 --group-directories-first --sort=extension'
 # alias ll="ls -ovhkN --time-style=+%Y-%m-%d$'\n'%T"
-alias ll="ls -ovhkN --time-style=+%Y-%m-%d@%T"
+alias ll="ls -ovhkN --time-style=+%Y-%m-%d__%T"
 alias ip='ip -color=auto'
 alias nnn='nnn -H'
 alias n3=nnn

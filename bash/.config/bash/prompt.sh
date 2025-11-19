@@ -171,7 +171,7 @@ function set_prompt {
 	GIT_PS1_SHOWSTASHSTATE=1
 	GIT_PS1_SHOWUNTRACKEDFILES=1
 	GIT_PS1_SHOWCONFLICTSTATE=1
-	GIT_PS1_SHOWUPSTREAM="auto" # can also be verbose,name,legacy,git,svn
+	GIT_PS1_SHOWUPSTREAM="verbose name" # can also be 'auto'
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1
 	if command -v __git_ps1 >/dev/null ; then
 		# PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"

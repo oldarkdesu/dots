@@ -18,6 +18,9 @@ show_help = any(opt in ['-h', '--help'] for opt in sys.argv[1:])
 verbose = any(opt in ['-v', '--verbose'] for opt in sys.argv[1:])
 
 files: dict = {
+    "max_brightness": 'test_max_brightness.txt',
+    "brightness": 'test_brightness.txt'
+} if testing else {
     "max_brightness": "/sys/class/backlight/intel_backlight/max_brightness" if not testing else 'test_max_brightness.txt',
     "brightness": "/sys/class/backlight/intel_backlight/brightness" if not testing else 'test_brightness.txt'
 }
@@ -66,6 +69,6 @@ else:
                 print(f"{bytes_written} bytes written to {files['brightness']}")
 
     except Exception as e:
-        print('there was an error', e)
+        print('[change_brightness] There was an error:\n', e)
         print_help()
         exit(1)

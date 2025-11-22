@@ -1,0 +1,3 @@
+--verbose=1
+--dir pkgs/
+--target ~/

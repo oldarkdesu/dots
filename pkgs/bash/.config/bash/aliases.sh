@@ -68,7 +68,7 @@ case  $(source /etc/os-release && echo "$ID") in
 esac
 
 alias codefp='flatpak run com.visualstudio.code'
-alias showpath="echo $PATH | sed 's/:/\n/g'"
+alias showpath="echo \$PATH | sed 's/:/\n/g'"
 
 # function dont_use_clear {
 # 	echo "Use ^L"

@@ -1,1 +1,3 @@
 pkgs/git/.config/git/userconfig
+micro/.config/micro/backups/
+micro/.config/micro/buffers/

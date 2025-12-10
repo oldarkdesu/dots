@@ -146,6 +146,7 @@ function set_prompt {
 	# --------------------------- Show working dir --------------------------- #
 	# PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
 	PS1="$PS1$_blue$_bold[$dir_glyph$_rst$_italic\w$_rst$_bold]"
+
 	# -------------------------- Show python's VENV -------------------------- #
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"

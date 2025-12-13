@@ -15,8 +15,20 @@
 	lol = log --graph --all --date=human --pretty=oneline
 	s = status --short --branch
 	badcommit = !git add . && git commit -m 'git badcommit: lazyly committing all changes...'
-	fastcommit = !git add . && git commit -m 
+	fastcommit = !git add . && git commit -m
 	use-id = !git-use-id $1
 	use = use-id
+[pager]
+    # `diff-highlight' command should be available. git ships with diff-
+    #     highlight but it's not automatically available, so I set up symlinks.
+    #     Check the arch and debian folders inside pkgs/scripts/.local/bin/scripts/
+    #     from this repo (https://github.com/oldarkdesu/dots.git)
+    # diff = diff-highlight # this is fine if you don't want any paging :P
+    # diff = 'diff-highlight | less -FRXsu' # same as below
+    diff = "diff-highlight | less --quit-if-one-screen \
+                                  --RAW-CONTROL-CHARS \
+                                  --no-init \
+                                  --squeeze-blank-lines \
+                                  --underline-special"
 [include]
-	path = userconfig
+	path = userconfig # this is where I set `user.name' and `user.email'

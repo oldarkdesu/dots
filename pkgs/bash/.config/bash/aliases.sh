@@ -32,13 +32,14 @@ alias ls='ls --color=auto -AF -w 80 --group-directories-first --sort=extension'
 # alias ll="ls -ovhkN --time-style=+%Y-%m-%d$'\n'%T"
 alias ll="ls -ovhkN --time-style=+%Y-%m-%d__%T"
 alias ip='ip -color=auto'
-alias nnn='nnn -H'
-alias n3=nnn
 alias mkdir='mkdir -pv'
-alias unimatrix='unimatrix -c cyan -f -s 96 -a -l AakkS'
-alias trix=unimatrix
 alias pwd='pwd -P'
 alias tree='tree -FCal -I node_modules/ -I .git/ -I .venv/ -I venv/ --filelimit=25 --dirsfirst --charset=ascii -L 5 '
+alias du='du --total --human-readable --summarize'
+alias nnn='nnn -H'
+alias n3=nnn
+alias unimatrix='unimatrix -c cyan -f -s 96 -a -l AakkS'
+alias trix=unimatrix
 alias oyasumi='systemctl suspend'
 alias reboot-user='systemctl soft-reboot'
 alias boot2windows='systemctl reboot --boot-loader-menu=1 --boot-loader-entry=windows.conf'

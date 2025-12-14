@@ -20,20 +20,11 @@ echo "Finished. exit_status=$err"
 # could also write it like this:
 confirm() {
 	# optionally pass a confirmation string
-	if [ $# -eq 0 ] ; then
-		echo -n "Are you sure? [y/N]: "
-	else
-		echo -n $@ "[y/N]: "
-	fi
-
+	echo -n "${1:-Are you sure?} [y/N]"
 	read -r response
 	case "$(echo $response | tr A-Z a-z)" in
-		yes|ye|y)
-			return 0
-			;;
-		*)
-			return 1
-			;;
+		yes|ye|y) return 0 ;;
+		*)        return 1 ;;
 	esac
 }
 

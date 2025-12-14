@@ -3,6 +3,10 @@
 _ids="personal oldarkdesu university"
 
 for id in $_ids ; do
-	echo "RUNNING ssh-keygen -f ~/.ssh/gh.$id -C '' -P '' "
-	ssh-keygen -f ~/.ssh/gh.$id -C '' -P ''
+	if [ ! -f ~/.ssh/gh.$id ] ; then
+		echo "[RUNNING ssh-keygen -f ~/.ssh/gh.$id -C '' -P '' ]"
+		ssh-keygen -f ~/.ssh/gh.$id -C '' -P ''
+	else
+		echo "File ~/.ssh/gh.$id already exist, skiping. "
+	fi
 done

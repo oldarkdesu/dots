@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-
+print_usage() {
+    echo "Usage: git-use-id IDENTITY_NAME"
+	echo "    IDENTITY_NAME may be \`personal', \`oldarkdesu' or \`university'"
+}
 if [ "$1" = 'help' -o "$1" = '-h' -o "$1" = '--help' ] ; then
-	echo "Usage: git-use-id (personal|oldarkdesu|university)"
+    print_usage
 	exit 0
 fi
 
@@ -10,28 +13,59 @@ url=$(git remote get-url origin) ; [ $? -gt 0 ] && exit 2
 repo=$(basename "$url" .git)
 
 case "$id_name" in
-	personal)   username=ebzuluaga ;;
-	university) username=estebanbedoyazuluaga ;;
-	oldarkdesu) username=oldarkdesu ;;
-	*)          username= ;;
+	personal)
+	    username=ebzuluaga
+		display_name='Esteban Bedoya'
+		email='estebanbedoyazuluaga@gmail.com'
+		;;
+	university)
+	    username=estebanbedoyazuluaga
+		display_name='Esteban Bedoya'
+		email='ebedoya83134@umanizales.edu.co'
+		;;
+	oldarkdesu)
+	    username=oldarkdesu
+		display_name=OldarkDesu
+		email='oldarkdesu@gmail.com'
+	    ;;
+	*)
+	    echo 'Incorrect key-name for id' >&2
+		print_usage
+		exit 1
+		;;
 esac
 
-[ -z "$username" ] && echo 'Incorrect key-name for id' >&2 && exit 1
+[ ! -f "$HOME/.ssh/gh.$id_name" ] && echo 'Identity file not found' >&2 && exit 1
 
-echo "Executing: git remote set-url origin gh.${id_name}:${username}/${repo}.git"
 
 confirm() {
-    # call with a prompt string or use a default
-	echo -n "Are you sure? [y/N] " 
+    # optionally pass a confirmation string
+    if [ $# -eq 0 ] ; then
+        echo -n "Are you sure? [y/N]: "
+    else
+        echo -n $@ "[y/N]: "
+    fi
+
     read -r response
     case "$(echo $response | tr A-Z a-z)" in
-        yes|ye|y) 
-            true
-			$@
+        yes|ye|y)
+			return 0
             ;;
         *)
-            false
+            return 1
             ;;
     esac
 }
-confirm git remote set-url origin "gh.${id_name}:${username}/${repo}.git"
+
+echo "Executing: git remote set-url origin gh.${id_name}:${username}/${repo}.git"
+if confirm ; then
+    git remote set-url origin "gh.${id_name}:${username}/${repo}.git"
+fi
+
+echo "Executing: "
+echo "    git config --local user.name $display_name"
+echo "    git config --local user.email $email"
+if confirm 'Continue? ' ; then
+    git config --local user.name $display_name
+    git config --local user.email $email
+fi

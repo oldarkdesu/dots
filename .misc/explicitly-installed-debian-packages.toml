@@ -1,0 +1,5 @@
+general_purpose = ['git', 'stow', 'nvim', 'trash-cli', 'tree']
+other_changes = [
+	"Used `nmtui` to manually set the IPV4 configuration and have a static address",
+	"Ran `make` as root, inside git's `diff-highlight` folder (/usr/share/doc/git/contrib/diff-highlight) in order to create the diff-highlight executable",
+]

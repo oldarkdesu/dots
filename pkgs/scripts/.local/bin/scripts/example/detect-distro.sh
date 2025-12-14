@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-if [ -f /etc/os-release ] ; then 
+if [ -f /etc/os-release ] ; then
 	distro=$(. /etc/os-release && echo "$ID")
-else 
-	echo "No /etc/os-release file"
+else
+	echo "No /etc/os-release file" >&2
 	exit 1
 fi
 
@@ -18,7 +18,7 @@ case "$distro" in
 		echo "your package manager is dnf..."
 		;;
 	*)
-		echo "unknown distro..."
+		echo "unknown distro..." >&2
 		exit 1
 		;;
 esac

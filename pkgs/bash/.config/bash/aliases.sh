@@ -75,4 +75,4 @@ function dont_use_clear {
 	echo "Use ^L"
 	return 1
 }
-alias clear='dont_use_clear'
+# alias clear='dont_use_clear'

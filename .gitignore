@@ -2,5 +2,5 @@
 pkgs/git/.config/git/userconfig
 
 # I don't want to track these :P
-micro/.config/micro/backups/
-micro/.config/micro/buffers/
+pkgs/micro/.config/micro/backups/
+pkgs/micro/.config/micro/buffers/

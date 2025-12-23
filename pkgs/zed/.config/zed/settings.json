@@ -1,35 +1,30 @@
 {
 	/* VISUALS */
-	"vim_mode": false,
+	"terminal": { "line_height": "standard" },
+	"theme": {
+		"mode": "dark",
+		"light": "Tokyo Night Light",
+		"dark": "Tokyo Night",
+	},
 	"ui_font_size": 12,
 	"ui_font_family": "Iosevka Curly",
 	"buffer_font_size": 12.0,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
-	"terminal": { "line_height": "standard" },
-	"show_whitespaces": "selection",
+	"buffer_font_features": { "calt": false },
 	"hard_tabs": true,
 	"tab_size": 4,
-	"theme": {
-		"mode": "dark",
-		"light": "Tokyo Night Light",
-		"dark": "Tokyo Night"
-	},
-	// "icon_theme": {
-	// 	"mode": "dark",
-	// 	"light": "Seti Icon Theme",
-	// 	"dark": "Catppuccin Mocha"
-	// },
+	"show_whitespaces": "selection",
 	"gutter": {
 		"breakpoints": false,
 		"runnables": false,
 		"folds": false,
-		"min_line_number_digits": 0
+		"min_line_number_digits": 0,
 	},
 	"indent_guides": {
 		"coloring": "fixed",
 		"line_width": 1,
-		"active_line_width": 2
+		"active_line_width": 2,
 	},
 	/* BEHAVIOR */
 	"format_on_save": "off",
@@ -37,6 +32,6 @@
 	"agent": { "enabled": false },
 	"telemetry": {
 		"diagnostics": false,
-		"metrics": false
-	}
+		"metrics": false,
+	},
 }

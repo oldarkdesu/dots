@@ -3,6 +3,7 @@
 cterminals = ['alacritty', 'foot', 'ghostty']
 non-essential-cli-tools = [
 	'bat',        # colorize everything
+	'bottom',     # another system resource monitor
 	'btop',       # fancy resource monitor
 	'glow',       # fancy markdown reader
 	'htop',       # popular resource monitor

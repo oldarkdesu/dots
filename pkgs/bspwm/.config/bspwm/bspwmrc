@@ -28,4 +28,4 @@ bspc rule -a Screenkey manage=off
 dunst &
 polybar -r &
 picom -b
-feh --bg-scale ~/.config/bspwm/wallpaper
+feh --bg-scale ~/.config/bspwm/wallpaper --no-fehbg

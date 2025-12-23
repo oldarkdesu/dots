@@ -2,12 +2,12 @@
 # PROMPT
 #
 : << END
-TODO: 
-- set up variables for ansi color sequences, so that this shit is 
+TODO:
+- set up variables for ansi color sequences, so that this shit is
   somewhat readable :P
 - programatically set colors with a set of options
 - programatically set the regular font style for icons
-- programatically select the information I want to show e.g. by having 
+- programatically select the information I want to show e.g. by having
   something like PROMPT_MODULES=(host cwd python_venv shlvl git_info)
 - have an option to use emoji instead of nerd fonts
 - find a way to autosource a python virtual environment
@@ -26,7 +26,7 @@ else
 fi
 
 if [ -f $gitprompt ]; then
-	source $gitprompt	
+	source $gitprompt
 fi
 
 if command -v fc-list 2>&1 >/dev/null && fc-list | grep -q 'Nerd' ; then
@@ -39,7 +39,7 @@ function print_if_nerd {
 		echo -n "$1"
 	elif [ -z "${@:2}" ]; then
 		return 0
-	else 
+	else
 		echo -n "${@:2}"
 	fi
 	return 0
@@ -122,7 +122,8 @@ fi
 function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
-
+	# set terminal window title
+	echo -en "\033]0;($(basename $0)) $PWD"
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')
@@ -134,15 +135,15 @@ function set_prompt {
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)
 	# PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]"
-	PS1="${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]" 
-	# PS1="\[\e[1;95m\][\u@\h]" 
-	
+	PS1="${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
+	# PS1="\[\e[1;95m\][\u@\h]"
+
 	# ------------------------- Shell name and level ------------------------- #
 	if [ $SHLVL -gt 1 ] || [ -z "$(expr "$SHELL" : '.*\(bash\)')" ] ; then
 		# PS1="$PS1\[\e[1;37m\][$(echo "$(basename $SHELL)" | tr a-z A-Z) lvl $SHLVL]"
 		PS1="$PS1$_bold$_white_dim[$_italic$(basename $SHELL | tr a-z A-Z)$_rst$_italic lvl $SHLVL$_rst$_bold]"
 	fi
-	
+
 	# --------------------------- Show working dir --------------------------- #
 	# PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
 	PS1="$PS1$_blue$_bold[$dir_glyph$_rst$_italic\w$_rst$_bold]"
@@ -159,9 +160,9 @@ function set_prompt {
 	# TODO: Need to improve this. Maybe add the location of the temporary nix store
 	#   - https://github.com/NixOS/nix/issues/6677
 	#   - https://nix.dev/manual/nix/2.18/command-ref/nix-shell#env-IN_NIX_SHELL
-	# if expr "$(env)" : ".*\/nix\/store" > /dev/null ; then 
+	# if expr "$(env)" : ".*\/nix\/store" > /dev/null ; then
 	# if echo "$(env)" | grep -q '/nix/store' ; then
-	if [ -n "$IN_NIX_SHELL" ] ; then 
+	if [ -n "$IN_NIX_SHELL" ] ; then
 		# PS1="$PS1\[\e[1;96m\][$nix_glyph]"
 		PS1="$PS1$_bold$_cyan[$_rst$nix_glyph$_bold]"
 	fi
@@ -190,7 +191,7 @@ function set_prompt {
 		# PS1="${PS1}\n\[\e[0;31m\]${LAST_COMMAND_EXIT}\[\e[1;91m\]$promptchar"
 		PS1="${PS1}\n$_red_dim$_rst$LAST_COMMAND_EXIT$_bold$_red$promptchar"
 	fi
-	
+
 	# space & reset colors
 	PS1="$PS1$_reset_all "
 }

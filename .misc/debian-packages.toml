@@ -1,5 +1,13 @@
-general_purpose = ['git', 'stow', 'nvim', 'trash-cli', 'tree']
+general_purpose = ['git', 'stow', 'nvim', 'trash-cli', 'tree', 'miniupnpc', 'micro']
 other_changes = [
 	"Used `nmtui` to manually set the IPV4 configuration and have a static address",
 	"Ran `make` as root, inside git's `diff-highlight` folder (/usr/share/doc/git/contrib/diff-highlight) in order to create the diff-highlight executable",
+	"forwarded the 42069 port to this machine",
+	[
+		"copyed the /usr/lib/systemd/system/ssh.service file into a ssh-external.service file in the same folder",
+		"copyed the /etc/ssh/sshd_config to /etc/ssh/sshd_config_external",
+		"inside /etc/ssh/sshd_config_external, changed the setting `PasswordAuthentication` to `no` and commented out the line that included every .conf file in the /etc/ssh/sshd_config.d/ directory",
+		"edited the ssh-external.service file to use the new config file, and also changed the alias to sshd-external",
+		"enabled sshd-external on systemd"
+	],
 ]

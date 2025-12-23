@@ -8,6 +8,6 @@ other_changes = [
 		"copyed the /etc/ssh/sshd_config to /etc/ssh/sshd_config_external",
 		"inside /etc/ssh/sshd_config_external, changed the setting `PasswordAuthentication` to `no` and commented out the line that included every .conf file in the /etc/ssh/sshd_config.d/ directory",
 		"edited the ssh-external.service file to use the new config file, and also changed the alias to sshd-external",
-		"enabled sshd-external on systemd"
+		"enabled sshd-external on systemd",
 	],
 ]

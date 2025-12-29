@@ -123,7 +123,7 @@ function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
 	# set terminal window title
-	echo -en "\033]0;($(basename $0)) $PWD"
+	echo -en "\033]0;($(basename $SHELL)) $PWD"
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')

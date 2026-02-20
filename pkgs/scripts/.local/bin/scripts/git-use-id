@@ -63,9 +63,9 @@ if confirm ; then
 fi
 
 echo "Executing: "
-echo "    git config --local user.name $display_name"
-echo "    git config --local user.email $email"
+echo "    git config --local user.name \"$display_name\""
+echo "    git config --local user.email \"$email\""
 if confirm 'Continue? ' ; then
-	git config --local user.name $display_name
-	git config --local user.email $email
+	git config --local user.name "$display_name"
+	git config --local user.email "$email"
 fi

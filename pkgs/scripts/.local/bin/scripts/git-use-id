@@ -35,7 +35,6 @@ esac
 
 [ ! -d "$HOME/.ssh" ] && echo "Warning: ~/.ssh/ directory does not exist. Exiting" >&2 && exit 1
 if [ ! -f "$id_file" ] ; then
-	echo "if [ ! -f \"$id_file\" ] "
 	echo -e "Identity file not found. Generate one by running: \n\tssh-keygen -f $id_file -C '' -N ''" >&2 && exit 1
 fi
 
@@ -61,9 +60,9 @@ confirm() {
 echo "Executing: "
 echo "    git config --local user.name \"$display_name\""
 echo "    git config --local user.email \"$email\""
-echo "    git config --local core.sshCommand=\"ssh -i $id_file\""
+echo "    git config --local core.sshCommand \"ssh -i $id_file\""
 if confirm 'Continue? ' ; then
 	git config --local user.name "$display_name"
 	git config --local user.email "$email"
-	git config --local core.sshCommand="ssh -i $id_file"
+	git config --local core.sshCommand "ssh -i $id_file"
 fi

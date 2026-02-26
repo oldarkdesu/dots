@@ -50,6 +50,8 @@ alias pn='pnpm'
 # think twice before using rm
 alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
 
+alias purge-macos-dsstore="find . -name '.DS_Store' -type f -delete"
+
 # TODO: move this logic somewhre else. maybe have an environment variable or something.
 # Debian/Ubuntu
 case  $(source /etc/os-release && echo "$ID") in

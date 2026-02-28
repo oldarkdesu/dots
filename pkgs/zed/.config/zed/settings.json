@@ -1,14 +1,29 @@
 {
 	/* VISUALS */
-	"terminal": { "line_height": "standard" },
+	"use_on_type_format": true,
+ "remove_trailing_whitespace_on_save": true,
+ "ssh_connections": [
+  {
+   "host": "rpi",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/abi/eleventy-site"
+     ]
+    }
+   ]
+  }
+ ],
+ "terminal": { "line_height": "standard" },
 	"theme": {
 		"mode": "dark",
 		"light": "Tokyo Night Light",
 		"dark": "Tokyo Night",
 	},
-	"ui_font_size": 12,
+	"ui_font_size": 14.0,
 	"ui_font_family": "Iosevka Curly",
-	"buffer_font_size": 12.0,
+	"buffer_font_size": 14.0,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
 	"buffer_font_features": { "calt": false },

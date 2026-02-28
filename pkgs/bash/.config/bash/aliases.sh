@@ -46,6 +46,9 @@ alias boot2windows='systemctl reboot --boot-loader-menu=1 --boot-loader-entry=wi
 alias lsblk='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINTS,SIZE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID | bat -l conf'
 alias screencopy='scrcpy'
 alias pn='pnpm'
+alias unstow='stow -D'
+alias x=startx
+alias gpls=pkexec
 
 # think twice before using rm
 alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"

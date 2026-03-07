@@ -3,10 +3,6 @@
 echo 'WORK IN PROGRESS' >&2
 # exit 1
 
-# TODO:
-#   -add the list option to list all available configs
-
-
 config_alacritty=$HOME/.config/alacritty/alacritty.toml
 
 config_bash_rc=$HOME/.bashrc

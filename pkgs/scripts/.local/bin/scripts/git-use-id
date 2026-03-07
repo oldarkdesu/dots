@@ -67,9 +67,14 @@ if confirm 'Continue? ' ; then
 	git config --local core.sshCommand "ssh -i $id_file"
 fi
 
-url=$(git remote get-url origin) >/dev/null
-if [ $? -gt 0 ] ; then
-	echo "Remote url will not be set"
-elif confirm "Set remote url to git@github.com:${username}.git?" ; then
-    git remote set-url origin git@github.com:${username}.git
+if git remote get-url origin >/dev/null ; then
+    repo=$(basename $(git remote get-url origin) .git)
+    new_url="git@github.com:${username}/${repo}.git"
+    if confirm "Set remote url to \`$new_url' ?" ; then
+        git remote set-url origin $new_url
+    else
+        echo "Remote url will not be set"
+    fi
+else
+    echo "Remote url will not be set"
 fi

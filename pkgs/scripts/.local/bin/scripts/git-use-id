@@ -66,3 +66,10 @@ if confirm 'Continue? ' ; then
 	git config --local user.email "$email"
 	git config --local core.sshCommand "ssh -i $id_file"
 fi
+
+url=$(git remote get-url origin) >/dev/null
+if [ $? -gt 0 ] ; then
+	echo "Remote url will not be set"
+elif confirm "Set remote url to git@github.com:${username}.git?" ; then
+    git remote set-url origin git@github.com:${username}.git
+fi

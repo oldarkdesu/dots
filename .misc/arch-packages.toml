@@ -1,6 +1,6 @@
 # WARNING: this is a mess. I'm not sure yet what will be the shape of the final
 # configuration schema for installing all the packages i need.
-cterminals = ['alacritty', 'foot', 'ghostty']
+terminals = ['alacritty', 'foot', 'ghostty']
 non-essential-cli-tools = [
 	'bat',        # colorize everything
 	'bottom',     # another system resource monitor

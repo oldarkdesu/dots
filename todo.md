@@ -3,6 +3,7 @@
 - Add Hyprland dots
 - improve the dotman thingy
 - improve pman
+- make an actually usable hyprland config
 
 ## Scripts
 

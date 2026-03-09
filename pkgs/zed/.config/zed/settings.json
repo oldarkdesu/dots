@@ -11,7 +11,7 @@
 	"theme": {
 		"mode": "dark",
 		"light": "Ayu Light",
-		"dark": "Tokyo Night Dark",
+		"dark": "Tokyo Night",
 	},
 	"ui_font_size": 15.0,
 	"ui_font_family": "Iosevka Curly",

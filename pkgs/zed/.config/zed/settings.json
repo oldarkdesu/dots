@@ -1,19 +1,7 @@
 {
 	/* VISUALS */
-	"ssh_connections": [
-  {
-   "host": "rpi",
-   "args": [],
-   "projects": [
-    {
-     "paths": [
-      "/home/abi/projects/langgraph-and-langchain-ibm-course"
-     ]
-    }
-   ]
-  }
- ],
- "use_on_type_format": true,
+
+	"use_on_type_format": true,
 	"remove_trailing_whitespace_on_save": true,
 	"terminal": { "line_height": "standard" },
 	"icon_theme": {
@@ -26,26 +14,27 @@
 		"light": "Ayu Light",
 		"dark": "Tokyo Night",
 	},
-	"ui_font_size": 15.0,
-	"ui_font_family": "Iosevka Curly",
-	"buffer_font_size": 15.0,
-	"buffer_font_family": "Iosevka Curly",
+	"ui_font_size": 16.0,
+	"ui_font_family": "Iosevka Fixed Curly",
+	"buffer_font_size": 16.0,
+	"buffer_font_family": "Iosevka Fixed Curly",
 	"buffer_line_height": "standard",
 	"buffer_font_features": { "calt": false },
-	"hard_tabs": true,
-	"tab_size": 4,
-	"show_whitespaces": "selection",
 	"gutter": {
 		"breakpoints": false,
 		"runnables": false,
-		"folds": false,
+		"folds": true,
 		"min_line_number_digits": 0,
 	},
 	"indent_guides": {
 		"coloring": "fixed",
 		"line_width": 1,
-		"active_line_width": 2,
+		"active_line_width": 3,
 	},
+	"show_whitespaces": "selection",
+	/* TABS */
+	"hard_tabs": true,
+	"tab_size": 4,
 	/* BEHAVIOR */
 	"format_on_save": "off",
 	"ensure_final_newline_on_save": false,
@@ -54,4 +43,18 @@
 		"diagnostics": false,
 		"metrics": false,
 	},
+	/* MISC */
+	"ssh_connections": [
+		{
+			"host": "rpi",
+			"args": [],
+			"projects": [
+				{
+					"paths": [
+						"/home/abi/projects/langgraph-and-langchain-ibm-course",
+					],
+				},
+			],
+		},
+	],
 }

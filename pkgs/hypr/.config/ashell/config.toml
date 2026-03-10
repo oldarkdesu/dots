@@ -1,0 +1,8 @@
+outputs = "Active"
+position = "Top"
+enable_esc_key = true
+
+[modules]
+left = ["Workspaces", "WindowTitle"]
+# center = ["Workspaces"]
+right = ["Tray", "MediaPlayer", ["Clock"], "Privacy", "Settings"]

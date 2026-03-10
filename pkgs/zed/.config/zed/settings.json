@@ -1,6 +1,19 @@
 {
 	/* VISUALS */
-	"use_on_type_format": true,
+	"ssh_connections": [
+  {
+   "host": "rpi",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/abi/projects/langgraph-and-langchain-ibm-course"
+     ]
+    }
+   ]
+  }
+ ],
+ "use_on_type_format": true,
 	"remove_trailing_whitespace_on_save": true,
 	"terminal": { "line_height": "standard" },
 	"icon_theme": {

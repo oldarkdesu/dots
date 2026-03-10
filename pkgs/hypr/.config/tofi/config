@@ -13,7 +13,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "iosevka"
+	font = "Iosevka Fixed Curly"
 
 	# Point size of text.
 	font-size = 16
@@ -74,13 +74,13 @@
 	prompt-background-corner-radius = 0
 
 	# Placeholder text theme
-	placeholder-color = #FFFFFFA8
+	placeholder-color = #FFFFFF44
 	placeholder-background = #00000000
 	placeholder-background-padding = 0
 	placeholder-background-corner-radius = 0
 
 	# Input text theme
-	# input-color = #FFFFFF
+	input-color = #00ff88
 	input-background = #00000000
 	input-background-padding = 0
 	input-background-corner-radius = 0
@@ -108,7 +108,7 @@
 	selection-background-corner-radius = 0
 
 	# Matching portion of selection text
-	selection-match-color = #ff0080
+	selection-match-color = #ff00ff
 
 
 #
@@ -117,7 +117,7 @@
 	# Style of the optional text cursor.
 	#
 	# Supported values: bar, block, underscore
-	text-cursor-style = bar
+	text-cursor-style = block
 
 	# Color of the text cursor
 	#
@@ -189,10 +189,10 @@
 	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 200
-	padding-bottom = 200
-	padding-left = 400
-	padding-right = 400
+	padding-top = 20%
+	padding-bottom = 20%
+	padding-left = 30%
+	padding-right = 30%
 
 	# Whether to clip text drawing to be within the specified padding. This
 	# is mostly important for allowing text to be inset from the border,
@@ -250,7 +250,7 @@
 	# history-file = /path/to/histfile
 
 	# Use fuzzy matching for searches.
-	fuzzy-match = false
+	fuzzy-match = true
 
 	# If true, require a match to allow a selection to be made. If false,
 	# making a selection with no matches will print input to stdout.

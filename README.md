@@ -1,3 +1,4 @@
+<!-- figlet -d /usr/share/figlet -f mono12 '~/dots' -->
 ```
                  ▄▄        ▄▄
                 ██         ██              ██
@@ -8,7 +9,7 @@
            ▄█▀         ▀▀▀ ▀▀    ▀▀▀▀       ▀▀▀▀    ▀▀▀▀▀▀
 ```
 
-This is my repository for my personal configuration files, or [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments), that I use on all of my machines. They're supposed to be managed with [GNU Stow](https://www.gnu.org/software/stow/).
+This repository is for my personal configuration files, or [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments), that I use on all of my machines. They're supposed to be managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## Setup
 

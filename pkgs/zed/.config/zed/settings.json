@@ -1,16 +1,15 @@
 {
 	/* VISUALS */
-
-	"use_on_type_format": true,
-	"remove_trailing_whitespace_on_save": true,
-	"terminal": { "line_height": "standard" },
+	"project_panel": {
+		"dock": "right",
+	},
 	"icon_theme": {
-		"mode": "dark",
-		"light": "Zed (Default)",
-		"dark": "Zed (Default)",
+		"mode": "system",
+		"light": "Symbols Icon Theme",
+		"dark": "Symbols Icon Theme",
 	},
 	"theme": {
-		"mode": "dark",
+		"mode": "system",
 		"light": "Ayu Light",
 		"dark": "Tokyo Night",
 	},
@@ -19,7 +18,7 @@
 	"buffer_font_size": 16.0,
 	"buffer_font_family": "Iosevka Fixed Curly",
 	"buffer_line_height": "standard",
-	"buffer_font_features": { "calt": false },
+	"buffer_font_features": { "calt": false }, // disable ligatures
 	"gutter": {
 		"breakpoints": false,
 		"runnables": false,
@@ -36,6 +35,7 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 	/* BEHAVIOR */
+	"remove_trailing_whitespace_on_save": true,
 	"format_on_save": "off",
 	"ensure_final_newline_on_save": false,
 	"agent": { "enabled": false },
@@ -43,12 +43,25 @@
 		"diagnostics": false,
 		"metrics": false,
 	},
+	"lsp": {
+		"basedpyright": {
+			"settings": {
+				"analysis": {
+					"autoImportCompletions": false,
+				},
+			},
+		},
+	},
+
 	/* MISC */
 	"ssh_connections": [
 		{
 			"host": "rpi",
 			"args": [],
 			"projects": [
+				{
+					"paths": ["/home/abi/projects/ibm-course/./"],
+				},
 				{
 					"paths": [
 						"/home/abi/projects/langgraph-and-langchain-ibm-course",
@@ -57,4 +70,16 @@
 			],
 		},
 	],
+
+	"languages": {
+		"Python": {
+			"hard_tabs": false,
+			"tab_size": 4,
+			"language_servers": [
+				"ty", // enable ty
+				"basedpyright", // disable basedpyright
+				// "...", // enable everything else
+			],
+		},
+	},
 }

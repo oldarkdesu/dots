@@ -1,8 +1,19 @@
-outputs = "Active"
+outputs = "All"
 position = "Top"
 enable_esc_key = true
 
 [modules]
 left = ["Workspaces", "WindowTitle"]
 # center = ["Workspaces"]
-right = ["Tray", "MediaPlayer", ["Clock"], "Privacy", "Settings"]
+right = ["Tray", "MediaPlayer", "Settings", ["Audio","Volume",  "SystemInfo", "Clock"], "Privacy"]
+
+[workspaces]
+# enable_workspace_filling = true
+
+
+[appearance]
+font_name = "Iosevka Fixed Curly"
+scale_factor = 1.2
+
+[settings]
+indicators = ["Audio", "Bluetooth", "Network"]

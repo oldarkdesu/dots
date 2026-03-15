@@ -1,4 +1,4 @@
-<!-- figlet -d /usr/share/figlet -f mono12 '~/dots' -->
+<!-- toilet -f mono12 '~/dots' -->
 ```
                  ▄▄        ▄▄
                 ██         ██              ██

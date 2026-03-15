@@ -5,6 +5,7 @@ non-essential-cli-tools = [
 	'bat',        # colorize everything
 	'bottom',     # another system resource monitor
 	'btop',       # fancy resource monitor
+	'figlet',     # convert regular plain text to ascii art
 	'glow',       # fancy markdown reader
 	'htop',       # popular resource monitor
 	'miniupnpc',  # small upnp client
@@ -15,6 +16,7 @@ non-essential-cli-tools = [
 	'git-delta',  # fancy diff viewer for git
 	'stow',       # manage symlink farms (such as my dotfile repo)
 	'tmux',       # terminal multiplexer
+	'toilet',     # like figlet
 	'tree',       # recursively list files in a
 	'zellij',     # another terminal multiplexer
 ]

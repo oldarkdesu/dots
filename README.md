@@ -1,5 +1,5 @@
-<!-- toilet -f mono12 '~/dots' -->
 ```
+[oldarkdesu@arch ~ ]$ toilet -f mono12 '~/dots'
                  ▄▄        ▄▄
                 ██         ██              ██
                ██     ▄███▄██   ▄████▄   ███████   ▄▄█████▄

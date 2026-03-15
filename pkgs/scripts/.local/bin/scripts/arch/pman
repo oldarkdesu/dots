@@ -26,7 +26,7 @@ else
 	echo -e "\e[1;93m[pman]\e[0m Warning! Neither 'sudo' nor 'doas' is available." >&2
 fi
 
-pman_help="Usage: pman SUBCOMMAND [ARGUMENTS] [PACMAN-OPTIONS]
+help_str="Usage: pman SUBCOMMAND [ARGUMENTS] [PACMAN-OPTIONS]
 Subcommands:
     install PACKAGE(S)
         Alases: i, in
@@ -111,23 +111,26 @@ if test $1 ; then
 		refresh) $SUCMD pacman -Sy ;;
 		update-mirrors)
 			$SUCMD reflector --latest 20 \
-								  --country ${2:-'US,CO,'} \
-								  --sort rate \
-								  --save /etc/pacman.d/mirrorlist
+							  --country ${2:-'US,CO,'} \
+							  --sort rate \
+							  --save /etc/pacman.d/mirrorlist
 			;;
 		clean )
 			$SUCMD pacman -Sc
 			;;
 		h | he | hel | help )
-			echo "$pman_help"
+			echo "$help_str"
+			;;
+		provides)
+			pacman -F ${@:2}
 			;;
 		* )
-			echo "$pman_help"
+			echo "$help_str"
 			exit 1
 			;;
 	esac
 	exit 0
 else
-	 echo "$pman_help"
+	 echo "$help_str"
 	 exit 1
 fi

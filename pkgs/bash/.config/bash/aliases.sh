@@ -31,24 +31,26 @@ alias diff='diff --color=auto'
 alias ls='ls --color=auto -AF -w 80 --group-directories-first --sort=extension'
 # alias ll="ls -ovhkN --time-style=+%Y-%m-%d$'\n'%T"
 alias ll="ls -ovhkN --time-style=+%Y-%m-%d__%T"
+alias lsblk='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINTS,SIZE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID | bat -l conf'
 alias ip='ip -color=auto'
 alias mkdir='mkdir -pv'
 alias pwd='pwd -P'
-alias tree='tree -FCal -I node_modules/ -I .git/ -I .venv/ -I venv/ --filelimit=25 --dirsfirst --charset=ascii -L 5 '
 alias du='du --total --human-readable --summarize'
-alias nnn='nnn -H'
-alias n3=nnn
-alias unimatrix='unimatrix -c cyan -f -s 96 -a -l AakkS'
-alias trix=unimatrix
 alias oyasumi='systemctl suspend'
 alias reboot-user='systemctl soft-reboot'
 alias boot2windows='systemctl reboot --boot-loader-menu=1 --boot-loader-entry=windows.conf'
-alias lsblk='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINTS,SIZE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID | bat -l conf'
+alias tree='tree -FCal -I node_modules/ -I .git/ -I .venv/ -I venv/ --filelimit=25 --dirsfirst --charset=ascii -L 5 '
+
+alias unimatrix='unimatrix -c cyan -f -s 96 -a -l AakkS'
+alias trix=unimatrix
+alias nnn='nnn -H'
+alias n3=nnn
+alias unstow='stow -D'
 alias screencopy='scrcpy'
 alias pn='pnpm'
-alias unstow='stow -D'
 alias x=startx
 alias gpls=pkexec
+alias zed=zeditor
 
 # think twice before using rm
 alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"
@@ -69,7 +71,8 @@ case  $(source /etc/os-release && echo "$ID") in
 		# custom configs for ubuntu incomming...
 		;;
 	arch)
-		# TODO: I swear i had something in mind to put here. I'll add it when I remember what it was
+		alias yeet='pls pacman -Rns --confirm'
+		alias bigecho='figlet -d /usr/share/figlet -f mono12 '
 		;;
 esac
 

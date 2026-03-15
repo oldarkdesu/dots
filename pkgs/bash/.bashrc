@@ -14,11 +14,11 @@ HISTSIZE=100000000
 
 if [ -f /usr/share/git/completion/git-completion.bash ] ; then
 	source /usr/share/git/completion/git-completion.bash
-else 
+else
 	source ~/.config/bash/git-completion.bash
 fi
 
-# starship prompt 
+# starship prompt
 # eval "$(starship init bash)"
 
 source ~/.config/bash/prompt.sh

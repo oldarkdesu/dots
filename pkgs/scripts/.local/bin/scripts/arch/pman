@@ -54,6 +54,7 @@ Subcommands:
                                 get information about PACKAGE in remote
                                 repositories
     provides PACKAGE(S)         lists the packages that provide listed commands
+    owns PACKAGE(S)             lists the package that owns each passed file
     autoremove                  automatically remove orphaned packages
     refresh                     sync the package databases
     update-mirrors [MIRRORS]    update mirrorlist using reflector"
@@ -111,8 +112,8 @@ if test $1 ; then
 		refresh) $SUCMD pacman -Sy ;;
 		update-mirrors)
 			$SUCMD reflector --latest 20 \
-							  --country ${2:-'US,CO,'} \
 							  --sort rate \
+							  --country ${2:-'US,CO,'} \
 							  --save /etc/pacman.d/mirrorlist
 			;;
 		clean )
@@ -121,9 +122,8 @@ if test $1 ; then
 		h | he | hel | help )
 			echo "$help_str"
 			;;
-		provides)
-			pacman -F ${@:2}
-			;;
+		provides) pacman -F  ${@:2} ;;
+		owns)     pacman -Qo ${@:2} ;;
 		* )
 			echo "$help_str"
 			exit 1

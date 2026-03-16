@@ -1,5 +1,9 @@
 {
 	/* VISUALS */
+	"soft_wrap": "prefer_line",
+	"which_key": {
+		"enabled": true,
+	},
 	"project_panel": {
 		"dock": "right",
 	},
@@ -25,16 +29,57 @@
 		"folds": true,
 		"min_line_number_digits": 0,
 	},
+	"toolbar": {
+		"breadcrumbs": true, // Whether to show breadcrumbs.
+		"quick_actions": false, // Whether to show quick action buttons.
+		"selections_menu": true, // Whether to show the Selections menu
+		"agent_review": false, // Whether to show agent review buttons
+		"code_actions": false, // Whether to show code action buttons
+	},
+	// Maximum number of tabs per pane. Unset for unlimited.
+	"max_tabs": null,
+
+	// Customize the tab bar appearance
+	"tab_bar": {
+		"show": false, // Show/hide the tab bar
+		"show_nav_history_buttons": true, // Show/hide history buttons on tab bar
+		"show_tab_bar_buttons": true, // Show hide buttons (new, split, zoom)
+	},
+	"tabs": {
+		"git_status": true, // Color to show git status
+		"close_position": "right", // Close button position (left, right, hidden)
+		"show_close_button": "hover", // Close button shown (hover, always, hidden)
+		"file_icons": false, // Icon showing file type
+		// Show diagnostics in file icon (off, errors, all). Requires file_icons=true
+		"show_diagnostics": "off",
+	},
+	"title_bar": { "show_branch_icon": true },
 	"indent_guides": {
 		"coloring": "fixed",
 		"line_width": 1,
 		"active_line_width": 3,
 	},
 	"show_whitespaces": "selection",
+	"whitespace_map": {
+		// Which characters to show when `show_whitespaces` enabled
+		"space": "•",
+		"tab": "→", // use "→", for a shorter arrow
+	},
+	"wrap_guides": [80, 100],
+	"show_wrap_guides": true,
+	"preferred_line_length": 80,
+	"minimap": {
+		"show": "auto", // When to show (auto, always, never)
+		"display_in": "all_editors", // Where to show (active_editor, all_editor)
+		"thumb": "always", // When to show thumb (always, hover)
+		"thumb_border": "none", // Thumb border (left_open, right_open, full, none)
+		"max_width_columns": 80, // Maximum width of minimap
+	},
 	/* TABS */
 	"hard_tabs": true,
 	"tab_size": 4,
 	/* BEHAVIOR */
+	"disable_ai": true,
 	"remove_trailing_whitespace_on_save": true,
 	"format_on_save": "off",
 	"ensure_final_newline_on_save": false,
@@ -52,7 +97,6 @@
 			},
 		},
 	},
-
 	/* MISC */
 	"ssh_connections": [
 		{

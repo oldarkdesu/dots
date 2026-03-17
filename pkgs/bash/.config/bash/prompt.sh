@@ -32,6 +32,7 @@ fi
 if command -v fc-list 2>&1 >/dev/null && fc-list | grep -q 'Nerd' ; then
 	NERD_FONT_AVAILABLE='yes'
 fi
+
 # ----- Functions -----
 
 function print_if_nerd {

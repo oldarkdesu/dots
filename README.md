@@ -19,8 +19,8 @@ The first thing I do when setting up a new system is to **install stow** and clo
 # I know there are packages for arch, debian and fedora, all called `stow`
 sudo pacman -S stow --needed --noconfirm
 
-# Clone the repo to ~/dots
-git clone https://github.com/oldarkdesu/dots.git ~/dots
+# Clone the repo to ~/dots and
+git clone --recurse-submodules https://github.com/oldarkdesu/dots.git ~/dots
 
 # I also make sure to move/rename default files that may collide with the ones
 # in this repo
@@ -68,3 +68,4 @@ This project includes third-party code via a git submodule. Please be aware that
 
 * **alacritty-theme**: Located in the `alacritty/.config/alacritty/alacritty-theme` directory, this code is licensed under the [Apache License, Version 2.0](alacritty/.config/alacritty/alacritty-theme/LICENSE). For the full license text, please see the `LICENSE` file within that directory.
 
+If you cloned the repo without the `--recurse-submodules` flag, you can simply run `git submodule update --init` to clone the Alacritty Themes repo.

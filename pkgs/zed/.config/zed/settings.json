@@ -69,7 +69,7 @@
 	"show_wrap_guides": true,
 	"preferred_line_length": 80,
 	"minimap": {
-		"show": "auto", // When to show (auto, always, never)
+		"show": "never", // When to show (auto, always, never)
 		"display_in": "all_editors", // Where to show (active_editor, all_editor)
 		"thumb": "always", // When to show thumb (always, hover)
 		"thumb_border": "none", // Thumb border (left_open, right_open, full, none)

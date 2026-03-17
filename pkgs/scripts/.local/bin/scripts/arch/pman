@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Pman - small `pacman` wrapper for everyday operations
-# Copyright (C) 2025  OldarkDesu
+# Copyright (C) 2026  OldarkDesu
 
 # This program is free software; you can redistribute it and/or
 # meodify it under the terms of the GNU General Public License, version 2
@@ -26,9 +26,9 @@ else
 	echo -e "\e[1;93m[pman]\e[0m Warning! Neither 'sudo' nor 'doas' is available." >&2
 fi
 
-pman_help="Usage: pman SUBCOMMAND [ARGUMENTS] [PACMAN-OPTIONS]
+help_str="Usage: pman SUBCOMMAND [ARGUMENTS] [PACMAN-OPTIONS]
 Subcommands:
-    install PACKAGE(S) 
+    install PACKAGE(S)
         Alases: i, in
                                 install packages
     remove PACKAGE(S)
@@ -43,35 +43,37 @@ Subcommands:
     find-exact PACKAGE(s)
         Aliases: fx
                                 find PACKAGE(S) in local database
-    search-exact PACKAGE(S) 
+    search-exact PACKAGE(S)
         Aliases: sx
                                 search PACKAGE(S) in package repos
-    info PACKAGE             
-	                            get information about PACKAGE in the local
-								database
+    info PACKAGE
+                                get information about PACKAGE in the local
+                                database
     info-remote PACKAGE
         Aliases: ir, infore
-                                get information about PACKAGE in remote 
+                                get information about PACKAGE in remote
                                 repositories
+    provides PACKAGE(S)         lists the packages that provide listed commands
+    owns PACKAGE(S)             lists the package that owns each passed file
     autoremove                  automatically remove orphaned packages
     refresh                     sync the package databases
     update-mirrors [MIRRORS]    update mirrorlist using reflector"
 
 if test $1 ; then
-	case $1 in 
+	case $1 in
 		i | in | install ) $SUCMD pacman -S --needed    ${@:2}  ;;
 		u | up | update )  $SUCMD pacman -Syu           ${@:2}  ;;
 		r | re | remove )  $SUCMD pacman -Rns --confirm ${@:2}  ;;
-		f | fi | find ) 
+		f | fi | find )
 			echo "Finding in remote repos..."
-			pacman -Ss            ${@:2}  
+			pacman -Ss            ${@:2}
 			;;
-		fx | fix | fex | find-exact ) 
+		fx | fix | fex | find-exact )
 			IFS='|'
 			echo "Finding ${@} in remote repos..."
 			pacman -Ss "^(${*:2})$"
 			;;
-		s | se | search ) 
+		s | se | search )
 			echo "Searching $2 in local database..."
 			pacman -Qs $2
 			;;
@@ -79,18 +81,18 @@ if test $1 ; then
 			echo "Searching for ${@:2} in local database..."
 			pacman -Q ${@:2}
 			;;
-		info ) 
-			if [ -n "$3" ]; then 
+		info )
+			if [ -n "$3" ]; then
 				echo -e "\e[1;33m[pman]\e[0m Only one package name supported by \`pman info\`, ignoring the rest..." >&2
 			fi
-			pacman -Qii $2 
+			pacman -Qii $2
 			if [ $? -ne 0 ]; then
 				echo -e "\e[1;33m[pman]\e[0m \`$2\` not found in local database. Trying again with command \`$(basename $0) info-remote\`" >&2
 				pman info-remote $2
 			fi
 			;;
 		ir | infore | info-remote )
-			if [ -n "$3" ]; then 
+			if [ -n "$3" ]; then
 				echo -e "\e[1;33m[pman]\e[0m Only one package name supported by \`pman info-remote\`, ignoring the rest..." >&2
 			fi
 			pacman -Sii $2
@@ -99,34 +101,36 @@ if test $1 ; then
 				exit 1
 			fi
 			;;
-		autoremove ) 
+		autoremove )
 			TARGETS="$(pacman -Qdttnq)"
 			if [ -z "$TARGETS" ] ; then
 				echo -e "\e[1;32m[pman]\e[0m Nothing to remove";
 			else
 				echo "$TARGETS" | $SUCMD pacman -Rns --confirm -
 			fi
-			;; 
+			;;
 		refresh) $SUCMD pacman -Sy ;;
 		update-mirrors)
 			$SUCMD reflector --latest 20 \
-								  --country ${2:-'US,CO,'} \
-								  --sort rate \
-								  --save /etc/pacman.d/mirrorlist
+							  --sort rate \
+							  --country ${2:-'US,CO,'} \
+							  --save /etc/pacman.d/mirrorlist
 			;;
 		clean )
 			$SUCMD pacman -Sc
 			;;
 		h | he | hel | help )
-			echo "$pman_help"
+			echo "$help_str"
 			;;
+		provides) pacman -F  ${@:2} ;;
+		owns)     pacman -Qo ${@:2} ;;
 		* )
-			echo "$pman_help"
+			echo "$help_str"
 			exit 1
 			;;
 	esac
 	exit 0
-else 
-	 echo "$pman_help"
+else
+	 echo "$help_str"
 	 exit 1
 fi

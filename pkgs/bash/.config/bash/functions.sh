@@ -113,4 +113,14 @@ flash_iso_DESTRUCTIVE () {
 	$SUCMD dd bs=4M if="$1" of="$2" conv=fsync oflag=direct status=progress
 }
 
-# foo () { echo -e "mission failed successfully \n\$#: $#" ; return 69 ; }
+watch_file_and_exec () {
+	if [ $# -gt 3 ] ; then
+		echo 'Command must be passed as a single string'
+		return 1
+	fi
+
+	inotifywait -qrm -e close_write,moved_to,create --format '%w%f' $1 | while read -r file; do
+	    echo "Change detected in $file, running a command: $2"
+	   	bash -c "$2"
+	done
+}

@@ -13,7 +13,7 @@
 		"dark": "Symbols Icon Theme",
 	},
 	"theme": {
-		"mode": "system",
+		"mode": "dark",
 		"light": "Ayu Light",
 		"dark": "Tokyo Night",
 	},

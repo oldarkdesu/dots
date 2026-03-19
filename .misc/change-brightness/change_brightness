@@ -1,11 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import math
 import sys
 
 HELP_STR = """change_brightness.py    sets the brightness as a percentage of the system's max brightness.
 
-Usage: 
+Usage:
     {BIN} [OPTIONS] <percentage 0 - 100>
 Available Options:
     -s --show-current   Do not change brightness. Print current brightness to STDOUT
@@ -21,8 +21,8 @@ files: dict = {
     "max_brightness": 'test_max_brightness.txt',
     "brightness": 'test_brightness.txt'
 } if testing else {
-    "max_brightness": "/sys/class/backlight/intel_backlight/max_brightness" if not testing else 'test_max_brightness.txt',
-    "brightness": "/sys/class/backlight/intel_backlight/brightness" if not testing else 'test_brightness.txt'
+    "max_brightness": "/sys/class/backlight/intel_backlight/max_brightness",
+    "brightness": "/sys/class/backlight/intel_backlight/brightness"
 }
 
 print_help = lambda: print(HELP_STR.format(BIN=sys.argv[0]))
@@ -35,7 +35,7 @@ def find_int(options:list[str]) -> int:
             if verbose:
                 print(f"Cant parse '{opt}' into an integer. Trying next option.")
             continue
-        
+
     return -1
 
 def get_max_brightness(filename):
@@ -44,16 +44,16 @@ def get_max_brightness(filename):
         return int(foo)
 if show_help:
     print_help()
-elif show_current: 
+elif show_current:
     print(get_max_brightness(files['max_brightness']))
 else:
     try:
         max_brightness = get_max_brightness(files["max_brightness"])
         if verbose:
             print(f'Max brightness: {max_brightness} ({files["max_brightness"]}):')
-        
+
         target_brightness = find_int(sys.argv[1:])
-        
+
         if target_brightness < 0:
             print("Cant set negative brightness")
             exit(1)

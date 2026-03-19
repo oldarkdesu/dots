@@ -1,9 +1,8 @@
 {
 	/* VISUALS */
 	"workbench.colorTheme": "Tokyo Night",
-	"workbench.iconTheme": "vs-seti",
-	"editor.fontFamily": "'Iosevka Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
-	"editor.fontSize": 16,
+	"editor.fontFamily": "'Iosevka Curly', 'Iosevka Fixed Curly', 'Droid Sans Mono', 'Symbols Nerd Font', 'Cascadia Code', 'monospace', monospace",
+	"editor.fontSize": 15,
 	"editor.rulers": [
 		80,
 		100
@@ -13,27 +12,26 @@
 	"editor.minimap.autohide": "mouseover",
 	"editor.minimap.enabled": false,
 	"editor.stickyScroll.enabled": false,
-	// "editor.folding": false,
 	"editor.renderWhitespace": "selection",
-	"window.menuBarVisibility": "toggle",
+	"workbench.editor.showTabs": "none", // it is more convinient to use ctrl+p when working with more than 3 files
+	// "workbench.editor.showTabIndex": true,
 	"window.density.editorTabHeight": "compact",
 	"workbench.tree.indent": 15,
 	"workbench.activityBar.location": "hidden",
 	"workbench.layoutControl.type": "menu",
 	"editor.minimap.renderCharacters": false,
 	"editor.glyphMargin": false,
-	"window.titleBarStyle": "native",
-	"window.customTitleBarVisibility": "never",
+	"explorer.sortOrder": "type",
+	// "window.menuBarVisib ility": "toggle",
+	// "window.titleBarStyle": "native",
+	// "window.customTitleBarVisibility": "never",
 	"workbench.secondarySideBar.defaultVisibility": "hidden",
+	"terminal.integrated.fontSize": 16,
+	"terminal.integrated.fontWeightBold": "normal",
 	"workbench.editor.enablePreview": true,
 	"workbench.editor.enablePreviewFromCodeNavigation": true,
 	"workbench.editor.enablePreviewFromQuickOpen": true,
 	"files.simpleDialog.enable": true,
-	"terminal.integrated.fontSize": 16,
-	// "terminal.integrated.fontWeightBold": "normal",
-	"terminal.integrated.stickyScroll.maxLineCount": 2,
-	"terminal.integrated.stickyScroll.enabled": false,
-	"terminal.integrated.shellIntegration.enabled": true,
 	/* BEHAVIOR */
 	"update.mode": "manual",
 	"update.showReleaseNotes": false,
@@ -41,32 +39,65 @@
 	"editor.linkedEditing": true,
 	"editor.snippetSuggestions": "top",
 	/*Tabs*/
-	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
+	// "editor.detectIndentation": true,
 	"editor.tabSize": 4,
 	"editor.indentSize": "tabSize",
+	// "editor.useTabStops": true,
 	/* AI SHIT - to hide more stuff click the copilot button on the menubar and select "hide ai features" */
 	"telemetry.feedback.enabled": false,
 	"chat.agent.enabled": false,
 	"chat.sendElementsToChat.enabled": false,
 	"inlineChat.lineNaturalLanguageHint": false,
+	"chat.disableAIFeatures": false,
 	/* EXTENSIONS */
 	"liveServer.settings.donotShowInfoMsg": true,
 	"liveServer.settings.port": 6969,
 	"liveServer.settings.host": "0.0.0.0",
-	"liveServer.settings.fullReload": false,
 	"notebook.markup.fontFamily": "'Roboto Serif', 'Noto Serif', 'Liberation Serif'",
 	"notebook.markup.fontSize": 20,
 	"notebook.compactView": false,
 	/* misc */
 	"extensions.ignoreRecommendations": true,
-	"python.analysis.typeCheckingMode": "off",
 	"python.terminal.activateEnvironment": true,
 	"python.analysis.autoFormatStrings": true,
-	"git.openRepositoryInParentFolders": "never",
-	"liveServer.settings.donotVerifyTags": true,
 	// "explorer.fileNesting.enabled": true,
-	// "explorer.fileNesting.patterns": {
-	// 	"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock",
-	// },
+	"git.openRepositoryInParentFolders": "never",
+	"python.analysis.typeCheckingMode": "basic",
+	"remote.SSH.remotePlatform": {
+		"whitetop.local": "linux",
+		"rpi.local": "linux",
+		"rpi": "linux"
+	},
+	"terminal.integrated.stickyScroll.enabled": false,
+	"workbench.iconTheme": "symbols",
+	"git.ignoreMissingGitWarning": true,
+	"jupyter.askForKernelRestart": false,
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter",
+	},
+	"terminal.integrated.profiles.windows": {
+		"PowerShell": {
+			"source": "PowerShell",
+			"overrideName": true,
+			"icon": "terminal-powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass"
+			]
+		}
+	},
+	"window.autoDetectColorScheme": true,
+	"workbench.preferredDarkColorTheme": "Tokyo Night",
+	"workbench.preferredHighContrastLightColorTheme": "Tokyo Night Light",
+	"github.copilot.enable": {
+		"*": false,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false
+	},
+	"security.allowedUNCHosts": [
+		"wsl.localhost"
+	],
+	"tinymist.fontPaths": [],
 }

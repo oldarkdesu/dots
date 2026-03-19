@@ -31,17 +31,17 @@
 	},
 	"toolbar": {
 		"breadcrumbs": true, // Whether to show breadcrumbs.
-		"quick_actions": false, // Whether to show quick action buttons.
+		"quick_actions": true, // Whether to show quick action buttons.
 		"selections_menu": true, // Whether to show the Selections menu
 		"agent_review": false, // Whether to show agent review buttons
-		"code_actions": false, // Whether to show code action buttons
+		"code_actions": true, // Whether to show code action buttons
 	},
 	// Maximum number of tabs per pane. Unset for unlimited.
 	"max_tabs": null,
 
 	// Customize the tab bar appearance
 	"tab_bar": {
-		"show": false, // Show/hide the tab bar
+		"show": true, // Show/hide the tab bar
 		"show_nav_history_buttons": true, // Show/hide history buttons on tab bar
 		"show_tab_bar_buttons": true, // Show hide buttons (new, split, zoom)
 	},
@@ -88,15 +88,6 @@
 		"diagnostics": false,
 		"metrics": false,
 	},
-	"lsp": {
-		"basedpyright": {
-			"settings": {
-				"analysis": {
-					"autoImportCompletions": false,
-				},
-			},
-		},
-	},
 	/* MISC */
 	"ssh_connections": [
 		{
@@ -104,26 +95,34 @@
 			"args": [],
 			"projects": [
 				{
-					"paths": ["/home/abi/projects/ibm-course/./"],
+					"paths": ["/home/abi/projects/ibm-course"],
 				},
 				{
-					"paths": [
-						"/home/abi/projects/langgraph-and-langchain-ibm-course",
-					],
+					"paths": ["/home/abi/projects/realtime-voice-agent"],
+				},
+				{
+					"paths": ["/home/abi/projects/voice-sandwich-demo"],
 				},
 			],
 		},
 	],
+	"lsp": {
+		"ty": {
+			"settings": {
+				// "diagnosticMode": "off",
+			},
+		},
+	},
 
 	"languages": {
 		"Python": {
 			"hard_tabs": false,
 			"tab_size": 4,
-			"language_servers": [
-				"ty", // enable ty
-				"basedpyright", // disable basedpyright
-				// "...", // enable everything else
-			],
+			// "language_servers": [
+			// 	"ty", // enable ty
+			// 	"!basedpyright", // disable basedpyright
+			// 	// "...", // enable everything else
+			// ],
 		},
 	},
 }

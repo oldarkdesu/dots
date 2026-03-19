@@ -1,5 +1,5 @@
 ```
-[oldarkdesu@arch ~ ]$ toilet -f mono12 '~/dots'
+~ $ toilet -f mono12 '~/dots'
                  ▄▄        ▄▄
                 ██         ██              ██
                ██     ▄███▄██   ▄████▄   ███████   ▄▄█████▄
@@ -53,7 +53,7 @@ sotw $(echo pkgs/*)  # the shell will expand this to all the directories in the
 
 - The `scripts/.local/bin/scripts/` folder should contain scripts that i can run on any of the linux distros I have installed. Subfolders within it (e.g. `pkgs/scripts/.local/bin/scripts/arch/`) contain distro specific scripts, `pman` for example, which is a small `pacman` wrapper and thus there's no reason to make it available in the PATH on every single distro. The code for detecting the distro and adding the scripts to PATH is located in each shell's profile configuration (currently just `.bash_profile`).
 - The `.misc/explicitly-installed-arch-packages.toml` file contains pacages for arch linux that i've installed on my system.
-- If you think something in this repository can improve, or have any questions, you can open a [Github Issue](https://github.com/oldarkdesu/dots/issues/new/choose), or send me an email at `oldarkdesu@gmail.com`, or DM me on Discord (`@oldarkdesu`). I'll try to respond as I can `:-)`
+- If you think something in this repository can improve, or have any questions, you can open a [Github Issue](https://github.com/oldarkdesu/dots/issues/new/choose), or send me an email at `oldarkdesu@gmail.com`, or DM me on Discord (`@oldarkdesu`). I'll try to respond as I can :^)
 
 ## License
 

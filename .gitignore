@@ -4,3 +4,7 @@ pkgs/git/.config/git/userconfig
 # I don't want to track these :P
 pkgs/micro/.config/micro/backups/
 pkgs/micro/.config/micro/buffers/
+
+# emacs
+pkgs/emacs/.config/emacs/auto-save-list
+pkgs/emacs/.config/emacs/eln-cache

@@ -49,14 +49,14 @@
       modus-themes-fringes '(intense)
       modus-themes-hl-line '(accented intense)
       modus-themes-paren-match '(bold intense)
-      modus-themes-region '(accented no-extend bg-only))
+       modus-themes-region '(accented no-extend bg-only))
 					; load theme
 (load-theme 'modus-vivendi)
 					; set font
 ;; Acroding to https://emacs.stackexchange.com/questions/52063/emacsclient-gui-has-small-fonts
 ;; aparently (set-frame-font "mononoki-13" nil t) don't work
 
-(add-to-list 'default-frame-alist '(font . "jetbrainsmono nerd font-12"))
+(add-to-list 'default-frame-alist '(font . "iosevka fixed curly-16"))
 					; set indentation style for c
 (setq c-default-style "k&r" c-basic-offset 4)
 
@@ -64,7 +64,7 @@
 (defun reload-config ()
   (interactive)
   (load-file "~/.config/emacs/init.el"))
-;(global-set-key (kbd "C-x r") 'reload-config)
+(global-set-key (kbd "C-x r") 'reload-config)
 
 ;; mouse
 (setq mouse-wheel-progressive-speed nil

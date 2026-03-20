@@ -14,8 +14,8 @@
 	ll = log --graph --all --pretty=fuller
 	lol = log --graph --all --date=human --pretty=oneline
 	s = status --short --branch
-	lazycommit = !git add . && git commit -m 'git badcommit: lazyly committing all changes...'
-	fastcommit = !git add . && git commit -m
+	lazycommit = !git commit -am 'lazyly committing all changes...'
+	fastcommit = !git commit -am
 	use-id = !git-use-id $1
 	use = use-id
 	aliases = !git config --list | grep ^alias\\. | cut -c 7- --

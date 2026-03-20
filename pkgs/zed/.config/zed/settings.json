@@ -23,6 +23,9 @@
 	"buffer_font_family": "Iosevka Fixed Curly",
 	"buffer_line_height": "standard",
 	"buffer_font_features": { "calt": false }, // disable ligatures
+
+	"outline_panel": { "dock": "right" },
+
 	"gutter": {
 		"breakpoints": false,
 		"runnables": false,

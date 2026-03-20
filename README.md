@@ -53,7 +53,7 @@ sotw $(echo pkgs/*)  # the shell will expand this to all the directories in the
 
 - My Bash configuration (at `pkgs/bash`). I have it separated into multiple files, with the sourced `prompt.sh` being the one I'm most proud of. It uses `git-prompt.sh` from Arch's oficial Git package.
 - Pman, my tiny wrapper script for _pacman_ (located at `pkgs/scripts/.local/bin/scripts/arch/pman`). It pretty much just runs some commands listed in [the pacman rosetta](https://wiki.archlinux.org/title/Pacman/Rosetta).
-- Colortest. It prints some [ANSI escape sequences](http://en.wikipedia.org/wiki/ANSI_escape_code), that to test color themes and terminal capabilities. Currently it simply shows the different output for a few [SGR codes](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters), including the codes for 4-bit color and the first 10 rendering attributes.
+- Colortest (`pkgs/scripts/.local/bin/scripts/colortest`). It prints some [ANSI escape sequences](http://en.wikipedia.org/wiki/ANSI_escape_code), that to test color themes and terminal capabilities. Currently it simply shows the different output for a few [SGR codes](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters), including the codes for 4-bit color and the first 10 rendering attributes.
 - Examples at `pkgs/scripts/.local/bin/scripts/`, which contain some useful bash/posix shell code snippets for me to remember.
 
 ## Notes

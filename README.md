@@ -9,7 +9,7 @@
            ▄█▀         ▀▀▀ ▀▀    ▀▀▀▀       ▀▀▀▀    ▀▀▀▀▀▀
 ```
 
-This repository is for my personal configuration files, or [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments), that I use on all of my machines. They're supposed to be managed with [GNU Stow](https://www.gnu.org/software/stow/).
+This repository contains my personal configuration files, or [dotfiles](https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#Unix_and_Unix-like_environments), that I use on all of my machines. They're supposed to be managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## Setup
 
@@ -53,7 +53,7 @@ sotw $(echo pkgs/*)  # the shell will expand this to all the directories in the
 
 - The `scripts/.local/bin/scripts/` folder should contain scripts that i can run on any of the linux distros I have installed. Subfolders within it (e.g. `pkgs/scripts/.local/bin/scripts/arch/`) contain distro specific scripts, `pman` for example, which is a small `pacman` wrapper and thus there's no reason to make it available in the PATH on every single distro. The code for detecting the distro and adding the scripts to PATH is located in each shell's profile configuration (currently just `.bash_profile`).
 - The `.misc/explicitly-installed-arch-packages.toml` file contains pacages for arch linux that i've installed on my system.
-- If you think something in this repository can improve, or have any questions, you can open a [Github Issue](https://github.com/oldarkdesu/dots/issues/new/choose), or send me an email at `oldarkdesu@gmail.com`, or DM me on Discord (`@oldarkdesu`). I'll try to respond as I can :^)
+- Even though this is my personal setup, I don't mind recieving suggestions about my scripts or any other file in here. If you think something in this repository can improve, or have any questions, you can open a [Github Issue](https://github.com/oldarkdesu/dots/issues/new/choose), or send me an email at `oldarkdesu@gmail.com`, or DM me on Discord (`@oldarkdesu`). I'll try to respond as I can :^)
 
 ## License
 

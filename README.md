@@ -33,7 +33,7 @@ If for some reason someone other than me is reading this, beware that the defaul
 
 This repo contains a set of directories or _packages_ (as `stow` calls them), each directory inside `pkgs` is a stow _package_, a set of files related to particular piece of software; e.g. `pkgs/alacritty/` contains files like `alacritty.toml` or `theme.toml`, but they're under the same directory structure as if they're were in the `$HOME` directory. For a more in-depth explaination of how stow works, read the _man_ page or _info_ page, or you can also [read it online](https://www.gnu.org/software/stow/manual/) through your web browser.
 
-To "deploy" a _package_, you run the command `stow <package> [<...more packages>]`. I always make sure my CWD is this repo, since here's where I have my .stowrc file with the options I use.
+To "deploy" a _package_, you run the command `stow <one or more packages>`. I always make sure my CWD is this repo, since here's where I have my .stowrc file with the options for the target and source directories.
 
 ```sh
 cd ~/dots

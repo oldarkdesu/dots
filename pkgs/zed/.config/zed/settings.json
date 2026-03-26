@@ -121,11 +121,12 @@
 		"Python": {
 			"hard_tabs": false,
 			"tab_size": 4,
-			// "language_servers": [
-			// 	"ty", // enable ty
-			// 	"!basedpyright", // disable basedpyright
-			// 	// "...", // enable everything else
-			// ],
+			"language_servers": [
+				"ty", // enable ty
+				"ruff",
+				"!basedpyright", // disable basedpyright
+				// "...", // enable everything else
+			],
 		},
 	},
 }

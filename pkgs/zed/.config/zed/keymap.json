@@ -19,10 +19,10 @@
 		},
 	},
 	{
-		"context": "Workspace",
-		"bindings": {
-			"ctrl-b": "workspace::ToggleRightDock",
-			"ctrl-alt-b": "workspace::ToggleLeftDock",
-		},
+		// "context": "Workspace",
+		// "bindings": {
+		// 	"ctrl-b": "workspace::ToggleRightDock",
+		// 	"ctrl-alt-b": "workspace::ToggleLeftDock",
+		// },
 	},
 ]

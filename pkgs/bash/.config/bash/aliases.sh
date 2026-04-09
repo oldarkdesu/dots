@@ -46,6 +46,7 @@ alias trix=unimatrix
 alias nnn='nnn -H'
 alias n3=nnn
 alias unstow='stow -D'
+alias restow='stow -R'
 alias screencopy='scrcpy'
 alias pn='pnpm'
 alias x=startx

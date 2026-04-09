@@ -20,8 +20,9 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # database in there is a little bit messy :P
 # export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 
-export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
-
+if [ -f "${XDG_CONFIG_HOME}/wgetrc" ] ; then
+	export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
+fi
 export LESSHISTFILE="${XDG_CONFIG_HOME}/less/history"
 export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
 

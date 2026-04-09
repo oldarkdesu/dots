@@ -4,9 +4,6 @@
 	"which_key": {
 		"enabled": true,
 	},
-	"project_panel": {
-		"dock": "right",
-	},
 	"icon_theme": {
 		"mode": "system",
 		"light": "Symbols Icon Theme",
@@ -15,7 +12,7 @@
 	"theme": {
 		"mode": "dark",
 		"light": "Ayu Light",
-		"dark": "Tokyo Night",
+		"dark": "Ayu Dark",
 	},
 	"ui_font_size": 16.0,
 	"ui_font_family": "Iosevka Curly",
@@ -30,6 +27,7 @@
 	"show_wrap_guides": true,
 	"preferred_line_length": 80,
 
+	// "project_panel": { "dock": "right" },e
 	"outline_panel": { "dock": "right" },
 	"gutter": {
 		"breakpoints": false,
@@ -51,15 +49,11 @@
 	"tab_bar": {
 		"show": true, // Show/hide the tab bar
 		"show_nav_history_buttons": true, // Show/hide history buttons on tab bar
-		"show_tab_bar_buttons": true, // Show hide buttons (new, split, zoom)
+		"show_tab_bar_buttons": false, // Show hide buttons (new, split, zoom)
 	},
 	"tabs": {
 		"git_status": true, // Color to show git status
-		"close_position": "right", // Close button position (left, right, hidden)
-		"show_close_button": "hover", // Close button shown (hover, always, hidden)
-		"file_icons": false, // Icon showing file type
-		// Show diagnostics in file icon (off, errors, all). Requires file_icons=true
-		"show_diagnostics": "off",
+		"close_position": "left", // Close button position (left, right, hidden)
 	},
 	"indent_guides": {
 		"coloring": "fixed",
@@ -69,9 +63,8 @@
 
 	/* Hiding stuff: */
 	"minimap": {
-		"show": "auto", // When to show (auto, always, never)
+		"show": "never", // When to show (auto, always, never)
 		"display_in": "all_editors", // Where to show (active_editor, all_editors)
-		"thumb": "always", // When to show thumb (always, hover)
 		"thumb_border": "none", // Thumb border (left_open, right_open, full, none)
 		"max_width_columns": 80, // Maximum width of minimap
 	},
@@ -112,7 +105,11 @@
 		{
 			"host": "home",
 			"args": [],
-			"projects": [],
+			"projects": [
+				{
+					"paths": ["/home/abi/projects/realtime-voice-agent/"],
+				},
+			],
 		},
 	],
 	"lsp": {

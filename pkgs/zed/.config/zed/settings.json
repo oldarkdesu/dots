@@ -76,6 +76,7 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 	/* BEHAVIOR */
+	"when_closing_with_no_tabs": "close_window", // When there are no open tabs left, Ctrl-w causes the window to close
 	"disable_ai": true,
 	"remove_trailing_whitespace_on_save": true,
 	"format_on_save": "off",

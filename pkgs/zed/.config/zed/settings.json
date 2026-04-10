@@ -1,6 +1,5 @@
 {
 	/* VISUALS */
-	"soft_wrap": "prefer_line",
 	"which_key": {
 		"enabled": true,
 	},
@@ -14,11 +13,12 @@
 		"light": "Ayu Light",
 		"dark": "Ayu Dark",
 	},
-	"ui_font_size": 16.0,
+	"ui_font_size": 15.0,
 	"ui_font_family": "Iosevka Curly",
-	"buffer_font_size": 16.0,
+	"buffer_font_size": 14.0,
 	"buffer_font_family": "Iosevka Curly",
-	"buffer_line_height": "standard",
+	// "buffer_line_height": "standard",
+	"terminal": {"line_height": "comfortable", },
 	"buffer_font_features": { "calt": false }, // disable ligatures
 
 	"show_whitespaces": "selection",
@@ -27,12 +27,16 @@
 	"show_wrap_guides": true,
 	"preferred_line_length": 80,
 
+	"soft_wrap": "none",
+
 	// "project_panel": { "dock": "right" },e
 	"outline_panel": { "dock": "right" },
+
+	// "git":{"git_gutter": "hide"},
 	"gutter": {
+		// "folds": false,
 		"breakpoints": false,
 		"runnables": false,
-		"folds": true,
 		"min_line_number_digits": 0,
 	},
 	"toolbar": {
@@ -42,10 +46,8 @@
 		"agent_review": false, // Whether to show agent review buttons
 		"code_actions": true, // Whether to show code action buttons
 	},
-	// Maximum number of tabs per pane. Unset for unlimited.
-	"max_tabs": null,
 
-	// Customize the tab bar appearance
+	"max_tabs": null, // unlimited tabzz
 	"tab_bar": {
 		"show": true, // Show/hide the tab bar
 		"show_nav_history_buttons": true, // Show/hide history buttons on tab bar
@@ -55,6 +57,7 @@
 		"git_status": true, // Color to show git status
 		"close_position": "left", // Close button position (left, right, hidden)
 	},
+
 	"indent_guides": {
 		"coloring": "fixed",
 		"line_width": 1,
@@ -122,6 +125,9 @@
 	},
 
 	"languages": {
+		"Markdown": {
+			"soft_wrap": "preferred_line_length",
+		},
 		"Python": {
 			"hard_tabs": false,
 			"tab_size": 4,

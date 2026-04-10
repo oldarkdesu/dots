@@ -16,7 +16,7 @@
 	s = status --short --branch
 	lazycommit = !git commit -am 'lazyly committing all changes...'
 	fastcommit = !git commit -am
-	use-id = !git-use-id $1
+	use-id = !command -v git-use-id && git-use-id $1 || echo 'git-use-id is not an available command'
 	use = use-id
 	aliases = !git config --list | grep ^alias\\. | cut -c 7- --
 [pager]

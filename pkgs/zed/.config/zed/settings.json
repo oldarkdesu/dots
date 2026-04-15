@@ -1,34 +1,48 @@
 {
 	/* VISUALS */
+	"agent": {
+		"default_model": {
+			"provider": "openai",
+			"model": "gpt-5-mini",
+			"enable_thinking": false,
+		},
+		"favorite_models": [],
+		"model_parameters": [],
+	},
 	"which_key": {
 		"enabled": true,
 	},
 	"icon_theme": {
-		"mode": "system",
+		"mode": "dark",
 		"light": "Symbols Icon Theme",
 		"dark": "Symbols Icon Theme",
 	},
 	"theme": {
 		"mode": "dark",
-		"light": "Ayu Light",
-		"dark": "Ayu Dark",
+		"light": "Catppuccin Latte",
+		"dark": "Tokyo Night",
 	},
-	"ui_font_size": 15.0,
+
+	"theme_overrides": {},
+	"ui_font_size": 14.0,
 	"ui_font_family": "Iosevka Curly",
 	"buffer_font_size": 14.0,
 	"buffer_font_family": "Iosevka Curly",
-	// "buffer_line_height": "standard",
-	"terminal": {"line_height": "comfortable", },
+	"buffer_line_height": "standard",
+	"terminal": { "line_height": "comfortable" },
 	"buffer_font_features": { "calt": false }, // disable ligatures
 
 	"show_whitespaces": "selection",
-	// "whitespace_map": {"space": "_", "tab": "⇥"},
 	"wrap_guides": [80, 100],
 	"show_wrap_guides": true,
 	"preferred_line_length": 80,
 
 	"soft_wrap": "none",
 
+	"active_pane_modifiers": {
+		"border_size": 1.0,
+		"inactive_opacity": 0.7,
+	},
 	// "project_panel": { "dock": "right" },e
 	"outline_panel": { "dock": "right" },
 
@@ -40,10 +54,10 @@
 		"min_line_number_digits": 0,
 	},
 	"toolbar": {
-		"breadcrumbs": true, // Whether to show breadcrumbs.
-		"quick_actions": true, // Whether to show quick action buttons.
-		"selections_menu": true, // Whether to show the Selections menu
-		"agent_review": false, // Whether to show agent review buttons
+		"breadcrumbs": false, // Whether to show breadcrumbs.
+		"quick_actions": false, // Whether to show quick action buttons.
+		"selections_menu": false, // Whether to show the Selections menu
+		// "agent_review": false, // Whether to show agent review buttons
 		"code_actions": true, // Whether to show code action buttons
 	},
 
@@ -79,17 +93,38 @@
 	"hard_tabs": true,
 	"tab_size": 4,
 	/* BEHAVIOR */
+	// "disable_ai": true,
+	"session": {
+		"restore_unsaved_buffers": true,
+		"trust_all_worktrees": false,
+	},
+	"use_system_path_prompts": false,
+	"use_system_prompts": false,
 	"when_closing_with_no_tabs": "close_window", // When there are no open tabs left, Ctrl-w causes the window to close
-	"disable_ai": true,
 	"remove_trailing_whitespace_on_save": true,
 	"format_on_save": "off",
 	"ensure_final_newline_on_save": false,
-	"agent": { "enabled": false },
-	"telemetry": {
-		"diagnostics": false,
-		"metrics": false,
-	},
+	// "agent": { "enabled": false },
+	// "telemetry": {
+	// 	"diagnostics": false,
+	// 	"metrics": false,
+	// },
 	/* MISC */
+	"languages": {
+		"Markdown": {
+			"soft_wrap": "preferred_line_length",
+		},
+		"Python": {
+			"hard_tabs": false,
+			"tab_size": 4,
+			"language_servers": [
+				"ty", // enable ty
+				"ruff",
+				"!basedpyright", // disable basedpyright
+				// "...", // enable everything else
+			],
+		},
+	},
 	"ssh_connections": [
 		{
 			"host": "rpi",
@@ -111,6 +146,9 @@
 			"args": [],
 			"projects": [
 				{
+					"paths": ["/home/abi/projects/DeepgramVoiceAgent"],
+				},
+				{
 					"paths": ["/home/abi/projects/realtime-voice-agent/"],
 				},
 			],
@@ -121,22 +159,6 @@
 			"settings": {
 				// "diagnosticMode": "off",
 			},
-		},
-	},
-
-	"languages": {
-		"Markdown": {
-			"soft_wrap": "preferred_line_length",
-		},
-		"Python": {
-			"hard_tabs": false,
-			"tab_size": 4,
-			"language_servers": [
-				"ty", // enable ty
-				"ruff",
-				"!basedpyright", // disable basedpyright
-				// "...", // enable everything else
-			],
 		},
 	},
 }

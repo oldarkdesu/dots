@@ -1,35 +1,16 @@
 {
 	/* VISUALS */
-	"agent": {
-		"default_model": {
-			"provider": "openai",
-			"model": "gpt-5-mini",
-			"enable_thinking": false,
-		},
-		"favorite_models": [],
-		"model_parameters": [],
-	},
-	"which_key": {
-		"enabled": true,
-	},
-	"icon_theme": {
-		"mode": "dark",
-		"light": "Symbols Icon Theme",
-		"dark": "Symbols Icon Theme",
-	},
-	"theme": {
-		"mode": "dark",
-		"light": "Catppuccin Latte",
-		"dark": "Tokyo Night",
-	},
-
-	"theme_overrides": {},
 	"ui_font_size": 14.0,
-	"ui_font_family": "Iosevka Curly",
+	// "ui_font_family": "Iosevka Curly",
+	"ui_font_family": "Fira Sans",
 	"buffer_font_size": 14.0,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
-	"terminal": { "line_height": "comfortable" },
+
+	"agent_ui_font_size": 16.0,
+	"agent_buffer_font_size": 13.0,
+
+	"terminal": { "line_height": "standard" },
 	"buffer_font_features": { "calt": false }, // disable ligatures
 
 	"show_whitespaces": "selection",
@@ -39,26 +20,43 @@
 
 	"soft_wrap": "none",
 
+	"which_key": {
+		"enabled": true,
+	},
+	"icon_theme": {
+		"mode": "dark",
+		"light": "Symbols Icon Theme",
+		"dark": "Colored Zed Icons Theme Dark",
+	},
+	"theme": {
+		"mode": "dark",
+		"light": "Catppuccin Latte",
+		"dark": "Ayu Dark",
+	},
+	"theme_overrides": {
+		"Ayu Dark": {
+			"editor.gutter.background": "#0a0a0f",
+		},
+	},
 	"active_pane_modifiers": {
 		"border_size": 1.0,
 		"inactive_opacity": 0.7,
 	},
-	// "project_panel": { "dock": "right" },e
+	"project_panel": {
+		"bold_folder_labels": true,
+		"diagnostic_badges": false,
+		"show_diagnostics": "all",
+		"entry_spacing": "standard",
+		"hide_root": true,
+		"indent_size": 15,
+	},
 	"outline_panel": { "dock": "right" },
 
-	// "git":{"git_gutter": "hide"},
 	"gutter": {
-		// "folds": false,
+		"folds": false,
 		"breakpoints": false,
 		"runnables": false,
 		"min_line_number_digits": 0,
-	},
-	"toolbar": {
-		"breadcrumbs": false, // Whether to show breadcrumbs.
-		"quick_actions": false, // Whether to show quick action buttons.
-		"selections_menu": false, // Whether to show the Selections menu
-		// "agent_review": false, // Whether to show agent review buttons
-		"code_actions": true, // Whether to show code action buttons
 	},
 
 	"max_tabs": null, // unlimited tabzz
@@ -79,6 +77,11 @@
 	},
 
 	/* Hiding stuff: */
+	// "git":{"git_gutter": "hide"},
+	"toolbar": {
+		"breadcrumbs": false, // Whether to show breadcrumbs.
+		"quick_actions": false, // Whether to show quick action buttons.
+	},
 	"minimap": {
 		"show": "never", // When to show (auto, always, never)
 		"display_in": "all_editors", // Where to show (active_editor, all_editors)
@@ -102,15 +105,27 @@
 	"use_system_prompts": false,
 	"when_closing_with_no_tabs": "close_window", // When there are no open tabs left, Ctrl-w causes the window to close
 	"remove_trailing_whitespace_on_save": true,
+	"ensure_final_newline_on_save": true,
 	"format_on_save": "off",
-	"ensure_final_newline_on_save": false,
-	// "agent": { "enabled": false },
-	// "telemetry": {
-	// 	"diagnostics": false,
-	// 	"metrics": false,
-	// },
+
+	"agent": {
+		// "enabled": false,
+		"thinking_display": "auto",
+
+		"default_profile": "write",
+		"default_model": {
+			"provider": "openai",
+			"model": "gpt-5",
+			"enable_thinking": false,
+		},
+		"favorite_models": [],
+		"model_parameters": [],
+	},
 	/* MISC */
 	"languages": {
+		"JSON": {
+			"format_on_save": "on",
+		},
 		"Markdown": {
 			"soft_wrap": "preferred_line_length",
 		},

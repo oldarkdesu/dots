@@ -112,7 +112,7 @@
 		// "enabled": false,
 		"thinking_display": "auto",
 
-		"default_profile": "write",
+		"default_profile": "minimal",
 		"default_model": {
 			"provider": "openai",
 			"model": "gpt-5",

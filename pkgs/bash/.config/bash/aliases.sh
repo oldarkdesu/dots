@@ -40,6 +40,7 @@ alias oyasumi='systemctl suspend'
 alias reboot-user='systemctl soft-reboot'
 alias boot2windows='systemctl reboot --boot-loader-menu=1 --boot-loader-entry=windows.conf'
 alias tree='tree -FCal -I node_modules/ -I .git/ -I .venv/ -I venv/ --filelimit=25 --dirsfirst --charset=ascii -L 5 '
+alias rsync="rsync --exclude='**/venv' --exclude='**/.venv' --exclude='**/node_modules' "
 
 alias unimatrix='unimatrix -c cyan -f -s 96 -a -l AakkS'
 alias trix=unimatrix

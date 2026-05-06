@@ -1,7 +1,7 @@
 {
     "clipboard": "terminal",
     "colorcolumn": 80,
-    "colorscheme": "gruvbox-tc",
+    "colorscheme": "atom-dark",
     "eofnewline": false,
     "indentchar": "⇥ ",
     "mkparents": true,

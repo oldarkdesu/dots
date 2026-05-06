@@ -1,7 +1,15 @@
 {
 	/* VISUALS */
-	"agent": {
-		"default_model": {
+	"cli_default_open_behavior": "existing_window",
+ "project_panel": {
+  "dock": "left"
+ },
+ "git_panel": {
+  "dock": "left"
+ },
+ "agent": {
+		"dock": "right",
+  "default_model": {
 			"provider": "openai",
 			"model": "gpt-5-mini",
 			"enable_thinking": false,
@@ -85,8 +93,10 @@
 		"thumb_border": "none", // Thumb border (left_open, right_open, full, none)
 		"max_width_columns": 80, // Maximum width of minimap
 	},
-	"collaboration_panel": { "button": false },
-	"title_bar": { "show_branch_icon": true, "show_sign_in": false },
+	"collaboration_panel": { "dock": "left",
+                          "button": false },
+	"title_bar": { "show_branch_status_icon": true,
+                "show_sign_in": false },
 	"search": { "button": false },
 
 	/* TABS */

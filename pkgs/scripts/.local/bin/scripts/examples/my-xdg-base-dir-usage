@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# SPEC
+#     https://specifications.freedesktop.org/basedir/latest/
+# tool: xdg-user-dir
+#     https://www.freedesktop.org/wiki/Software/xdg-user-dirs/
+
+# TODO

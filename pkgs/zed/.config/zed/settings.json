@@ -1,7 +1,7 @@
 {
 	/* VISUALS */
 	"ui_font_size": 16.0,
-	"ui_font_family": "Iosevka Curly",
+	"ui_font_family": "Fira Sans",
 	"buffer_font_size": 16.0,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",

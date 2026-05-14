@@ -1,15 +1,16 @@
 # Docs: https://ghostty.org/docs/config.
 theme = bloodmoon
+#theme = TokyoNight Night
 font-family = Iosevka Curly
 font-feature = -calt, -liga, -dlig
 font-size = 14
 cursor-style = block
 background-opacity = 0.8
 background-blur = false
-# background-image = /home/abi/Pictures/wallpapers/nekopara_goth.jpg
-# background-image-fit = cover
-# background-image-opacity = 0.5
-# unfocused-split-opacity= 0.2
+#background-image = /home/abi/Pictures/wallpapers/nekopara_goth.jpg
+#background-image-fit = cover
+#background-image-opacity = 0.5
+#unfocused-split-opacity= 0.2
 split-divider-color = ffffff
 resize-overlay-position = top-left
 maximize = true

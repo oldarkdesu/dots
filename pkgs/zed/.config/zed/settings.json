@@ -1,5 +1,6 @@
 {
 	/* VISUALS */
+	"cli_default_open_behavior": "existing_window",
 	"ui_font_size": 16.0,
 	"ui_font_family": "Fira Sans",
 	"buffer_font_size": 16.0,
@@ -26,9 +27,13 @@
 		"Ayu Dark": {
 			"editor.gutter.background": "#0a0a0f",
 		},
+		"Tokyo Night": {
+			"editor.gutter.background": "#171720",
+		},
 	},
 
 	"show_whitespaces": "selection",
+
 	"wrap_guides": [80, 100],
 	"show_wrap_guides": true,
 
@@ -55,13 +60,6 @@
 	},
 	"outline_panel": { "dock": "right" },
 
-	"gutter": {
-		"folds": false,
-		"breakpoints": false,
-		"runnables": false,
-		"min_line_number_digits": 0,
-	},
-
 	"max_tabs": null, // unlimited tabzz
 	"tab_bar": {
 		"show": true, // Show/hide the tab bar
@@ -80,7 +78,18 @@
 	},
 
 	/* Hiding stuff: */
-	"git": { "git_gutter": "hide" },
+	"git": {
+		// "git_gutter": "hide",
+		"hunk_style": "unstaged_hollow",
+	},
+	"gutter": {
+		"folds": false,
+		"breakpoints": false,
+		"bookmarks": false,
+		"runnables": false,
+		"min_line_number_digits": 0,
+	},
+	// "bookmarks": false,
 	"scrollbar": { "git_diff": false },
 	"toolbar": {
 		"breadcrumbs": false,
@@ -116,22 +125,30 @@
 		// "enabled": false,
 		"dock": "right",
 		"thinking_display": "auto",
-		"default_profile": "minimal",
+		"default_profile": "ask",
 		"default_model": {
 			"provider": "openai",
-			"model": "gpt-5",
+			"model": "gpt-4o-mini",
 			"enable_thinking": false,
 		},
 		"favorite_models": [],
 		"model_parameters": [],
 	},
 	/* MISC */
+	// "file_types": {
+	// 	"Nunjucks": ["md"],
+	// },
 	"languages": {
 		"JSON": {
 			"format_on_save": "on",
 		},
+		"YAML": {
+			"hard_tabs": false,
+			"tab_size": 2,
+		},
 		"Markdown": {
 			"soft_wrap": "editor_width",
+			"remove_trailing_whitespace_on_save": false,
 		},
 		"Python": {
 			"hard_tabs": false,
@@ -144,35 +161,7 @@
 			],
 		},
 	},
-	"ssh_connections": [
-		{
-			"host": "rpi",
-			"args": [],
-			"projects": [
-				{
-					"paths": ["/home/abi/projects/ibm-course"],
-				},
-				{
-					"paths": ["/home/abi/projects/realtime-voice-agent"],
-				},
-				{
-					"paths": ["/home/abi/projects/voice-sandwich-demo"],
-				},
-			],
-		},
-		{
-			"host": "home",
-			"args": [],
-			"projects": [
-				{
-					"paths": ["/home/abi/projects/DeepgramVoiceAgent"],
-				},
-				{
-					"paths": ["/home/abi/projects/realtime-voice-agent/"],
-				},
-			],
-		},
-	],
+
 	"lsp": {
 		"ty": {
 			"settings": {

@@ -42,7 +42,7 @@ cd ~/dots
 stow bash alacritty ghostty # you can specify multiple packages
 
 # Unstow the packages from the target dir
-stow -D alacritty # or unstow, if you have an alias like `alias unstow='stow -D'
+stow -D alacritty # I have `stow -D' aliassed to `unstow'
 
 # Stow everything into the target dir
 sotw $(echo pkgs/*)  # the shell will expand this to all the directories in the

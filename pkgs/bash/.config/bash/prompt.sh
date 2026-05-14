@@ -145,7 +145,7 @@ function set_prompt {
 		PS1="$PS1$_bold$_white_dim[$_italic$(basename $SHELL | tr a-z A-Z)$_rst$_italic lvl $SHLVL$_rst$_bold]"
 	fi
 
-	# ------------------------- Show if zmx session -------------------------- #
+	# --------------------------- Show zmx session --------------------------- #
 	if [ -n "$ZMX_SESSION" ] ; then
 		# PS1="$PS1\[\e[1;32m\][ZMX $ZMX_SESSION]"
 		PS1="$PS1$_green_dim[${_rst}ZMX $_italic$ZMX_SESSION$_rst$_bold]"

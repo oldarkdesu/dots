@@ -1,6 +1,5 @@
 {
 	/* VISUALS */
-	"cli_default_open_behavior": "existing_window",
 	"ui_font_size": 16.0,
 	"ui_font_family": "Fira Sans",
 	"buffer_font_size": 16.0,
@@ -118,7 +117,7 @@
 	"use_system_prompts": false,
 	"when_closing_with_no_tabs": "close_window", // When there are no open tabs left, Ctrl-w causes the window to close
 	"remove_trailing_whitespace_on_save": true,
-	"ensure_final_newline_on_save": true,
+	"ensure_final_newline_on_save": false,
 	"format_on_save": "off",
 
 	"agent": {
@@ -134,7 +133,6 @@
 		"favorite_models": [],
 		"model_parameters": [],
 	},
-	/* MISC */
 	// "file_types": {
 	// 	"Nunjucks": ["md"],
 	// },
@@ -169,4 +167,17 @@
 			},
 		},
 	},
+	/* MISC */
+	"ssh_connections": [
+		{
+			"host": "rpi",
+			"args": [],
+			"projects": [
+				{
+					"paths": ["/home/abi/projects/nginx-and-docker/./"],
+				},
+			],
+		},
+	],
+	"cli_default_open_behavior": "existing_window",
 }

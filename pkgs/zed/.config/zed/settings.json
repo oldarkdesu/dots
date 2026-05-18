@@ -7,7 +7,7 @@
 	"buffer_line_height": "standard",
 
 	"agent_ui_font_size": 16.0,
-	"agent_buffer_font_size": 13.0,
+	"agent_buffer_font_size": 14.0,
 
 	"terminal": { "line_height": "standard" },
 	"buffer_font_features": { "calt": false }, // disable ligatures
@@ -158,6 +158,11 @@
 				// "...", // enable everything else
 			],
 		},
+		"JavaScript": {
+			"code_actions_on_format": {
+				"source.fixAll.eslint": true,
+			},
+		},
 	},
 
 	"lsp": {
@@ -174,7 +179,10 @@
 			"args": [],
 			"projects": [
 				{
-					"paths": ["/home/abi/projects/nginx-and-docker/./"],
+					"paths": ["/home/abi/projects/nginx-and-docker"],
+				},
+				{
+					"paths": ["/home/abi/projects/realtime-voice-agent"],
 				},
 			],
 		},

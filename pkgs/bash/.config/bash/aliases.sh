@@ -31,7 +31,7 @@ alias diff='diff --color=auto'
 alias ls='ls --color=auto -AF -w 80 --group-directories-first -v'
 alias ll="ls -ovhkN --time-style=+%Y-%m-%d__%T"
 alias lsblkfull='\lsblk -o NAME,LABEL,MOUNTPOINTS,SIZE,FSTYPE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID | bat --style plain -l conf'
-alias lsblk='lsblk -o NAME,LABEL,MOUNTPOINTS,SIZE,FSTYPE,FSAVAIL,FSUSED | bat --style plain -l conf'
+alias lsblk="lsblk --filter 'NAME!~\"loop\"' -o NAME,LABEL,MOUNTPOINTS,SIZE,FSTYPE,FSAVAIL,FSUSED | bat --style plain -l conf"
 alias ip='ip -color=auto'
 alias mkdir='mkdir -pv'
 alias pwd='pwd -P'

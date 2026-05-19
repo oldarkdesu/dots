@@ -11,7 +11,14 @@
 
 	"terminal": { "line_height": "standard" },
 	"buffer_font_features": { "calt": false }, // disable ligatures
-
+	"autoscroll_on_clicks": true,
+	"auto_install_extensions": {
+		"html": true,
+		"toml": true,
+		"git-firefly": true,
+		"tokyo-night": true,
+		"symbols": true
+	},
 	"icon_theme": {
 		"mode": "dark",
 		"light": "Symbols Icon Theme",

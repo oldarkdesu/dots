@@ -17,7 +17,7 @@
 		"toml": true,
 		"git-firefly": true,
 		"tokyo-night": true,
-		"symbols": true
+		"symbols": true,
 	},
 	"icon_theme": {
 		"mode": "dark",
@@ -140,9 +140,9 @@
 		"favorite_models": [],
 		"model_parameters": [],
 	},
-	// "file_types": {
-	// 	"Nunjucks": ["md"],
-	// },
+	"file_types": {
+		// "Nunjucks": ["html"],
+	},
 	"languages": {
 		"JSON": {
 			"format_on_save": "on",
@@ -181,18 +181,37 @@
 	},
 	/* MISC */
 	"ssh_connections": [
-		{
-			"host": "rpi",
-			"args": [],
-			"projects": [
-				{
-					"paths": ["/home/abi/projects/nginx-and-docker"],
-				},
-				{
-					"paths": ["/home/abi/projects/realtime-voice-agent"],
-				},
-			],
-		},
-	],
+  {
+   "host": "rpi",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/abi/projects/eleventy-base-blog"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/eleventy-tutorial-site"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/jec-11ty-starter"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/nginx-and-docker"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/realtime-voice-agent"
+     ]
+    }
+   ]
+  }
+ ],
 	"cli_default_open_behavior": "existing_window",
 }

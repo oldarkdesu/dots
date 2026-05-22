@@ -136,7 +136,7 @@ function set_prompt {
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	# uncomment this line to show the os icon (currently just arch/raspberrypi)
 	# PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]"
-	PS1="${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
+	PS1="${_rst}${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
 	# PS1="\[\e[1;95m\][\u@\h]"
 
 	# ------------------------- Shell name and level ------------------------- #

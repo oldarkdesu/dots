@@ -53,6 +53,7 @@ alias pn='pnpm'
 alias x=startx
 alias gpls=pkexec
 alias zed=zeditor
+alias btm='btm --memory_legend top-left'
 
 # think twice before using rm
 alias rm="echo Are you sure? Use '\rm', or the full path i.e. '/bin/rm'"

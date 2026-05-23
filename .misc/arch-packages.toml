@@ -51,6 +51,7 @@ eyecandy = ['fastfetch', 'lolcat', 'cowsay']
 fonts = [
 	'ttf-liberation',
 	'ttf-croscore',
+	'ttf-iosevka-nerd',
 	'ttf-nerd-fonts-symbols',
 	'noto-fonts',
 	'noto-fonts-cjk',
@@ -62,7 +63,7 @@ documentation = [
 ]
 [dev]
 tooling = ['docker', 'docker-buildx', 'docker-compose', 'git']
-programming = ['ipython', 'rustup']
+programming = ['ipython', 'rustup', 'uv', 'pnpm']
 other = [
 	'nginx', # web server
 	'qmk',   # compile keyboard firmware

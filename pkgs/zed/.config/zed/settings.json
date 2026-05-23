@@ -9,7 +9,7 @@
 	"agent_ui_font_size": 16.0,
 	"agent_buffer_font_size": 14.0,
 
-	"terminal": { "line_height": "standard" },
+	"terminal": { "line_height": "standard" , "font_size": 16, "font_family": "Iosevka Nerd Font"},
 	"buffer_font_features": { "calt": false }, // disable ligatures
 	"autoscroll_on_clicks": true,
 	"auto_install_extensions": {

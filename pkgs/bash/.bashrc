@@ -8,7 +8,7 @@ fi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
+export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash/bash_history"
 HISTFILESIZE=10000000
 HISTSIZE=100000000
 

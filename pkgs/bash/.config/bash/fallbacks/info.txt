@@ -1,0 +1,5 @@
+last copied:
+	2026-05-23
+
+command used:
+	for f in /usr/share/git/completion/git-{prompt.sh,completion.bash} ; do cp $f ~/.config/bash/fallbacks/ ; done

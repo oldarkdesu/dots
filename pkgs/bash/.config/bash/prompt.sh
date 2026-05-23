@@ -19,14 +19,11 @@ END
 promptchar='❯'
 # prompt_char='>'
 # IGNORE_NERD_FONT=y # setting this variable disables nerdfont glyphs in the prompt
-if [ -e /usr/share/git/completion/git-prompt.sh ]; then
-	gitprompt='/usr/share/git/completion/git-prompt.sh'
-else
-	gitprompt=$HOME/.config/bash/git-prompt.sh
-fi
 
-if [ -f $gitprompt ]; then
-	source $gitprompt
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+	source /usr/share/git/completion/git-prompt.sh
+else
+	source ~/.config/bash/fallbacks/git-prompt.sh
 fi
 
 if command -v fc-list 2>&1 >/dev/null && fc-list | grep -q 'Nerd' ; then

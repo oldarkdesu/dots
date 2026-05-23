@@ -16,7 +16,7 @@ HISTSIZE=100000000
 if [ -f /usr/share/git/completion/git-completion.bash ] ; then
 	source /usr/share/git/completion/git-completion.bash
 else
-	source ~/.config/bash/git-completion.bash
+	source ~/.config/bash/fallbacks/git-completion.bash
 fi
 
 # starship prompt

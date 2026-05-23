@@ -1,17 +1,17 @@
 {
 	/* VISUALS */
-	"ui_font_size": 16.0,
+	"ui_font_size": 16,
 	"ui_font_family": "Fira Sans",
-	"buffer_font_size": 20.0,
+	"buffer_font_size": 16,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
 
-	"agent_ui_font_size": 16.0,
-	"agent_buffer_font_size": 14.0,
+	"agent_ui_font_size": 16,
+	"agent_buffer_font_size": 14,
 
 	"terminal": {
 		"line_height": "standard",
-		"font_size": 20.0,
+		"font_size": 16,
 		"font_family": "Iosevka Nerd Font",
 	},
 	"buffer_font_features": { "calt": false }, // disable ligatures
@@ -163,7 +163,7 @@
 			"hard_tabs": false,
 			"tab_size": 4,
 			"language_servers": [
-				"ty", // enable ty
+				"ty",
 				"ruff",
 				"!basedpyright", // disable basedpyright
 				// "...", // enable everything else
@@ -177,11 +177,11 @@
 	},
 
 	"lsp": {
-		"ty": {
-			"settings": {
-				// "diagnosticMode": "off",
-			},
-		},
+		// "ty": {
+		// 	"settings": {
+		// 		// "diagnosticMode": "off",
+		// 	},
+		// },
 	},
 	/* MISC */
 	"ssh_connections": [

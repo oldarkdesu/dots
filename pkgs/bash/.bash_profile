@@ -34,6 +34,10 @@ fi
 # ---------------------------------------------------------------------------- #
 #                               XDG dirs Autism                                #
 # ---------------------------------------------------------------------------- #
+for dir in .config .cache .local/{share,state} ; do
+	mkdir -p "$HOME/$dir" >/dev/null 2>&1
+done
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -47,7 +51,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 [ -f "${XDG_CONFIG_HOME}/wgetrc" ] || touch "${XDG_CONFIG_HOME}/wgetrc"
 export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 
-export LESSHISTFILE="${XDG_CONFIG_HOME}/less/history"
+[ -d "$XDG_STATE_HOME/less" ] || mkdir -p "${XDG_STATE_HOME}/less"
+export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 export LESSKEY="${XDG_CONFIG_HOME}/less/keys"
 
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npmrc"
@@ -55,6 +60,7 @@ export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node_repl_history"
 export PNPM_HOME="/home/abi/.local/share/pnpm"
 
 export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python_state"
 export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"

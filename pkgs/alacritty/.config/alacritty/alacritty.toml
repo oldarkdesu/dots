@@ -8,15 +8,23 @@ import = [
 ]
 
 [font]
-normal = {family = 'monospace'}
 size = 14
+normal = {family = 'monospace'}
+offset = {x=0, y=-3}
+builtin_box_drawing = true
 
 [window]
+dynamic_padding = true
+dimensions = {columns = 100, lines = 25}
 opacity = 0.85
 # blur = true
-dimensions = {columns = 100, lines = 25}
-# padding = {x = 4, y = 4}
-dynamic_padding = true
+#
+[bell]
+duration = 250
+animation = "Linear"
+
+[scrolling]
+history = 100000
 
 [cursor]
 style = { shape="block", blinking="On" }

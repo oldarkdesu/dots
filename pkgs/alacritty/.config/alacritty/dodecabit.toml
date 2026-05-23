@@ -26,3 +26,11 @@ blue    = '#aa44ff'
 magenta = '#ff0099'
 cyan    = '#00ffFF'
 white   = '#ffffff'
+
+
+[colors.hints]
+start = {foreground = "#00ffff", background = "#8800ff"}
+end = {foreground = "#ffff00", background = "#442200"}
+
+[bell]
+color = "#dd8800"

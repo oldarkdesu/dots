@@ -11,9 +11,17 @@ fi
 
 if command -v micro >/dev/null ; then
 	EDITOR=micro
+elif command -v nvim >/dev/null ; then
+	EDITOR=nvim
 fi
 
-alias pls='$SUCMD ' # the space is important for other aliases to resolve when this one is used in front of them (e.g. the `ee' acouple of lines below)
+alias pls='$SUCMD ' # the space is important for other aliases to resolve when
+# this one is used in front of them (e.g. the `ee' acouple of lines below)
+#
+# the immediately above statement is bullshit, I dont really remember what was
+# the problem I was having but the 3 commands bellow work just fine. I'm gonna
+# leave this unchanged in case its really a problem in some speciffic context or
+# whatever :P
 alias edit='$EDITOR'
 alias e='edit'
 alias ee='pls edit'
@@ -24,14 +32,14 @@ fi
 alias fetch=fastfetch
 
 
-# alias cat='bat' # probably a bad idea
+# alias cat='bat --style plain' # probably a bad idea
 # alias sudo='doas --' # probably a bad idea too
 alias grep='grep --ignore-case --line-number --color=auto'
 alias diff='diff --color=auto'
 alias ls='ls --color=auto -AF -w 80 --group-directories-first -v'
 alias ll="ls -ovhkN --time-style=+%Y-%m-%d__%T"
-alias lsblkfull='\lsblk -o NAME,LABEL,MOUNTPOINTS,SIZE,FSTYPE,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID,PHY-SEC,LOG-SEC | bat --style plain -l conf'
-alias lsblk="lsblk --filter 'NAME!~\"loop\"' -o NAME,LABEL,MOUNTPOINTS,SIZE,FSTYPE,FSAVAIL,FSUSED | bat --style plain -l conf"
+alias lsblkfull='grc --colour=on lsblk --tree -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINTS,FSAVAIL,FSUSED,FSUSE%,UUID,PARTUUID,PHY-SEC,LOG-SEC | bat  --style plain'
+alias lsblk="grc lsblk --tree --filter 'NAME!~\"loop\"' -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINTS,FSAVAIL,FSUSED"
 alias ip='ip -color=auto'
 alias mkdir='mkdir -pv'
 alias pwd='pwd -P'

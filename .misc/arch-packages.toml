@@ -7,6 +7,7 @@ non-essential-cli-tools = [
 	'btop',       # fancy resource monitor
 	'figlet',     # convert regular plain text to ascii art
 	'glow',       # fancy markdown reader
+	'grc',        # `generic colourizer` colorize commands like lsblk
 	'htop',       # popular resource monitor
 	'miniupnpc',  # small upnp client
 	'nmap',       # network scanner

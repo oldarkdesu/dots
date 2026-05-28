@@ -1,5 +1,6 @@
 {
 	/* VISUALS */
+	"window_decorations": "client",
 	"ui_font_size": 16,
 	"ui_font_family": "Fira Sans",
 	"buffer_font_size": 16,
@@ -93,7 +94,7 @@
 		"hunk_style": "unstaged_hollow",
 	},
 	"gutter": {
-		"folds": false,
+		// "folds": false,
 		"breakpoints": false,
 		"bookmarks": false,
 		"runnables": false,

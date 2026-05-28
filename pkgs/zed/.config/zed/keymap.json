@@ -18,4 +18,14 @@
 			// "j k": ["workspace::SendKeystrokes", "escape"]
 		},
 	},
+	{
+		"bindings": {
+			"ctrl-shift-q": "zed::Quit",
+		},
+	},
+	{
+		"unbind": {
+			"ctrl-q": "zed::Quit",
+		},
+	},
 ]

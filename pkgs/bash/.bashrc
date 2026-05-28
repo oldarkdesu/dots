@@ -16,6 +16,7 @@ export HISTIGNORE="clear:history:[bf]g:exit:date:* --help"
 export HISTCONTROL=ignoreboth
 HISTFILESIZE=100000
 HISTSIZE=10000
+# reminder that I have a `history -a` in ~/.config/bash/prompt.sh to save a command to the history as soon as it is run
 
 if [ -f /usr/share/git/completion/git-completion.bash ] ; then
 	source /usr/share/git/completion/git-completion.bash
@@ -29,10 +30,6 @@ fi
 source ~/.config/bash/prompt.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/aliases.sh
-
-# save to history as soon as a command is enterd
-PROMPT_COMMAND="history -a ; $PROMPT_COMMAND"
-
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"

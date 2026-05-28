@@ -120,6 +120,10 @@ fi
 function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
+
+	# save to command history
+	history -a
+
 	# set terminal window title
 	echo -en "\033]0;($(basename $SHELL)) $PWD"
 	# ------------------------ Set glyphs if nerdfont ------------------------ #

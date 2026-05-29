@@ -11,6 +11,9 @@ pkgs/emacs/.config/emacs/eln-cache
 
 # mpv
 pkgs/mpv/.config/mpv/ModernZ/
+pkgs/mpv/.config/mpv/fonts/modernz-icons.ttf
+pkgs/mpv/.config/mpv/scripts/modernz.lua
+pkgs/mpv/.config/mpv/script-opts/modernz*
 pkgs/mpv/.config/mpv/scripts/uosc
 pkgs/mpv/.config/mpv/fonts/uosc*
 pkgs/mpv/.config/mpv/thumbfast/

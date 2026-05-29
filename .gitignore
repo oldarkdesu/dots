@@ -8,3 +8,9 @@ pkgs/micro/.config/micro/buffers/
 # emacs
 pkgs/emacs/.config/emacs/auto-save-list
 pkgs/emacs/.config/emacs/eln-cache
+
+# mpv
+pkgs/mpv/.config/mpv/ModernZ/
+pkgs/mpv/.config/mpv/thumbfast/
+pkgs/mpv/.config/mpv/scripts/uosc
+pkgs/mpv/.config/mpv/fonts/uosc*

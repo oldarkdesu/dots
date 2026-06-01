@@ -13,7 +13,7 @@ _cpre="\001\033[" _cpost="m\002"
 # Reset everything except foreground/background color:
 # (22: normal intensity) (23: not italic/blackletter) (24: not underlined)
 # (25: no blink) (27: not reversed) (28: no conceal) (29: not striked)
-# There's also 21 which some terminals use to disable bold, but it's actually 
+# There's also 21 which some terminals use to disable bold, but it's actually
 # supposed to do double underlines. 26 Means proportional spacing but nothing
 # uses it
 _reset_keepcolor="${_cpre}22;23;24;25;27;28;29${_cpost}"
@@ -31,17 +31,17 @@ done
 # Color codes
 # variables for sequences in the form of  _<color>_<intensity>_<bg/fg>
 colors=(black red green yellow blue magenta cyan white '' default)
-for n in {0..7} 9 ; do 
-	# 3n=dim-fg      4n=dim-bg 
+for n in {0..7} 9 ; do
+	# 3n=dim-fg      4n=dim-bg
 	# 9n=bright-fg  10n=bright-bg
 
 	eval "_${colors[$n]}_dim_fg=\${_cpre}3${n}\${_cpost}"
-	eval "_${colors[$n]}_bright_fg=\${_cpre}9${n}\${_cpost}" 
+	eval "_${colors[$n]}_bright_fg=\${_cpre}9${n}\${_cpost}"
 	eval "_${colors[$n]}_dim_bg=\${_cpre}4${n}\${_cpost}"
 	eval "_${colors[$n]}_bright_bg=\${_cpre}10${n}\${_cpost}"
 	# fg is implied
 	eval "_${colors[$n]}_dim=\${_cpre}3${n}\${_cpost}"
-	eval "_${colors[$n]}_bright=\${_cpre}9${n}\${_cpost}" 
+	eval "_${colors[$n]}_bright=\${_cpre}9${n}\${_cpost}"
 	# bright is implied
 	eval "_${colors[$n]}=\${_cpre}9${n}\${_cpost}"
 	eval "_${colors[$n]}_bg=\${_cpre}10${n}\${_cpost}"
@@ -63,7 +63,7 @@ function _sgr {
 		echo "    s    striked      |   -       default        -"
 		echo "    -    reset style"
 		return 0
-	fi 
+	fi
 	local opts i j out
 
 	# process font style options (bfiulxcs)
@@ -71,7 +71,7 @@ function _sgr {
 	for ((i=0; i<${#opts}; i++)); do
 		j=$((i+1))
 		opt="${opts:$i:1}"
-		if [ "$opt" = 'k' -a "${opts:$j:1}" = 'k' ] ; then 
+		if [ "$opt" = 'k' -a "${opts:$j:1}" = 'k' ] ; then
 			opt='kk'
 			i=$(($i+1))
 		fi
@@ -138,6 +138,6 @@ function _sgr {
 		*) ;;
 	esac
 
-	echo -en "$out${@:3}" 
+	echo -en "$out${@:3}"
 	return 0
 }

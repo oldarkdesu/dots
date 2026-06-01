@@ -30,8 +30,5 @@ history = 100000
 style = { shape="block", blinking="On" }
 blink_interval = 700
 
-[selection]
-save_to_clipboard = true
-
 [terminal]
 osc52 = "CopyPaste"

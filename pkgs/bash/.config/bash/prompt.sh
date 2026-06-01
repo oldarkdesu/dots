@@ -131,36 +131,29 @@ function set_prompt {
 	git_glyph=$(print_if_nerd ' ')
 	os_glyph=$(print_if_nerd "$os_icon" "($os_name) ")
 	nix_glyph=$(print_if_nerd ' ' 'Nix')
-	# python_glyph=$(print_if_nerd ' ') # 󱔎 <-- cute!
-	python_glyph=$(print_if_nerd '󱔎 ')
+	# python_glyph=$(print_if_nerd ' ')
+	python_glyph=$(print_if_nerd '󱔎 ') # cute snake
 
 	# ----------------------- Show OS, user & hostname ----------------------- #
-	# uncomment this line to show the os icon (currently just arch/raspberrypi)
-	# PS1="\[\e[1;95m\][\[\e[0;95m\]${os_glyph}\[\e[1;95m\]\u@\h]"
 	PS1="${_rst}${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
-	# PS1="\[\e[1;95m\][\u@\h]"
 
 	# ------------------------- Shell name and level ------------------------- #
 	if [ $SHLVL -gt 1 ] || [ -z "$(expr "$SHELL" : '.*\(bash\)')" ] ; then
-		# PS1="$PS1\[\e[1;37m\][$(echo "$(basename $SHELL)" | tr a-z A-Z) lvl $SHLVL]"
 		PS1="$PS1$_bold$_white_dim[$_italic$(basename $SHELL | tr a-z A-Z)$_rst$_italic lvl $SHLVL$_rst$_bold]"
 	fi
 
 	# --------------------------- Show zmx session --------------------------- #
 	if [ -n "$ZMX_SESSION" ] ; then
-		# PS1="$PS1\[\e[1;32m\][ZMX $ZMX_SESSION]"
 		PS1="$PS1$_green_dim[${_rst}ZMX $_italic$ZMX_SESSION$_rst$_bold]"
 	fi
 
 	# --------------------------- Show working dir --------------------------- #
-	# PS1="$PS1\[\e[1;94m\][$dir_glyph\w]"
 	PS1="$PS1$_blue$_bold[$dir_glyph$_rst$_italic\w$_rst$_bold]"
 
 	# -------------------------- Show python's VENV -------------------------- #
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"
 		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$(basename $VIRTUAL_ENV)"
-		# PS1="$PS1\[\e[1;92m\][\[\e[0;92m\]${python_glyph}\[\e[1;92m\]${venv_root} ($python_version)]"
 		PS1="$PS1$_green$_bold[$_rst${python_glyph}$_italic${venv_root} ($python_version)$_bold]"
 	fi
 
@@ -171,7 +164,6 @@ function set_prompt {
 	# if expr "$(env)" : ".*\/nix\/store" > /dev/null ; then
 	# if echo "$(env)" | grep -q '/nix/store' ; then
 	if [ -n "$IN_NIX_SHELL" ] ; then
-		# PS1="$PS1\[\e[1;96m\][$nix_glyph]"
 		PS1="$PS1$_bold$_cyan[$_rst$nix_glyph$_bold]"
 	fi
 
@@ -186,17 +178,14 @@ function set_prompt {
 	GIT_PS1_DESCRIBE_STYLE="contains"
 	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1 using ASCII SGR sequences
 	if command -v __git_ps1 >/dev/null ; then
-		# PS1="$PS1$(__git_ps1 "\[\e[1;33m\][\[\e[0;33m\]${git_glyph}\[\e[1;33m\]%s\[\e[1;33m\]]")"
-		git_status=$(__git_ps1 "$_yellow$_bold[$_rst${git_glyph}$_italic%s$_rst$_bold$yellow]")
+		git_status=$(__git_ps1 "$_yellow${_bold}[$_rst${git_glyph}${_italic}%s$_rst$_bold$yellow]")
 		PS1="$PS1$git_status"
 	fi
 
 	# ------------------------- Last command status -------------------------- #
 	if [ $LAST_COMMAND_EXIT -eq 0 ]; then
-		# PS1="${PS1}\n\[\e[1;92m\]$promptchar"
 		PS1="${PS1}\n$_green$_bold$promptchar"
 	else
-		# PS1="${PS1}\n\[\e[0;31m\]${LAST_COMMAND_EXIT}\[\e[1;91m\]$promptchar"
 		PS1="${PS1}\n$_red_dim$_rst$LAST_COMMAND_EXIT$_bold$_red$promptchar"
 	fi
 
@@ -205,7 +194,6 @@ function set_prompt {
 }
 
 # PS2 is the thing you get when inserting multi-line commands
-# PS2="\[\e[1;0m\]$promptchar\[\e[1;90m\]$promptchar\[\e[1;0m\]"
 PS2="$_reset_all$_bold$promptchar$_faint$_black${promptchar}$_reset_all"
 
 PROMPT_COMMAND=set_prompt

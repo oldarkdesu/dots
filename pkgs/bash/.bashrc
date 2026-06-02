@@ -31,6 +31,8 @@ source ~/.config/bash/prompt.sh
 source ~/.config/bash/functions.sh
 source ~/.config/bash/aliases.sh
 
+# uncomment the following for pretenciously minimalist prompt
+# USE_MINIMAL_PROPMT='yes please :)'
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in

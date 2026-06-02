@@ -121,11 +121,18 @@ function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
 
+	# Minimalistic version of the prompt
+	if [ ! -z "$USE_MINIMAL_PROPMT" ] ; then
+		# sorry im too lazy to break this down at the moment
+		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
+		return
+	fi
+
 	# save to command history
 	history -a
 
 	# set terminal window title
-	echo -en "\033]0;($(basename $SHELL)) $PWD"
+	echo -en "\033]0;($(basename $SHELL)) ${PWD/#$HOME/\~}"
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')
@@ -135,8 +142,11 @@ function set_prompt {
 	python_glyph=$(print_if_nerd '󱔎 ') # cute snake
 
 	# ----------------------- Show OS, user & hostname ----------------------- #
-	PS1="${_rst}${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
-
+	if [ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] ; then
+		PS1="${_rst}${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
+	else
+		PS1=''
+	fi
 	# ------------------------- Shell name and level ------------------------- #
 	if [ $SHLVL -gt 1 ] || [ -z "$(expr "$SHELL" : '.*\(bash\)')" ] ; then
 		PS1="$PS1$_bold$_white_dim[$_italic$(basename $SHELL | tr a-z A-Z)$_rst$_italic lvl $SHLVL$_rst$_bold]"
@@ -154,7 +164,8 @@ function set_prompt {
 	if [ -n "$VIRTUAL_ENV" ] ; then
 		python_version="$(python -c 'from sys import version_info as ver ; print(f"{ver[0]}.{ver[1]}")')"
 		venv_root="$(basename "$(dirname "${VIRTUAL_ENV}")")/$(basename $VIRTUAL_ENV)"
-		PS1="$PS1$_green$_bold[$_rst${python_glyph}$_italic${venv_root} ($python_version)$_bold]"
+		# PS1="$PS1$_green$_bold[$_rst${python_glyph}$_italic${venv_root} ($python_version)$_bold]"
+		PS1="$PS1$_green$_bold[$_rst${python_glyph}${python_version}$_bold]"
 	fi
 
 	# ------------------------ Show if inside Nixenv ------------------------- #

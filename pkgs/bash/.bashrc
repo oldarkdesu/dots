@@ -32,7 +32,11 @@ source ~/.config/bash/functions.sh
 source ~/.config/bash/aliases.sh
 
 # uncomment the following for pretenciously minimalist prompt
-# USE_MINIMAL_PROPMT='yes please :)'
+# USE_MINIMAL_PROMPT='yes please :)'
+
+# IDK might as well use it from time to time
+[ -z "$SSH_CLIENT" -a -z "$SSH_TTY" ] && USE_MINIMAL_PROMPT='y'
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in

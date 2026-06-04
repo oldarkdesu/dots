@@ -122,7 +122,7 @@ function set_prompt {
 	LAST_COMMAND_EXIT=$?
 
 	# Minimalistic version of the prompt
-	if [ ! -z "$USE_MINIMAL_PROPMT" ] ; then
+	if [ ! -z "$USE_MINIMAL_PROMPT" ] ; then
 		# sorry im too lazy to break this down at the moment
 		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
 		return

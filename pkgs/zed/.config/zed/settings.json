@@ -138,10 +138,9 @@
 		"thinking_display": "auto",
 		"default_profile": "ask",
 		"default_model": {
-			"effort": "medium",
-   "provider": "google",
-			"model": "gemini-3.5-flash",
-			"enable_thinking": true,
+			"provider": "openai",
+			"model": "gpt-4o-mini",
+			"enable_thinking": false,
 		},
 		"favorite_models": [],
 		"model_parameters": [],

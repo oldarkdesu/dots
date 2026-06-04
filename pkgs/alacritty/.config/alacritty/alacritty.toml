@@ -9,13 +9,13 @@ import = [
 
 [font]
 size = 14
-normal = {family = 'monospace'}
-offset = {x=0, y=-3}
+normal = { family = 'iosevka' }
+offset = { x=0 , y=-3 }
 builtin_box_drawing = true
 
 [window]
 dynamic_padding = true
-dimensions = {columns = 100, lines = 25}
+dimensions = { columns = 100, lines = 25 }
 opacity = 0.85
 # blur = true
 #

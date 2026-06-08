@@ -116,15 +116,27 @@ if [ -f $HOME/.config/bash/ansi-sgr.sh ] ; then
 	source $HOME/.config/bash/ansi-sgr.sh
 fi
 
+pl_segment(){
+	local msg
+	local color_before
+	local color_during
+	local color_after
+	echo "\e[0;3${color_before};4${color_during}m ${msg}\e[0;3${color_during};4${color_after}m"
+}
+
 # Prompt command:
 function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
 
 	# Minimalistic version of the prompt
-	if [ ! -z "$USE_MINIMAL_PROMPT" ] ; then
+	if [  -z "$USE_MINIMAL_PROMPT" ] ; then
 		# sorry im too lazy to break this down at the moment
 		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
+		return
+	elif [ ! -z "$USE_POWERLINE_PROMPT" ] ; then
+		# good look reading this shit (~_~)
+		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\e[1;35;7m\u@\H\e[0;1;35;42m')\e[0;1;32;7;40m \w$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n '\e[0;1;32m' || echo -n "\e[0;1;42;31;7m\e[0;1;31;7m $LAST_COMMAND_EXIT\e[0;1;31m") \e[0m"
 		return
 	fi
 

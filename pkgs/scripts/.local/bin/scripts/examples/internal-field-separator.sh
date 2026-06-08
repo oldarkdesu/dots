@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 set -o posix
 
-# The IFS has two main uses.
-# one is to separate each command in $* (but not in $@)
+# separate each argument in $* (but not in $@)
 DEFAULT_IFS=$IFS
 echo $0
 myfunc () {

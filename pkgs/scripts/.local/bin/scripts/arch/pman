@@ -32,11 +32,11 @@ say() {
 	local error
 
 	rst=$'\e[0m'
-	if [ $1 = '--err' -o $1 = '-e' ] ; then
+	if [ "$1" = '--err' -o "$1" = '-e' ] ; then
 		color=$'\e[0;1;31m'
 		error=yes
 		shift
-	elif [ $1 = '--warn' -o $1 = '-w' ] ; then
+	elif [ "$1" = '--warn' -o "$1" = '-w' ] ; then
 		color=$'\e[0;1;33m'
 		error=yes
 		shift

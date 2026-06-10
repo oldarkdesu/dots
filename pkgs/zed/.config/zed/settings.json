@@ -1,18 +1,18 @@
 {
 	/* VISUALS */
 	"window_decorations": "client",
-	"ui_font_size": 16,
+	"ui_font_size": 20,
 	"ui_font_family": "Fira Sans",
-	"buffer_font_size": 16,
+	"buffer_font_size": 20,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
 
-	"agent_ui_font_size": 16,
+	"agent_ui_font_size": 20,
 	"agent_buffer_font_size": 14,
 
 	"terminal": {
 		"line_height": "standard",
-		"font_size": 16,
+		"font_size": 20,
 		"font_family": "Iosevka Nerd Font",
 	},
 	"buffer_font_features": { "calt": false }, // disable ligatures
@@ -186,27 +186,42 @@
 	},
 	/* MISC */
 	"ssh_connections": [
-		{
-			"host": "rpi",
-			"args": [],
-			"projects": [
-				{
-					"paths": ["/home/abi/projects/eleventy-base-blog"],
-				},
-				{
-					"paths": ["/home/abi/projects/eleventy-tutorial-site"],
-				},
-				{
-					"paths": ["/home/abi/projects/jec-11ty-starter"],
-				},
-				{
-					"paths": ["/home/abi/projects/nginx-and-docker"],
-				},
-				{
-					"paths": ["/home/abi/projects/realtime-voice-agent"],
-				},
-			],
-		},
-	],
+  {
+   "host": "rpi",
+   "args": [],
+   "projects": [
+    {
+     "paths": [
+      "/home/abi/projects/eleventy-base-blog"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/eleventy-tutorial-site"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/jec-11ty-starter"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/nginx-and-docker"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/projects/realtime-voice-agent"
+     ]
+    },
+    {
+     "paths": [
+      "/home/abi/repos/LCD-show"
+     ]
+    }
+   ]
+  }
+ ],
 	"cli_default_open_behavior": "existing_window",
 }

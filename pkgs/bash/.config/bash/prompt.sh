@@ -30,6 +30,16 @@ if command -v fc-list 2>&1 >/dev/null && fc-list | grep -q 'Nerd' ; then
 	NERD_FONT_AVAILABLE='yes'
 fi
 
+# `__git_ps1` opts:
+GIT_PS1_SHOWDIRTYSTATE=1 # *
+GIT_PS1_SHOWSTASHSTATE=1 # $
+GIT_PS1_SHOWUNTRACKEDFILES=1 # %
+GIT_PS1_SHOWCONFLICTSTATE=1
+GIT_PS1_SHOWUPSTREAM="auto" # can also be 'auto'
+# GIT_PS1_STATESEPARATOR=' 󱗿  ' # default |
+GIT_PS1_DESCRIBE_STYLE="contains"
+# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1 using ASCII SGR sequences
+
 # ----- Functions -----
 
 function print_if_nerd {
@@ -129,22 +139,22 @@ function set_prompt {
 	# get last's command exit code before running anything
 	LAST_COMMAND_EXIT=$?
 
-	# Minimalistic version of the prompt
-	if [  -z "$USE_MINIMAL_PROMPT" ] ; then
-		# sorry im too lazy to break this down at the moment
-		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
-		return
-	elif [ ! -z "$USE_POWERLINE_PROMPT" ] ; then
-		# good look reading this shit (~_~)
-		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\e[1;35;7m\u@\H\e[0;1;35;42m')\e[0;1;32;7;40m \w$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n '\e[0;1;32m' || echo -n "\e[0;1;42;31;7m\e[0;1;31;7m $LAST_COMMAND_EXIT\e[0;1;31m") \e[0m"
-		return
-	fi
-
 	# save to command history
 	history -a
 
 	# set terminal window title
 	echo -en "\033]0;($(basename $SHELL)) ${PWD/#$HOME/\~}"
+
+	# Minimalistic version of the prompt
+	if [ -n "$USE_MINIMAL_PROMPT" ] ; then
+		# sorry im too lazy to break this down at the moment
+		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w/$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
+		return
+	elif [ -n "$USE_POWERLINE_PROMPT" ] && command -v powerline.sh 2>&1 >/dev/null ; then
+		# good look reading this shit (~_~)
+		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\e[1;35;7m\u@\H\e[0;1;35;42m')\e[0;1;32;7;40m \w/$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n '\e[0;1;32m' || echo -n "\e[0;1;42;31;7m\e[0;1;31;7m $LAST_COMMAND_EXIT\e[0;1;31m") \e[0m"
+	fi
+
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')
@@ -170,7 +180,7 @@ function set_prompt {
 	fi
 
 	# --------------------------- Show working dir --------------------------- #
-	PS1="$PS1$_blue$_bold[$dir_glyph$_rst$_italic\w$_rst$_bold]"
+	PS1="$PS1$_blue$_bold[$dir_glyph$_rst$_italic\w/$_rst$_bold]"
 
 	# -------------------------- Show python's VENV -------------------------- #
 	if [ -n "$VIRTUAL_ENV" ] ; then
@@ -191,15 +201,6 @@ function set_prompt {
 	fi
 
 	# --------------------------- Git repo status ---------------------------- #
-	# `__git_ps1` opts:
-	GIT_PS1_SHOWDIRTYSTATE=1 # *
-	GIT_PS1_SHOWSTASHSTATE=1 # $
-	GIT_PS1_SHOWUNTRACKEDFILES=1 # %
-	GIT_PS1_SHOWCONFLICTSTATE=1
-	GIT_PS1_SHOWUPSTREAM="auto" # can also be 'auto'
-	# GIT_PS1_STATESEPARATOR=' 󱗿  ' # default |
-	GIT_PS1_DESCRIBE_STYLE="contains"
-	# GIT_PS1_SHOWCOLORHINTS=1 # this adds colors to the output of __git_ps1 using ASCII SGR sequences
 	if command -v __git_ps1 >/dev/null ; then
 		git_status=$(__git_ps1 "$_yellow${_bold}[$_rst${git_glyph}${_italic}%s$_rst$_bold$yellow]")
 		PS1="$PS1$git_status"

@@ -33,6 +33,7 @@ source ~/.config/bash/aliases.sh
 
 # uncomment the following for pretenciously minimalist prompt
 # USE_MINIMAL_PROMPT='yes please :)'
+IGNORE_NERD_FONT=yes
 
 # IDK might as well use it from time to time
 [ -n "$SSH_CLIENT" -a -n "$SSH_TTY" ] && USE_MINIMAL_PROMPT='y'

@@ -148,7 +148,7 @@ function set_prompt {
 	# Minimalistic version of the prompt
 	if [ -n "$USE_MINIMAL_PROMPT" ] ; then
 		# sorry im too lazy to break this down at the moment
-		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w/$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
+		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w $([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
 		return
 	elif [ -n "$USE_POWERLINE_PROMPT" ] && command -v powerline.sh 2>&1 >/dev/null ; then
 		# good look reading this shit (~_~)

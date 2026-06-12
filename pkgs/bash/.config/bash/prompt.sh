@@ -151,8 +151,10 @@ function set_prompt {
 		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\u\[\e[0;2m\]@\[\e[0m\]\H ')\[\e[0;1;2m\]\w $([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n "\[\e[0;32;92m\]" || echo -n "\[\e[0;1;2;31m\]$LAST_COMMAND_EXIT\[\e[0;1;31;91m\]")❯ \[\e[0m\]"
 		return
 	elif [ -n "$USE_POWERLINE_PROMPT" ] && command -v powerline.sh 2>&1 >/dev/null ; then
+		# TODO: improve this shit (hey dummy, remember that there's a powerline.sh script)
 		# good look reading this shit (~_~)
 		PS1="$([ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] && echo -n '\e[1;35;7m\u@\H\e[0;1;35;42m')\e[0;1;32;7;40m \w/$([ $LAST_COMMAND_EXIT -eq 0 ] && echo -n '\e[0;1;32m' || echo -n "\e[0;1;42;31;7m\e[0;1;31;7m $LAST_COMMAND_EXIT\e[0;1;31m") \e[0m"
+		return
 	fi
 
 	# ------------------------ Set glyphs if nerdfont ------------------------ #

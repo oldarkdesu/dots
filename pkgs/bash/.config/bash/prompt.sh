@@ -158,14 +158,14 @@ function set_prompt {
 	# ------------------------ Set glyphs if nerdfont ------------------------ #
 	dir_glyph=$(print_if_nerd ' ')
 	git_glyph=$(print_if_nerd ' ')
-	os_glyph=$(print_if_nerd "$os_icon" "($os_name) ")
+	os_glyph=$(print_if_nerd "$os_icon" "$os_name$([ $os_name = 'arch' ] && echo -n "(btw)")")
 	nix_glyph=$(print_if_nerd ' ' 'Nix')
 	# python_glyph=$(print_if_nerd ' ')
 	python_glyph=$(print_if_nerd '󱔎 ') # cute snake
 
 	# ----------------------- Show OS, user & hostname ----------------------- #
 	if [ -n "$SSH_CLIENT" -o -n "$SSH_TTY" ] ; then
-		PS1="${_rst}${_magenta}${_bold}[${_rsts}${os_glyph}${_italic}\u@\h${_rsts}${_bold}]"
+		PS1="${_rst}${_magenta}${_bold}[${_rsts}\u@\h ${_rsts}${_italic}${os_glyph}${_bold}]"
 	else
 		PS1=''
 	fi

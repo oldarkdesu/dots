@@ -8,7 +8,7 @@
 # ENVIRONMENT SETUP
 
 os_name=$(source /etc/os-release && echo "$ID" || echo 'unknown')
-export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.local/bin/scripts/$os_name:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/bin/scripts:$HOME/.local/bin/scripts/$os_name:$HOME/.local/share/cargo/bin:$PATH"
 
 # I love colors
 export LESS='-SRi --use-color -Dd+M-$Du+C-$DS+Y-'

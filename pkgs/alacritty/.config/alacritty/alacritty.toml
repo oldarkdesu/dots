@@ -32,3 +32,8 @@ blink_interval = 700
 
 [terminal]
 osc52 = "CopyPaste"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

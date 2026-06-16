@@ -1,3 +1,6 @@
 These files are for changing the key layout of the Razer Tartarus v2 and the
 Kensington Expert Trackball, using HWDB.
 These files go on the /usr/lib/udev/hwdb.d/ directory.
+After making changes to these files, run the following commands in a root shell
+	systemd-hwdb update
+	udevadm trigger

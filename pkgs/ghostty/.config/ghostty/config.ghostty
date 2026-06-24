@@ -1,5 +1,6 @@
 # Docs: https://ghostty.org/docs/config.
-theme = bloodmoon
+#theme = bloodmoon
+theme = dodecabit
 #theme = TokyoNight Night
 font-family = Iosevka Curly
 font-feature = -calt, -liga, -dlig

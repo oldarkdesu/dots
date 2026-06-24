@@ -1,11 +1,24 @@
 {
+
 	/* VISUALS */
+	"agent_servers": {
+		"claude-acp": {
+			"default_config_options": {
+				"model": "sonnet",
+    "mode": "auto"
+			},
+			"type": "registry"
+		}
+	},
 	"window_decorations": "client",
-	"ui_font_size": 18,
+
+	"ui_font_size": 16,
 	"ui_font_family": "Fira Sans",
+
 	"buffer_font_size": 18,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
+	"buffer_font_features": { "calt": false }, // disable ligatures
 
 	"agent_ui_font_size": 18,
 	"agent_buffer_font_size": 14,
@@ -13,34 +26,66 @@
 	"terminal": {
 		"line_height": "standard",
 		"font_size": 18,
-		"font_family": "Iosevka Nerd Font",
+		"font_family": "Iosevka Curly"
 	},
-	"buffer_font_features": { "calt": false }, // disable ligatures
 	"autoscroll_on_clicks": true,
 	"auto_install_extensions": {
 		"html": true,
 		"toml": true,
 		"git-firefly": true,
 		"tokyo-night": true,
-		"symbols": true,
+		"symbols": true
 	},
 	"icon_theme": {
 		"mode": "dark",
 		"light": "Symbols Icon Theme",
-		"dark": "Symbols Icon Theme",
+		"dark": "Symbols Icon Theme"
 	},
 	"theme": {
 		"mode": "dark",
 		"light": "Catppuccin Latte",
-		"dark": "Tokyo Night",
+		"dark": "Ayu Dark"
 	},
+	"semantic_tokens": "combined",
 	"theme_overrides": {
+
 		"Ayu Dark": {
 			"editor.gutter.background": "#0a0a0f",
+			"syntax": {
+				// "string.doc":{"color": "#5c6773ff"},
+				// AyuDark's colors
+				// Comments #5c6773ff
+				// Editor Background #0d1016ff
+
+				"constant.comment.todo":        { "color": "#55b4d3ff", "background_color": "#55b4d33d" },
+				"constant.comment.todo.prefix": { "color": "#5c6773ff" },
+				"constant.comment.todo.bracket":{ "color": "#55b4d3ff" },
+				"constant.comment.todo.user":   { "color": "#55b4d3ff" },
+				"constant.comment.todo.text":   { "color": "#5c6773ff" },
+
+				"string.comment.info":        { "color": "#4dbf99ff", "background_color": "#4dbf993d" },
+				"string.comment.info.prefix": { "color": "#5c6773ff" },
+				"string.comment.info.bracket":{ "color": "#4dbf99ff" },
+				"string.comment.info.user":   { "color": "#4dbf99ff" },
+				"string.comment.info.text":   { "color": "#5c6773ff" },
+
+				"keyword.comment.warn":         { "color": "#f1ad49ff", "background_color": "#f1ad493d" },
+				"keyword.comment.warn.prefix":  { "color": "#5c6773ff" },
+				"keyword.comment.warn.bracket": { "color": "#f1ad49ff" },
+				"keyword.comment.warn.user":    { "color": "#f1ad49ff" },
+				"keyword.comment.warn.text":    { "color": "#5c6773ff" },
+
+				"property.comment.error":        { "color": "#ef7271ff", "background_color": "#ef72713d" },
+				"property.comment.error.prefix": { "color": "#5c6773ff" },
+				"property.comment.error.bracket":{ "color": "#ef7271ff" },
+				"property.comment.error.user":   { "color": "#ef7271ff" },
+				"property.comment.error.text":   { "color": "#5c6773ff" },
+
+			}
 		},
 		"Tokyo Night": {
-			"editor.gutter.background": "#171720",
-		},
+			"editor.gutter.background": "#171720"
+		}
 	},
 
 	"show_whitespaces": "selection",
@@ -53,12 +98,12 @@
 	"soft_wrap": "none",
 
 	"which_key": {
-		"enabled": true,
+		"enabled": true
 	},
 
 	"active_pane_modifiers": {
 		"border_size": 1.0,
-		"inactive_opacity": 0.7,
+		"inactive_opacity": 0.7
 	},
 	"project_panel": {
 		"dock": "left",
@@ -67,7 +112,7 @@
 		"show_diagnostics": "all",
 		"entry_spacing": "standard",
 		"hide_root": true,
-		"indent_size": 15,
+		"indent_size": 15
 	},
 	"outline_panel": { "dock": "right" },
 
@@ -75,55 +120,55 @@
 	"tab_bar": {
 		"show": true, // Show/hide the tab bar
 		"show_nav_history_buttons": true, // Show/hide history buttons on tab bar
-		"show_tab_bar_buttons": false, // Show hide buttons (new, split, zoom)
+		"show_tab_bar_buttons": false // Show hide buttons (new, split, zoom)
 	},
 	"tabs": {
 		"git_status": true, // Color to show git status
-		"close_position": "left", // Close button position (left, right, hidden)
+		"close_position": "left" // Close button position (left, right, hidden)
 	},
 
 	"indent_guides": {
 		"coloring": "fixed",
 		"line_width": 1,
-		"active_line_width": 3,
+		"active_line_width": 3
 	},
 
 	/* Hiding stuff: */
 	"git": {
 		// "git_gutter": "hide",
-		"hunk_style": "unstaged_hollow",
+		"hunk_style": "unstaged_hollow"
 	},
 	"gutter": {
 		// "folds": false,
 		"breakpoints": false,
 		"bookmarks": false,
 		"runnables": false,
-		"min_line_number_digits": 0,
+		"min_line_number_digits": 0
 	},
 	// "bookmarks": false,
 	"scrollbar": { "git_diff": false },
 	"toolbar": {
-		"breadcrumbs": false,
-		"quick_actions": false,
+		// "breadcrumbs": false,
+		"quick_actions": false
 	},
 	"minimap": {
 		"show": "never", // When to show (auto, always, never)
 		"display_in": "all_editors", // Where to show (active_editor, all_editors)
 		"thumb_border": "none", // Thumb border (left_open, right_open, full, none)
-		"max_width_columns": 80, // Maximum width of minimap
+		"max_width_columns": 80 // Maximum width of minimap
 	},
 	"collaboration_panel": { "button": false },
-	"title_bar": { "show_branch_status_icon": true, "show_sign_in": false },
+	"title_bar": { "show_branch_status_icon": true, "show_sign_in": true },
 	"search": { "button": false },
 
 	/* TABS */
 	"hard_tabs": true,
 	"tab_size": 4,
+
 	/* BEHAVIOR */
-	// "disable_ai": true,
 	"session": {
 		"restore_unsaved_buffers": true,
-		"trust_all_worktrees": false,
+		"trust_all_worktrees": false
 	},
 	"use_system_path_prompts": false,
 	"use_system_prompts": false,
@@ -131,34 +176,29 @@
 	"remove_trailing_whitespace_on_save": true,
 	"ensure_final_newline_on_save": false,
 	"format_on_save": "off",
+	"cli_default_open_behavior": "existing_window",
 
+	// "disable_ai": true,
 	"agent": {
 		// "enabled": false,
 		"dock": "right",
-		"thinking_display": "auto",
-		"default_profile": "ask",
-		"default_model": {
-			"provider": "openai",
-			"model": "gpt-4o-mini",
-			"enable_thinking": false,
-		},
-		"favorite_models": [],
-		"model_parameters": [],
+		"sidebar_side": "right",
+		"thinking_display": "auto"
 	},
 	"file_types": {
 		// "Nunjucks": ["html"],
 	},
 	"languages": {
 		"JSON": {
-			"format_on_save": "on",
+			"format_on_save": "on"
 		},
 		"YAML": {
 			"hard_tabs": false,
-			"tab_size": 2,
+			"tab_size": 2
 		},
 		"Markdown": {
 			"soft_wrap": "editor_width",
-			"remove_trailing_whitespace_on_save": false,
+			"remove_trailing_whitespace_on_save": false
 		},
 		"Python": {
 			"hard_tabs": false,
@@ -166,15 +206,15 @@
 			"language_servers": [
 				"ty",
 				"ruff",
-				"!basedpyright", // disable basedpyright
+				"!basedpyright" // disable basedpyright
 				// "...", // enable everything else
-			],
+			]
 		},
 		"JavaScript": {
 			"code_actions_on_format": {
-				"source.fixAll.eslint": true,
-			},
-		},
+				"source.fixAll.eslint": true
+			}
+		}
 	},
 
 	"lsp": {
@@ -185,43 +225,5 @@
 		// },
 	},
 	/* MISC */
-	"ssh_connections": [
-  {
-   "host": "rpi",
-   "args": [],
-   "projects": [
-    {
-     "paths": [
-      "/home/abi/projects/eleventy-base-blog"
-     ]
-    },
-    {
-     "paths": [
-      "/home/abi/projects/eleventy-tutorial-site"
-     ]
-    },
-    {
-     "paths": [
-      "/home/abi/projects/jec-11ty-starter"
-     ]
-    },
-    {
-     "paths": [
-      "/home/abi/projects/nginx-and-docker"
-     ]
-    },
-    {
-     "paths": [
-      "/home/abi/projects/realtime-voice-agent"
-     ]
-    },
-    {
-     "paths": [
-      "/home/abi/repos/LCD-show"
-     ]
-    }
-   ]
-  }
- ],
-	"cli_default_open_behavior": "existing_window",
+	"ssh_connections": [],
 }

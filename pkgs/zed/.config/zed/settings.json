@@ -145,7 +145,6 @@
 		"runnables": false,
 		"min_line_number_digits": 0,
 	},
-	// "bookmarks": false,
 	"scrollbar": { "git_diff": false },
 	"toolbar": {
 		// "breadcrumbs": false,
@@ -158,7 +157,10 @@
 		"max_width_columns": 80, // Maximum width of minimap
 	},
 	"collaboration_panel": { "button": false },
-	"title_bar": { "show_branch_status_icon": true, "show_sign_in": true },
+	"title_bar": {
+		"show_branch_status_icon": true,
+		"show_sign_in": false,
+	},
 	"search": { "button": false },
 
 	/* TABS */
@@ -171,7 +173,6 @@
 		"trust_all_worktrees": false,
 	},
 	"use_system_path_prompts": false,
-	"use_system_prompts": false,
 	"when_closing_with_no_tabs": "close_window", // When there are no open tabs left, Ctrl-w causes the window to close
 	"remove_trailing_whitespace_on_save": true,
 	"ensure_final_newline_on_save": false,
@@ -185,8 +186,15 @@
 		"sidebar_side": "right",
 		"thinking_display": "auto",
 	},
+	"agent_servers": {
+		"claude-acp": {
+			"type": "registry",
+		},
+	},
+
 	"file_types": {
 		// "Nunjucks": ["html"],
+		"JSONC": ["jsonc"],
 	},
 	"languages": {
 		"JSON": {

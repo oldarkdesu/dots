@@ -1,7 +1,5 @@
 {
 	/* VISUALS */
-	"window_decorations": "client",
-
 	"ui_font_size": 16,
 	"ui_font_family": "Fira Sans",
 
@@ -45,6 +43,15 @@
 				// AyuDark's colors
 				// Comments #5c6773ff
 				// Editor Background #0d1016ff
+				//
+				// TODO
+				// ?
+				// HACK
+				// #
+				// INFO
+				// *
+				// FIXME
+				// !
 
 				"constant.comment.todo": {
 					"color": "#55b4d3ff",
@@ -85,6 +92,52 @@
 		},
 		"Tokyo Night": {
 			"editor.gutter.background": "#171720",
+			"syntax": {
+				// TODO
+				// ?
+				// HACK
+				// #
+				// INFO
+				// *
+				// FIXME
+				// !
+
+				"constant.comment.todo": {
+					"color": "#55b4d3ff",
+					"background_color": "#55b4d33d",
+				},
+				"constant.comment.todo.prefix": { "color": "#51597dff" },
+				"constant.comment.todo.bracket": { "color": "#55b4d3ff" },
+				"constant.comment.todo.user": { "color": "#55b4d3ff" },
+				"constant.comment.todo.text": { "color": "#51597dff" },
+
+				"string.comment.info": {
+					"color": "#4dbf99ff",
+					"background_color": "#4dbf993d",
+				},
+				"string.comment.info.prefix": { "color": "#51597dff" },
+				"string.comment.info.bracket": { "color": "#4dbf99ff" },
+				"string.comment.info.user": { "color": "#4dbf99ff" },
+				"string.comment.info.text": { "color": "#51597dff" },
+
+				"keyword.comment.warn": {
+					"color": "#f1ad49ff",
+					"background_color": "#f1ad493d",
+				},
+				"keyword.comment.warn.prefix": { "color": "#51597dff" },
+				"keyword.comment.warn.bracket": { "color": "#f1ad49ff" },
+				"keyword.comment.warn.user": { "color": "#f1ad49ff" },
+				"keyword.comment.warn.text": { "color": "#51597dff" },
+
+				"property.comment.error": {
+					"color": "#ef7271ff",
+					"background_color": "#ef72713d",
+				},
+				"property.comment.error.prefix": { "color": "#51597dff" },
+				"property.comment.error.bracket": { "color": "#ef7271ff" },
+				"property.comment.error.user": { "color": "#ef7271ff" },
+				"property.comment.error.text": { "color": "#51597dff" },
+			},
 		},
 	},
 
@@ -168,6 +221,9 @@
 	"tab_size": 4,
 
 	/* BEHAVIOR */
+	"edit_predictions": {
+		"allow_data_collection": "no",
+	},
 	"session": {
 		"restore_unsaved_buffers": true,
 		"trust_all_worktrees": false,
@@ -182,6 +238,9 @@
 	// "disable_ai": true,
 	"agent": {
 		// "enabled": false,
+		"message_editor_min_lines": 4,
+		"terminal_init_command": "claude",
+		"play_sound_when_agent_done": "when_hidden",
 		"dock": "right",
 		"sidebar_side": "right",
 		"thinking_display": "auto",

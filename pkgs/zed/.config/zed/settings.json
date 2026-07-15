@@ -44,22 +44,18 @@
 				// Comments #5c6773ff
 				// Editor Background #0d1016ff
 				//
-				// TODO
-				// ?
-				// HACK
-				// #
-				// INFO
-				// *
-				// FIXME
-				// !
+				// TODO WIP MAYBE ?
+				// HACK WARNING WARN SAFETY IMPORTANT #
+				// INFO NOTE XXX DOCS PERF TEST *
+				// FIXME ERROR FIXME FIX BUG DELETE !
 
 				"constant.comment.todo": {
-					"color": "#55b4d3ff",
-					"background_color": "#55b4d33d",
+					"color": "#55b4D3ff",
+					"background_color": "#55b4D33d",
 				},
 				"constant.comment.todo.prefix": { "color": "#5c6773ff" },
-				"constant.comment.todo.bracket": { "color": "#55b4d3ff" },
-				"constant.comment.todo.user": { "color": "#55b4d3ff" },
+				"constant.comment.todo.bracket": { "color": "#55b4D3ff" },
+				"constant.comment.todo.user": { "color": "#55b4D3ff" },
 				"constant.comment.todo.text": { "color": "#5c6773ff" },
 
 				"string.comment.info": {
@@ -93,50 +89,46 @@
 		"Tokyo Night": {
 			"editor.gutter.background": "#171720",
 			"syntax": {
-				// TODO
-				// ?
-				// HACK
-				// #
-				// INFO
-				// *
-				// FIXME
-				// !
+				// TODO WIP MAYBE ?
+				// INFO NOTE XXX DOCS PERF TEST *
+				// WARN WARNING HACK SAFETY IMPORTANT #
+				// ERROR FIXME FIX BUG DELETE !
 
 				"constant.comment.todo": {
-					"color": "#55b4d3ff",
-					"background_color": "#55b4d33d",
+					"color": "#55b4D3",
+					"background_color": "#55b4D340",
 				},
-				"constant.comment.todo.prefix": { "color": "#51597dff" },
-				"constant.comment.todo.bracket": { "color": "#55b4d3ff" },
-				"constant.comment.todo.user": { "color": "#55b4d3ff" },
-				"constant.comment.todo.text": { "color": "#51597dff" },
+				"constant.comment.todo.prefix": { "color": "#51597d" },
+				"constant.comment.todo.bracket": { "color": "#55b4D3" },
+				"constant.comment.todo.user": { "color": "#55b4D3" },
+				"constant.comment.todo.text": { "color": "#51597d" },
 
 				"string.comment.info": {
-					"color": "#4dbf99ff",
-					"background_color": "#4dbf993d",
+					"color": "#73DACA",
+					"background_color": "#73DACA40",
 				},
-				"string.comment.info.prefix": { "color": "#51597dff" },
-				"string.comment.info.bracket": { "color": "#4dbf99ff" },
-				"string.comment.info.user": { "color": "#4dbf99ff" },
-				"string.comment.info.text": { "color": "#51597dff" },
+				"string.comment.info.prefix": { "color": "#51597d" },
+				"string.comment.info.bracket": { "color": "#73DACA" },
+				"string.comment.info.user": { "color": "#73DACA" },
+				"string.comment.info.text": { "color": "#51597d" },
 
 				"keyword.comment.warn": {
-					"color": "#f1ad49ff",
-					"background_color": "#f1ad493d",
+					"color": "#E0AF68",
+					"background_color": "#E0AF6840",
 				},
-				"keyword.comment.warn.prefix": { "color": "#51597dff" },
-				"keyword.comment.warn.bracket": { "color": "#f1ad49ff" },
-				"keyword.comment.warn.user": { "color": "#f1ad49ff" },
-				"keyword.comment.warn.text": { "color": "#51597dff" },
+				"keyword.comment.warn.prefix": { "color": "#51597d" },
+				"keyword.comment.warn.bracket": { "color": "#E0AF68" },
+				"keyword.comment.warn.user": { "color": "#E0AF68" },
+				"keyword.comment.warn.text": { "color": "#51597d" },
 
 				"property.comment.error": {
-					"color": "#ef7271ff",
-					"background_color": "#ef72713d",
+					"color": "#F7768E",
+					"background_color": "#F7768040",
 				},
-				"property.comment.error.prefix": { "color": "#51597dff" },
-				"property.comment.error.bracket": { "color": "#ef7271ff" },
-				"property.comment.error.user": { "color": "#ef7271ff" },
-				"property.comment.error.text": { "color": "#51597dff" },
+				"property.comment.error.prefix": { "color": "#51597d" },
+				"property.comment.error.bracket": { "color": "#F7768E" },
+				"property.comment.error.user": { "color": "#F7768E" },
+				"property.comment.error.text": { "color": "#51597d" },
 			},
 		},
 	},
@@ -247,6 +239,9 @@
 	},
 	"agent_servers": {
 		"claude-acp": {
+			"default_config_options": {
+				"model": "claude-fable-5[1m]",
+			},
 			"type": "registry",
 		},
 	},

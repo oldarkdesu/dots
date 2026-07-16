@@ -248,11 +248,30 @@
 
 	"file_types": {
 		// "Nunjucks": ["html"],
-		"JSONC": ["jsonc"],
+		// "JSONC": ["jsonc"],
 	},
 	"languages": {
 		"JSON": {
-			"format_on_save": "on",
+			// "format_on_save": "on",
+			"formatter": "prettier",
+		},
+		"JSON5": {
+			"formatter": {
+				"external": {
+					"command": "prettier",
+					"arguments": [
+						"--use-tabs",
+						// "--tab-width",
+						// "4",
+						"--object-wrap",
+						"collapse",
+						"--stdin-filepath",
+						"{buffer_path}",
+						"--parser",
+						"json5",
+					],
+				},
+			},
 		},
 		"YAML": {
 			"hard_tabs": false,

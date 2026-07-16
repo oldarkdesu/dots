@@ -176,6 +176,10 @@ if test $1 ; then
 			pacman -Fl ${@:2} | tree --fromfile
 			;;
 		file-list) pacman -Fl ${@:2} ;;
+		list|list-installed) pacman -Qe  ;;
+		list-all)            pacman -Q   ;;
+		list-aur)            pacman -Qem ;;
+		list-aur-all)        pacman -Qm  ;;
 		* )
 			echo "$help_str"
 			exit 1

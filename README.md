@@ -27,7 +27,7 @@ git clone --recurse-submodules https://github.com/oldarkdesu/dots.git ~/dots
 mv ~/.bashrc ~/.bashrc.old ; mv ~/.bash_profile ~/.bash_profile.old
 ```
 
-If for some reason someone other than me is reading this, beware that the default _stow dir_ is your current working directory from where you're calling `sotw`, and the _target dir_ is its parent. If you (for some reason) want to clone this repository, and, have it anywhere other than `~/dots/`, make sure to configure stow accordingly, either with an alias like `alias stow='stow -d . -t ~'` or modifying the `.stowrc` file (read the manpage for more info).
+If for some reason someone other than me is reading this, beware that the default _stow dir_ is your current working directory from where you're calling `stow`, and the _target dir_ is its parent. If you (for some reason) want to clone this repository, and, have it anywhere other than `~/dots/`, make sure to configure stow accordingly, either with an alias like `alias stow='stow -d . -t ~'` or modifying the `.stowrc` file (read the manpage for more info).
 
 ## Usage
 
@@ -45,7 +45,7 @@ stow bash alacritty ghostty # you can specify multiple packages
 stow -D alacritty # I have `stow -D' aliassed to `unstow'
 
 # Stow everything into the target dir
-sotw $(echo pkgs/*)  # the shell will expand this to all the directories in the
+stow $(echo pkgs/*)  # the shell will expand this to all the directories in the
                      # pkgs/ dir.
 ```
 

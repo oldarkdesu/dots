@@ -66,11 +66,11 @@ export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 export RUSTUP_HOME="${XDG_DATA_HOME}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME}/cargo"
 
+export XAUTHORITY="$HOME/.cache/Xauthority"
+
 # If on tty1, run hyprland
 # I am told this is a bad idea. Commenting until conducting further examination
 # if [ "$(tty)" = "/dev/tty1" ]; then
-#     export XINITRC="$HOME/.config/x/xinitrc"
-#     export XAUTHORITY="$HOME/.cache/Xauthority"
 #     exec startx
 #     # exec Hyprland
 # fi

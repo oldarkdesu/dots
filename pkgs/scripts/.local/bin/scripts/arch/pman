@@ -125,7 +125,7 @@ Subcommands:
 
     refresh                     sync the package databases
 
-    update-mirrors [COUNTRIES]    update mirrorlist using reflector, and optionally
+    update-mirrors [COUNTRIES]  update mirrorlist using reflector and optionally
                                 provide a list of country codes"
 
 

@@ -31,7 +31,7 @@ def find_int(options:list[str]) -> int:
     for opt in options:
         try:
             return int(opt)
-        except ValueError as e:
+        except ValueError:
             if verbose:
                 print(f"Cant parse '{opt}' into an integer. Trying next option.")
             continue

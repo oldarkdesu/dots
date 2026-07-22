@@ -1,1 +1,3 @@
-ARCH: File `99-vial.rules` should go to the /etc/udev/rules.d/ directory
+Notes:
+	* On ArchLinux, file `99-vial.rules` should go to the /etc/udev/rules.d/ directory
+	* the file dactyl_manuform.vil is a functional configuration for my dactyl manuform 5x6

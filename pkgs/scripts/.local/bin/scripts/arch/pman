@@ -19,7 +19,7 @@
 USE_COLOR=yes
 
 if [ -n "$NO_COLOR" ] ; then
-	USE_COLOR= ;
+	USE_COLOR=
 elif [ ! -t 1 ] ; then
 	USE_COLOR=
 fi
@@ -90,6 +90,19 @@ Subcommands:
     info PACKAGE                get information about PACKAGE in the local
                                 database
 
+    list                        list explicitly installed packages
+        Aliases: l
+
+    list-all                    list all installed packages
+    	Aliases: ll
+
+    list-aur                    list explicitly installed packages that are
+                                available from the AUR
+
+    list-aur-all                list all installed packages that are available
+                                from the aur
+
+
     info-remote PACKAGE         get information about PACKAGE in remote repos
         Aliases: ir, infore
 
@@ -98,11 +111,22 @@ Subcommands:
 
     file-list PACKAGE(S)        print a list of the files contained in
                                 PACKAGE(S)
+
     provides PACKAGE(S)         lists the packages that provide listed commands
+
     owns PACKAGE(S)             lists the package that owns each passed file
+
     autoremove                  automatically remove orphaned packages
+
+    clean                       remove unneeded cached packages and sync
+                                databases
+
+    clean-all                   remove all cached packages and sync databases
+
     refresh                     sync the package databases
-    update-mirrors [MIRRORS]    update mirrorlist using reflector"
+
+    update-mirrors [COUNTRIES]    update mirrorlist using reflector, and optionally
+                                provide a list of country codes"
 
 
 if test $1 ; then
@@ -155,7 +179,9 @@ if test $1 ; then
 				echo "$TARGETS" | $SUCMD pacman -Rns --confirm -
 			fi
 			;;
-		refresh) $SUCMD pacman -Sy ;;
+		refresh)
+			$SUCMD pacman -Sy
+			;;
 		update-mirrors)
 			ensure_cmd reflector
 			$SUCMD reflector --latest 20 \
@@ -163,8 +189,11 @@ if test $1 ; then
 							  --country ${2:-'US,CO,'} \
 							  --save /etc/pacman.d/mirrorlist
 			;;
-		clean )
+		c|clean )
 			$SUCMD pacman -Sc
+			;;
+		cc|clean-all)
+			$SUCMD pacman -Scc
 			;;
 		h | he | hel | help )
 			echo "$help_str"
@@ -176,17 +205,18 @@ if test $1 ; then
 			pacman -Fl ${@:2} | tree --fromfile
 			;;
 		file-list) pacman -Fl ${@:2} ;;
-		list|list-installed) pacman -Qe  ;;
-		list-all)            pacman -Q   ;;
+		l|list|list-installed) pacman -Qe  ;;
+		ll|list-all)            pacman -Q   ;;
 		list-aur)            pacman -Qem ;;
 		list-aur-all)        pacman -Qm  ;;
 		* )
-			echo "$help_str"
+			say --err "\`$1\` is not a recognized command"
+			echo "$help_str" >&2
 			exit 1
 			;;
 	esac
 	exit 0
 else
-	 echo "$help_str"
+	 echo "$help_str" >&2
 	 exit 1
 fi

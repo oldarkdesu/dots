@@ -9,7 +9,7 @@ Situations where I've needed to run these commands:
 
 To unlock a plasma session, use Ctrl+Alt+F3 to get into a TTY. Next, log in and follow these steps:
 
-```bashsh
+```sh
 loginctl list-sessions
 # systemd will show a list of sessions, check the SESSION_ID that corresponds
 loginctl unlock-session <SESSION_ID>

@@ -25,7 +25,8 @@ files: dict = {
     "brightness": "/sys/class/backlight/intel_backlight/brightness"
 }
 
-print_help = lambda: print(HELP_STR.format(BIN=sys.argv[0]))
+def print_help():
+    print(HELP_STR.format(BIN=sys.argv[0]))
 
 def find_int(options:list[str]) -> int:
     for opt in options:

@@ -1,4 +1,4 @@
-set recolor true
+set recolor true # toggle with Ctrl+r
 set recolor-lightcolor "#101010"
 set recolor-darkcolor "#a0a0a0"
 set font "iosevka curly 12"

@@ -3,7 +3,7 @@
 	"ui_font_size": 16,
 	"ui_font_family": "Fira Sans",
 
-	"buffer_font_size": 18,
+	"buffer_font_size": 16,
 	"buffer_font_family": "Iosevka Curly",
 	"buffer_line_height": "standard",
 	"buffer_font_features": { "calt": false }, // disable ligatures
@@ -309,6 +309,15 @@
 	"ssh_connections": [
 		{
 			"host": "rpi",
+			"args": [],
+			"projects": [
+				{
+					"paths": ["/home/abi/projects/realtime-voice-agent-vibes"],
+				},
+			],
+		},
+		{
+			"host": "home",
 			"args": [],
 			"projects": [
 				{

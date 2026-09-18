@@ -184,7 +184,8 @@
 		"hunk_style": "unstaged_hollow",
 	},
 	"gutter": {
-		// "folds": false,
+		// "line_numbers": false
+		"folds": false,
 		"breakpoints": false,
 		"bookmarks": false,
 		"runnables": false,
@@ -252,10 +253,10 @@
 	},
 	"languages": {
 		"JSON": {
-			// "format_on_save": "on",
-			"formatter": "prettier",
+			"format_on_save": "on",
 		},
 		"JSON5": {
+			"format_on_save": "on",
 			"formatter": {
 				"external": {
 					"command": "prettier",
@@ -296,6 +297,9 @@
 				"source.fixAll.eslint": true,
 			},
 		},
+		"Typst": {
+			"hard_tabs": false,
+		},
 	},
 
 	"lsp": {
@@ -304,6 +308,27 @@
 		// 		// "diagnosticMode": "off",
 		// 	},
 		// },
+		"tinymist": {
+			"initialization_options": {
+				// Enable background preview
+				// Server will be running on 127.0.0.1:23635
+				"preview": {
+					"background": {
+						"enabled": true,
+					},
+				},
+			},
+			"settings": {
+				"formatterIndentSize": 4,
+				// Compile on save
+				// This will compile a PDF for the `main.typ` right next to it.
+				"exportPdf": "onSave",
+				"outputPath": "$root/$dir/$name",
+
+				// Enable formatter
+				"formatterMode": "typstyle",
+			},
+		},
 	},
 	/* MISC */
 	"ssh_connections": [

@@ -36,6 +36,7 @@ set window-title-home-tilde true
 set statusbar-home-tilde true
 set show-hidden true
 set selection-notification false
-
-set adjust-open "width"
+set window-height 1000
+set window-width 700
+set adjust-open "best-fit"
 set guioptions shv # shows statusbar+horizontal scrollbar ; somehow fixes the zoom issue

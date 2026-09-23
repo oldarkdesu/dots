@@ -1,6 +1,30 @@
-These files are for changing the key layout of the Razer Tartarus v2 and the
-Kensington Expert Trackball, using HWDB.
-These files go on the /usr/lib/udev/hwdb.d/ directory.
+These files are for changing the key layout of my Razer Tartarus v2 and Kensington Expert Trackball, using HWDB.
+They should go on the /etc/udev/hwdb.d/ directory.
+
+to out what event file your device is, use:
+	sudo libinput debug-events --show-keycodes
+
+Take note of the `eventXX` part of the output. it should be the first thing to get printed when you press a key.
+
+to find out information about a device, use this (replace `event4` with the event corresponding to your device):
+	udevadm info --attribute-walk --path=$(udevadm info --query=path --name=/dev/input/event4
+	# or
+	lsusb
+
+to get the number for remapping a specific key on the device, use:
+	evtest
+you will be prompted to enter a number. this corresponds to the same event from before. Now you should press a key and look at the number after "value":
+Event: time 1790141969.431782, type 4 (EV_MSC), code 4 (MSC_SCAN), value 70015 <--- THIS ONE!
+Event: time 1790141969.431782, type 1 (EV_KEY), code 19 (KEY_R), value 0
+Event: time 1790141969.431782, -------------- SYN_REPORT ------------
+
+That's the number you will use to write the mappings e.g. KEYBOARD_KEY_70015
+
+
+---
+
 After making changes to these files, run the following commands in a root shell
 	systemd-hwdb update
 	udevadm trigger
+
+...or execute as root the shellscript that i left in this directory (currently only does the tartarus)

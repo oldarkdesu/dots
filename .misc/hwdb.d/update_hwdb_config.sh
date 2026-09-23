@@ -1,12 +1,15 @@
 #!/usr/bin/env sh
 
 if [ "$(whoami)" != 'root' ] ; then
-	echo Not running in a priviliged shell. Exiting. >&2
+	echo Not running on a priviliged shell. Exiting. >&2
 	exit 1
 fi
 
-cp /usr/lib/udev/hwdb.d/99-tartarus-v2.hwdb ./99-tartarus-v2.hwdb.bak
-cp ./99-tartarus-v2.hwdb /usr/lib/udev/hwdb.d/99-tartarus-v2.hwdb
+# Note to self: Don't touch the /usr/lib directory, apparently is for system files only. Configuration should go on /etc
+for f in tartarus-v2 trackball ; do
+	cp /etc/udev/hwdb.d/${f}.hwdb ./${f}.hwdb.bak
+	cp ./${f}.hwdb /etc/udev/hwdb.d/${f}.hwdb
+done
 
 systemd-hwdb update
 udevadm trigger

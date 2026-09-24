@@ -7,9 +7,14 @@ to out what event file your device is, use:
 Take note of the `eventXX` part of the output. it should be the first thing to get printed when you press a key.
 
 to find out information about a device, use this (replace `event4` with the event corresponding to your device):
-	udevadm info --attribute-walk --path=$(udevadm info --query=path --name=/dev/input/event4
-	# or
-	lsusb
+	udevadm info --attribute-walk --path=$(udevadm info --query=path --name=/dev/input/event4)
+Look for the part that lists lines starting with ATTRS{xxx}. Take note of the id/bustype, id/product, and id/vendor
+Now you construct the line in the .hwdb file that matches with the device, write something like the following (make sure to use uppercase letters to write this hexadecimal number):
+	evdev:input:b0003v1532p022B*
+	            |    |    |
+	            |    |    `- This is the id/product
+	            |    `- This is the id/vendor
+	            `- This is the id/bustype
 
 to get the number for remapping a specific key on the device, use:
 	evtest

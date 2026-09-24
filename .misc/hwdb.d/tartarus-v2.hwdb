@@ -8,7 +8,7 @@
 #
 # Default profile
 #
-evdev:input:b0003v1532p022b*
+evdev:input:b0003v1532p022B*
 #
 # Top row
  KEYBOARD_KEY_7001e=6
